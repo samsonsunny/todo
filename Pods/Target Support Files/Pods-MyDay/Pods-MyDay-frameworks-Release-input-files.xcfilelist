@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MyDay/Pods-MyDay-frameworks.sh
+${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework
+${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
