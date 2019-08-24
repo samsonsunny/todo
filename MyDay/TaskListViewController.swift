@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TaskListViewController.swift
 //  MyDay
 //
 //  Created by Sam on 1/14/18.
@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import MagicalRecord
 
 let userDefaults: UserDefaults = UserDefaults.standard
 
-class ViewController: UIViewController {
+class TaskListViewController: KeyboardViewController {
 
 	@IBOutlet fileprivate weak var addTaskView: UIView!
 	@IBOutlet fileprivate weak var addTaskTextField: UITextField!
@@ -20,17 +21,18 @@ class ViewController: UIViewController {
 	@IBOutlet fileprivate weak var plusButton: UIButton!
 	@IBOutlet fileprivate weak var addTaskLabel: UILabel!
 	@IBOutlet fileprivate weak var addTaskViewBottomLayout: NSLayoutConstraint!
-	@IBOutlet weak var todayButton: UIButton!
-	@IBOutlet weak var subtitle: UILabel!
+	@IBOutlet fileprivate weak var todayButton: UIButton!
+	@IBOutlet fileprivate weak var subtitle: UILabel!
 	
 	var activeDate: Date = Date().dateAtStartOf(.day) {
 		didSet {
 			reset()
 			updateHeader()
+//			migrateUserDefaultsTodosIntoCoreData()
 		}
 	}
 	
-	var todos: [Todo] = [] {
+	var tasks: [Task] = [] {
 		didSet {
 			DispatchQueue.main.async {
 				self.todoListView.reloadData()
@@ -54,14 +56,8 @@ class ViewController: UIViewController {
 		todoListView.addGestureRecognizer(tapGesture)
 		addTaskTextField.delegate = self
 		activeDate = Date().dateAtStartOf(.day)
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		addKeyboardNotificationObservers()
-	}
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		removeKeyboardNotificationObservers()
+		
+		
 	}
 	
 	@IBAction func addNewTask(_ sender: Any) {
@@ -88,54 +84,26 @@ class ViewController: UIViewController {
 		removeFoucsFromAddTaskField()
 	}
 	
-	@objc func keyBoardWillHide(_ notification: NSNotification) {
-		handleKeyboardAppearance(with: notification, keyboardWillShow: false)
+	@objc override func keyBoardWillHide(_ notification: NSNotification) {
+		handleKeyboard(with: notification, keyboardWillShow: false)
 	}
 	
-	@objc func keyBoardWillShow(_ notification: NSNotification) {
-		handleKeyboardAppearance(with: notification, keyboardWillShow: true)
+	@objc override func keyBoardWillShow(_ notification: NSNotification) {
+		handleKeyboard(with: notification, keyboardWillShow: true)
 	}
 	
 	func updateHeader() {
 		if activeDate.isToday {
-//			todayButton.backgroundColor = UIColor.purple.withAlphaComponent(0.9)
 			todayButton.setTitleColor(UIColor.purple, for: .normal)
 			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
-//			subtitle.textColor = UIColor.purple
 		} else {
-//			todayButton.backgroundColor = UIColor.white
 			todayButton.setTitleColor(UIColor.black, for: .normal)
 			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
-//			subtitle.textColor = UIColor.darkGray
 		}
 		subtitle.text = activeDate.toFormat("EEEE, MMM d")
 	}
-}
 
-// Keyboard Handlers
-extension ViewController {
-	
-	fileprivate func addKeyboardNotificationObservers() {
-		NotificationCenter.default.addObserver(self,
-											   selector: #selector(keyBoardWillHide),
-											   name: UIResponder.keyboardWillHideNotification,
-											   object: nil)
-		NotificationCenter.default.addObserver(self,
-											   selector: #selector(keyBoardWillShow),
-											   name: UIResponder.keyboardWillShowNotification,
-											   object: nil)
-	}
-	
-	fileprivate func removeKeyboardNotificationObservers() {
-		NotificationCenter.default.removeObserver(self,
-												  name: UIResponder.keyboardWillHideNotification,
-												  object: nil)
-		NotificationCenter.default.removeObserver(self,
-												  name: UIResponder.keyboardWillShowNotification,
-												  object: nil)
-	}
-	
-	fileprivate func handleKeyboardAppearance(with notification: NSNotification, keyboardWillShow: Bool) {
+	fileprivate func handleKeyboard(with notification: NSNotification, keyboardWillShow: Bool) {
 		let keyboardHeight = getKeyboardHeight(from: notification.userInfo)
 		adjustAddTaskView(height: keyboardHeight, keyboard: keyboardWillShow)
 	}
@@ -182,57 +150,76 @@ extension ViewController {
 	}
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-
 		removeFoucsFromAddTaskField()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return todos.count
+//		return todos.count
+		return tasks.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TodoCell
-		cell?.updateCell(with: todos[indexPath.row], activeDate: activeDate)
+		let todo = Todo(task: tasks[indexPath.row])
+		
+//		cell?.updateCell(with: todo, activeDate: activeDate)
+		
+		cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
 		
 		return cell ?? UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+		
 	}
 }
 
-extension ViewController: UITextFieldDelegate {
+extension TaskListViewController: TodoCellDelegate {
+	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?) {
+		guard let _todo = todo, let _indexPath = indexPath else {
+			return
+		}
+		let task = tasks[_indexPath.row]
+		task.setTask(with: _todo)
+		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
+	}
+}
+
+extension TaskListViewController: UITextFieldDelegate {
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
 		removeFoucsFromAddTaskField()
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		
-		addTodo(textField.text)
+		add(todo: textField.text)
 		reset()
 		return true
 	}
 	
-	func addTodo(_ todo: String?) {
-		guard let text = todo, text.isNotEmpty else { return }
-		let key = activeDate.toString()
-		var todos: [Todo] = getTodosFromUserDefaults(for: key)
-		todos.append(Todo(title: text, date: activeDate))
-		persistTodosInUserDefaults(todos, for: key)
+	func add(todo title: String?) {
+		guard let text = title, text.isNotEmpty else { return }
+//		let key = activeDate.toString()
+//		var todos: [Todo] = getTodosFromUserDefaults(for: key)
+//		todos.append()
+//		persistTodosInUserDefaults(todos, for: key)
+		
+		let todo = Todo(title: text, date: activeDate)
+		
+		self.saveTodo(todo)
 	}
 	
 	func reset() {
 		addTaskTextField.clear()
 		addTaskTextField.resignFirstResponder()
-		todos = getTodosFromUserDefaults(for: activeDate.toString())
+		tasks = Task.getTasks(for: activeDate)
 	}
-	
+
+	@available(*, deprecated)
 	func getTodosFromUserDefaults(for key: String) -> [Todo] {
 		guard let data = userDefaults.value(forKey: key) as? Data, let todos = try? PropertyListDecoder().decode(Array<Todo>.self, from: data) else {
 			return []
@@ -240,7 +227,30 @@ extension ViewController: UITextFieldDelegate {
 		return todos
 	}
 	
-	func persistTodosInUserDefaults(_ todos: [Todo], for key: String) {
-		userDefaults.set(try? PropertyListEncoder().encode(todos), forKey:key)
+//
+//	@available(*, deprecated)
+//	func persistTodosInUserDefaults(_ todos: [Todo], for key: String) {
+//
+//		userDefaults.set(try? PropertyListEncoder().encode(todos), forKey:key)
+//	}
+	
+	func saveTodo(_ todo: Todo, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) {
+		
+		let task = Task(context: context)
+		task.setTask(with: todo)
+		context.mr_saveToPersistentStore(completion: nil)
+	}
+	
+	@available(*, deprecated)
+	func migrateUserDefaultsTodosIntoCoreData() {
+		let todos = getTodosFromUserDefaults(for: activeDate.toString())
+		
+		let tasks = todos.map { (todo) -> Task in
+			let t = Task(context: NSManagedObjectContext.mr_default())
+			t.setTask(with: todo)
+			return t
+		}
+		
+		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
 	}
 }

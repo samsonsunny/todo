@@ -3,14 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2241C44D2309288A0032235B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44C2309288A0032235B /* TodoCell.swift */; };
 		2241C44F2309332F0032235B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44E2309332F0032235B /* Todo.swift */; };
+		226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226191A5231028FF00C5A716 /* KeyboardViewController.swift */; };
+		227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227416DF2311072200570513 /* Task+CoreDataClass.swift */; };
+		227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227416E02311072200570513 /* Task+CoreDataProperties.swift */; };
 		2282CF8C200B31270051901C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8B200B31270051901C /* AppDelegate.swift */; };
-		2282CF8E200B31270051901C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8D200B31270051901C /* ViewController.swift */; };
+		2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8D200B31270051901C /* TaskListViewController.swift */; };
 		2282CF91200B31270051901C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF8F200B31270051901C /* Main.storyboard */; };
 		2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF92200B31270051901C /* MyDay.xcdatamodeld */; };
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
@@ -64,9 +67,12 @@
 /* Begin PBXFileReference section */
 		2241C44C2309288A0032235B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		2241C44E2309332F0032235B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		226191A5231028FF00C5A716 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		227416DF2311072200570513 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		227416E02311072200570513 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2282CF88200B31270051901C /* MyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282CF8B200B31270051901C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2282CF8D200B31270051901C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2282CF8D200B31270051901C /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		2282CF90200B31270051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2282CF93200B31270051901C /* MyDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDay.xcdatamodel; sourceTree = "<group>"; };
 		2282CF95200B31280051901C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,7 +173,8 @@
 				2282CF8B200B31270051901C /* AppDelegate.swift */,
 				2241C44C2309288A0032235B /* TodoCell.swift */,
 				2241C44E2309332F0032235B /* Todo.swift */,
-				2282CF8D200B31270051901C /* ViewController.swift */,
+				2282CF8D200B31270051901C /* TaskListViewController.swift */,
+				226191A5231028FF00C5A716 /* KeyboardViewController.swift */,
 				22C682022303B17F00447F21 /* Utils.swift */,
 				22E8C1DC23013021007D7472 /* GradientView.swift */,
 				2282CF8F200B31270051901C /* Main.storyboard */,
@@ -175,6 +182,8 @@
 				2282CF97200B31280051901C /* LaunchScreen.storyboard */,
 				2282CF9A200B31280051901C /* Info.plist */,
 				2282CF92200B31270051901C /* MyDay.xcdatamodeld */,
+				227416DF2311072200570513 /* Task+CoreDataClass.swift */,
+				227416E02311072200570513 /* Task+CoreDataProperties.swift */,
 				22E8C1B323012E56007D7472 /* Fonts */,
 			);
 			path = MyDay;
@@ -245,7 +254,6 @@
 				37CF30B9BCDAC5DE0AD6190D /* Pods-MyDayUITests.debug.xcconfig */,
 				F33F007CE1BD5B834B996078 /* Pods-MyDayUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -493,9 +501,12 @@
 				2241C44F2309332F0032235B /* Todo.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
+				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
-				2282CF8E200B31270051901C /* ViewController.swift in Sources */,
+				2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */,
+				227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */,
 				22E8C1DD23013021007D7472 /* GradientView.swift in Sources */,
+				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

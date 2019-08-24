@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftDate
+import CoreData
 
 struct Todo: Codable, Equatable {
 	var title: String
@@ -17,6 +18,14 @@ struct Todo: Codable, Equatable {
 	
 	init(title: String, date: Date) {
 		self.title = title
-		self.dueDate = date 
+		self.dueDate = date
+		
+	}
+	
+	init(task: Task) {
+		self.title = task.title
+		self.isCompleted = task.completed
+		self.createdDate = task.createdDate
+		self.dueDate = task.dueDate
 	}
 }

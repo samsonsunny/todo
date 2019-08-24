@@ -6,76 +6,73 @@
 //  Copyright © 2019 samsonsunny. All rights reserved.
 //
 
-import UIKit 
+import UIKit
+
+protocol TodoCellDelegate: class {
+	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?)
+}
 
 class TodoCell: UITableViewCell {
 	
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var circleButton: UIButton!
 	
-	var activeDate: Date = Date().dateAtStartOf(.day)
-	
-	var todo: Todo?
-	
-	var isCompleted: Bool = false {
+	private let tickCircle = UIImage(named: "tick-circle")
+	private let greyCircle = UIImage(named: "grey-circle")
+	private var indexPath: IndexPath?
+	private var delegate: TodoCellDelegate?
+	private var todo: Todo? {
 		didSet {
-			setCompletedTick()
-			setStrikeThrough()
-		}
-	}
-	
-	private func setCompletedTick() {
-		DispatchQueue.main.async {
-			if self.isCompleted {
-				self.circleButton.setImage(UIImage(named: "tick-circle"), for: .normal)
-			} else {
-				self.circleButton.setImage(UIImage(named: "grey-circle"), for: .normal)
-			}
-		}
-	}
-	
-	private func setStrikeThrough() {
-		DispatchQueue.main.async {
-			let attributeString =  NSMutableAttributedString(string: self.title.text ?? "")
-			
-			if self.isCompleted {
-				let textRange = NSMakeRange(0, attributeString.length)
-				attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: textRange)
-				attributeString.addAttribute(NSAttributedString.Key.strikethroughColor, value: UIColor.lightGray, range: textRange)
-				self.title.textColor = UIColor.darkGray
-			} else {
-				self.title.textColor = UIColor.black
-			}
-			self.title.attributedText = attributeString
+			updateTodoCell(todo)
 		}
 	}
 	
 	@IBAction func completedButtonTapped(_ sender: Any) {
-		isCompleted = !isCompleted
 		
-		if let data = UserDefaults.standard.value(forKey:activeDate.toString()) as? Data {
-			
-			if var todos = try? PropertyListDecoder().decode(Array<Todo>.self, from: data) {
-				
-				let index = todos.firstIndex(of: todo!)
-				
-				todos.remove(at: index!)
-				
-				todo?.isCompleted = self.isCompleted
-				
-				todos.insert(todo!, at: index!)
-				
-				UserDefaults.standard.set(try? PropertyListEncoder().encode(todos), forKey:activeDate.toString())
-				
-			}
+		guard let todoStatus = todo?.isCompleted else {
+			return
+		}
+		todo?.isCompleted = !todoStatus
+		delegate?.didTodoCompleted(todo, indexPath: indexPath)
+	}
+	
+	func updateCell(with todo: Todo, delegate: TodoCellDelegate, indexPath: IndexPath) {
+		self.todo = todo
+		self.delegate = delegate
+		self.indexPath = indexPath
+	}
+	
+	private func updateTodoCell(_ todo: Todo?) {
+		if let _todo = todo {
+			setCircleButtonImage(forStatus: _todo.isCompleted)
+			setTodoTitle(_todo.title, forStatus: _todo.isCompleted)
 		}
 	}
 	
-	func updateCell(with todo: Todo, activeDate: Date) {
-		self.title.text = todo.title
-		self.isCompleted = todo.isCompleted
-		self.activeDate = activeDate
+	private func setCircleButtonImage(forStatus isCompleted: Bool) {
+		let image = isCompleted ? tickCircle: greyCircle
+		circleButton.setImage(image, for: .normal)
+	}
+	
+	private func setTodoTitle(_ text: String, forStatus isCompleted: Bool) {
+		let titleText = NSMutableAttributedString(string: text)
+		if isCompleted {
+			titleText.applyStrikeThroughStyle()
+			title.textColor = UIColor.lightGray
+		} else {
+			title.textColor = UIColor.black
+		}
+		title.attributedText = titleText
+	}
+}
+
+extension NSMutableAttributedString {
+	func applyStrikeThroughStyle() {
 		
-		self.todo = todo
+		let attributes: [NSAttributedString.Key: Any] = [
+			NSAttributedString.Key.strikethroughStyle: 1,
+			NSAttributedString.Key.strikethroughColor: UIColor.lightGray]
+		
+		self.addAttributes(attributes, range: NSMakeRange(0, self.length))
 	}
 }
