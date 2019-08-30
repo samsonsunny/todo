@@ -19,7 +19,6 @@
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
 		2282CFA4200B31290051901C /* MyDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CFA3200B31290051901C /* MyDayTests.swift */; };
-		2282CFAF200B31290051901C /* MyDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CFAE200B31290051901C /* MyDayUITests.swift */; };
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
 		22E8C1C923012E69007D7472 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */; };
@@ -43,19 +42,11 @@
 		22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */; };
 		22E8C1DD23013021007D7472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C1DC23013021007D7472 /* GradientView.swift */; };
 		364430FA050937DED743659D /* Pods_MyDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */; };
-		663CDC3554D735045568BE76 /* Pods_MyDayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BEC4301AB4034DDCB0B49 /* Pods_MyDayUITests.framework */; };
 		AABE3C0538FD94428BB7C528 /* Pods_MyDayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F677DD365D761E1725D3BD85 /* Pods_MyDayTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2282CFA0200B31290051901C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2282CF80200B31270051901C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2282CF87200B31270051901C;
-			remoteInfo = MyDay;
-		};
-		2282CFAB200B31290051901C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2282CF80200B31270051901C /* Project object */;
 			proxyType = 1;
@@ -81,9 +72,6 @@
 		2282CF9F200B31290051901C /* MyDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282CFA3200B31290051901C /* MyDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDayTests.swift; sourceTree = "<group>"; };
 		2282CFA5200B31290051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2282CFAA200B31290051901C /* MyDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2282CFAE200B31290051901C /* MyDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDayUITests.swift; sourceTree = "<group>"; };
-		2282CFB0200B31290051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -134,14 +122,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2282CFA7200B31290051901C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				663CDC3554D735045568BE76 /* Pods_MyDayUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -150,7 +130,6 @@
 			children = (
 				2282CF8A200B31270051901C /* MyDay */,
 				2282CFA2200B31290051901C /* MyDayTests */,
-				2282CFAD200B31290051901C /* MyDayUITests */,
 				2282CF89200B31270051901C /* Products */,
 				BFECBC6FA461C16FD97B1FF9 /* Pods */,
 				5642ACB1C582964D53825914 /* Frameworks */,
@@ -162,7 +141,6 @@
 			children = (
 				2282CF88200B31270051901C /* MyDay.app */,
 				2282CF9F200B31290051901C /* MyDayTests.xctest */,
-				2282CFAA200B31290051901C /* MyDayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,15 +174,6 @@
 				2282CFA5200B31290051901C /* Info.plist */,
 			);
 			path = MyDayTests;
-			sourceTree = "<group>";
-		};
-		2282CFAD200B31290051901C /* MyDayUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2282CFAE200B31290051901C /* MyDayUITests.swift */,
-				2282CFB0200B31290051901C /* Info.plist */,
-			);
-			path = MyDayUITests;
 			sourceTree = "<group>";
 		};
 		22E8C1B323012E56007D7472 /* Fonts */ = {
@@ -298,25 +267,6 @@
 			productReference = 2282CF9F200B31290051901C /* MyDayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2282CFA9200B31290051901C /* MyDayUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2282CFB9200B31290051901C /* Build configuration list for PBXNativeTarget "MyDayUITests" */;
-			buildPhases = (
-				2C4920DC4938AA3096BDCAFD /* [CP] Check Pods Manifest.lock */,
-				2282CFA6200B31290051901C /* Sources */,
-				2282CFA7200B31290051901C /* Frameworks */,
-				2282CFA8200B31290051901C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2282CFAC200B31290051901C /* PBXTargetDependency */,
-			);
-			name = MyDayUITests;
-			productName = MyDayUITests;
-			productReference = 2282CFAA200B31290051901C /* MyDayUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -331,10 +281,6 @@
 						CreatedOnToolsVersion = 10.2.1;
 					};
 					2282CF9E200B31290051901C = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 2282CF87200B31270051901C;
-					};
-					2282CFA9200B31290051901C = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = 2282CF87200B31270051901C;
 					};
@@ -355,7 +301,6 @@
 			targets = (
 				2282CF87200B31270051901C /* MyDay */,
 				2282CF9E200B31290051901C /* MyDayTests */,
-				2282CFA9200B31290051901C /* MyDayUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,38 +343,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2282CFA8200B31290051901C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C4920DC4938AA3096BDCAFD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyDayUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7AC885A1B5F12A302AA09D2B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,14 +435,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2282CFA6200B31290051901C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2282CFAF200B31290051901C /* MyDayUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -534,11 +442,6 @@
 			isa = PBXTargetDependency;
 			target = 2282CF87200B31270051901C /* MyDay */;
 			targetProxy = 2282CFA0200B31290051901C /* PBXContainerItemProxy */;
-		};
-		2282CFAC200B31290051901C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2282CF87200B31270051901C /* MyDay */;
-			targetProxy = 2282CFAB200B31290051901C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -764,48 +667,6 @@
 			};
 			name = Release;
 		};
-		2282CFBA200B31290051901C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37CF30B9BCDAC5DE0AD6190D /* Pods-MyDayUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63W4NX9ZR9;
-				INFOPLIST_FILE = MyDayUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.app.MyDayUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyDay;
-			};
-			name = Debug;
-		};
-		2282CFBB200B31290051901C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F33F007CE1BD5B834B996078 /* Pods-MyDayUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63W4NX9ZR9;
-				INFOPLIST_FILE = MyDayUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.app.MyDayUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyDay;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -832,15 +693,6 @@
 			buildConfigurations = (
 				2282CFB7200B31290051901C /* Debug */,
 				2282CFB8200B31290051901C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2282CFB9200B31290051901C /* Build configuration list for PBXNativeTarget "MyDayUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2282CFBA200B31290051901C /* Debug */,
-				2282CFBB200B31290051901C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
