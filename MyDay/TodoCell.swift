@@ -21,6 +21,7 @@ class TodoCell: UITableViewCell {
 	private let greyCircle = UIImage(named: "grey-circle")
 	private var indexPath: IndexPath?
 	private var delegate: TodoCellDelegate?
+	private var feedBackGenerator = UIImpactFeedbackGenerator()
 	private var todo: Todo? {
 		didSet {
 			updateTodoCell(todo)
@@ -32,6 +33,7 @@ class TodoCell: UITableViewCell {
 		guard let todoStatus = todo?.isCompleted else {
 			return
 		}
+		feedBackGenerator.impactOccurred()
 		todo?.isCompleted = !todoStatus
 		delegate?.didTodoCompleted(todo, indexPath: indexPath)
 	}

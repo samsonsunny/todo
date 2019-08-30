@@ -17,7 +17,7 @@ extension Task {
     }
 
     @NSManaged public var completed: Bool
-    @NSManaged public var createdDate: Date
+    @NSManaged public var modifiedDate: Date
     @NSManaged public var dueDate: Date
-    @NSManaged public var title: String
+    @NSManaged public var taskTitle: String
 }

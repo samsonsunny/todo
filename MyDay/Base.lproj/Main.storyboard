@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,6 +19,9 @@
         </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
+        </array>
+        <array key="Lato-Semibold.ttf">
+            <string>Lato-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -40,45 +44,63 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="paB-kS-yrU"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0KC-Kn-IRT">
-                                        <rect key="frame" x="270" y="30" width="136" height="30"/>
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-aH-0Fp" userLabel="TitleView">
+                                        <rect key="frame" x="15" y="18.5" width="132.5" height="58.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lf-wL-zgP">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="mNv-aX-9hP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THURSDAY, AUGUST 20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-81-7gK">
+                                                <rect key="frame" x="0.0" y="0.0" width="132.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="12"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ea-1W-tMq">
+                                                <rect key="frame" x="0.0" y="22.5" width="79.5" height="36"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0KC-Kn-IRT">
+                                        <rect key="frame" x="260" y="25" width="142" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ek1-KG-Bt6">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="40"/>
+                                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Today">
-                                                    <color key="titleColor" red="0.35686274509999999" green="0.019607843140000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <state key="selected">
-                                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <state key="highlighted">
-                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="todayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAt-0v-uFg"/>
+                                                    <action selector="todayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e5H-B0-wVS"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWH-po-KfF">
-                                                <rect key="frame" x="48" y="0.0" width="40" height="30"/>
+                                                <rect key="frame" x="52" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="RG3-wt-PXB"/>
+                                                    <constraint firstAttribute="height" constant="40" id="RG3-wt-PXB"/>
                                                     <constraint firstAttribute="width" constant="40" id="gwa-Eh-nq5"/>
                                                 </constraints>
-                                                <state key="normal" image="grey-left-arrow"/>
-                                                <state key="selected" image="plus-circle"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="grey-left-arrow">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="prevButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JkD-ZO-hcx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o59-Jr-ljh">
-                                                <rect key="frame" x="96" y="0.0" width="40" height="30"/>
+                                                <rect key="frame" x="102" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="4p1-FX-8WM"/>
-                                                    <constraint firstAttribute="height" constant="30" id="QAY-F8-dDk"/>
+                                                    <constraint firstAttribute="height" constant="40" id="QAY-F8-dDk"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="grey-right-arrow">
@@ -91,43 +113,17 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-aH-0Fp">
-                                        <rect key="frame" x="15" y="15" width="169" height="60"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tasks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ea-1W-tMq">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="ecd-fi-QlQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, August 22, 2019 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-81-7gK">
-                                                <rect key="frame" x="0.0" y="42" width="169" height="18"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="18" id="qu5-fC-9Ii"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="14"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="9ge-0Z-4TZ"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ng8-aH-0Fp" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="6MX-ek-3vd"/>
                                     <constraint firstAttribute="height" constant="90" id="7Nb-hz-jp2"/>
-                                    <constraint firstAttribute="trailing" secondItem="0KC-Kn-IRT" secondAttribute="trailing" constant="8" id="UTJ-Ae-AXY"/>
+                                    <constraint firstAttribute="trailing" secondItem="0KC-Kn-IRT" secondAttribute="trailing" constant="12" id="UTJ-Ae-AXY"/>
                                     <constraint firstItem="0KC-Kn-IRT" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="Ut1-c3-Ox2"/>
                                     <constraint firstItem="ng8-aH-0Fp" firstAttribute="leading" secondItem="Zlg-nX-B8F" secondAttribute="leading" constant="15" id="YgE-8x-ST4"/>
                                     <constraint firstAttribute="bottom" secondItem="59v-jB-ddj" secondAttribute="bottom" id="eFq-IO-Pji"/>
                                     <constraint firstAttribute="trailing" secondItem="59v-jB-ddj" secondAttribute="trailing" id="le6-NT-raJ"/>
                                     <constraint firstItem="59v-jB-ddj" firstAttribute="leading" secondItem="Zlg-nX-B8F" secondAttribute="leading" id="uMl-1N-5wX"/>
+                                    <constraint firstItem="59v-jB-ddj" firstAttribute="top" secondItem="ng8-aH-0Fp" secondAttribute="bottom" constant="12" id="woX-io-4yU"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-Uv-ADz">
@@ -283,9 +279,9 @@
                         <outlet property="addTaskView" destination="d7J-Ir-SYg" id="Umi-F4-ewo"/>
                         <outlet property="addTaskViewBottomLayout" destination="NDA-tg-Cgv" id="b7S-4T-ThO"/>
                         <outlet property="greyCircleButton" destination="6To-OA-Hed" id="fZB-Bp-Z6V"/>
+                        <outlet property="pageTitle" destination="2Ea-1W-tMq" id="Bcf-9W-gVD"/>
                         <outlet property="plusButton" destination="Oln-uy-GSK" id="j3e-tk-2m6"/>
                         <outlet property="subtitle" destination="YtF-81-7gK" id="T2l-Rl-LQ3"/>
-                        <outlet property="todayButton" destination="9lf-wL-zgP" id="YFO-8k-RGv"/>
                         <outlet property="todoListView" destination="Fc8-Uv-ADz" id="VXJ-ex-4Hu"/>
                     </connections>
                 </viewController>
@@ -298,7 +294,6 @@
         <image name="grey-circle" width="40" height="40"/>
         <image name="grey-left-arrow" width="10" height="20"/>
         <image name="grey-right-arrow" width="10" height="20"/>
-        <image name="plus-circle" width="30" height="30"/>
         <image name="purple-plus" width="30" height="30"/>
     </resources>
 </document>

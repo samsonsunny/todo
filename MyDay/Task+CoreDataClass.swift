@@ -12,10 +12,10 @@ import CoreData
 @objc(Task)
 public class Task: NSManagedObject {
 	func setTask(with todo: Todo) {
-		self.title = todo.title
+		self.taskTitle = todo.title
 		self.dueDate = todo.dueDate
 		self.completed = todo.isCompleted
-		self.createdDate = todo.createdDate 
+		self.modifiedDate = todo.modifiedDate
 	}
 	
 	class func getTodos(for dueDate: Date, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) -> [Todo] {
@@ -29,11 +29,12 @@ public class Task: NSManagedObject {
 	
 	class func getTasks(for dueDate: Date, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) -> [Task] {
 		
-		guard let tasks = self.mr_find(byAttribute: "dueDate", withValue: dueDate, in: context) as? [Task] else {
+		let predicate = NSPredicate(format: "dueDate = %@", argumentArray: [dueDate])
+		
+		guard let tasks = self.mr_findAllSorted(by: "modifiedDate", ascending: true, with: predicate, in: context) as? [Task] else {
 			return []
 		}
 		
 		return tasks
 	}
-	
 }

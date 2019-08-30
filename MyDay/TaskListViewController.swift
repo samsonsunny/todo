@@ -21,14 +21,16 @@ class TaskListViewController: KeyboardViewController {
 	@IBOutlet fileprivate weak var plusButton: UIButton!
 	@IBOutlet fileprivate weak var addTaskLabel: UILabel!
 	@IBOutlet fileprivate weak var addTaskViewBottomLayout: NSLayoutConstraint!
-	@IBOutlet fileprivate weak var todayButton: UIButton!
+//	@IBOutlet fileprivate weak var todayButton: UIButton!
+	
+	@IBOutlet weak var pageTitle: UILabel!
+	
 	@IBOutlet fileprivate weak var subtitle: UILabel!
 	
 	var activeDate: Date = Date().dateAtStartOf(.day) {
 		didSet {
-			reset()
+			reload()
 			updateHeader()
-//			migrateUserDefaultsTodosIntoCoreData()
 		}
 	}
 	
@@ -42,7 +44,7 @@ class TaskListViewController: KeyboardViewController {
 	
 	private lazy var tapGesture: UITapGestureRecognizer = {
 		let gesture = UITapGestureRecognizer(target: self, action: #selector(listViewTapped))
-		gesture.cancelsTouchesInView = false 
+//		gesture.cancelsTouchesInView = true
 		return gesture
 	}()
 	
@@ -78,10 +80,16 @@ class TaskListViewController: KeyboardViewController {
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.view.endEditing(true)
+//		removeFoucsFromAddTaskField()
 	}
 	
 	@objc func listViewTapped() {
-		removeFoucsFromAddTaskField()
+	
+		if addTaskTextField.isFirstResponder {
+			removeFoucsFromAddTaskField()
+		} else {
+			bringFoucsToAddTaskField()
+		}
 	}
 	
 	@objc override func keyBoardWillHide(_ notification: NSNotification) {
@@ -93,14 +101,36 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	func updateHeader() {
+//		if activeDate.isToday {
+//			todayButton.setTitleColor(UIColor.purple, for: .normal)
+//			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+//		} else {
+//			todayButton.setTitleColor(UIColor.black, for: .normal)
+//			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+//		}
+		// , MMM d
+//		pageTitle.text = "My Tasks"
+		//activeDate.toFormat("My Tasks")
+//		let subText = activeDate.toFormat("EEEE, MMMM d").uppercased()
+		//EEEE, MMM d")
+//		let title = activeDate.isToday ? "Today": activeDate.isTomorrow ? "Tomorrow": activeDate.isYesterday ? "Yesterday" : activeDate.toFormat("MMM d")
+		
 		if activeDate.isToday {
-			todayButton.setTitleColor(UIColor.purple, for: .normal)
-			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+			pageTitle.text = "Today"
+			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
+		} else if activeDate.isTomorrow {
+			pageTitle.text = "Tomorrow"
+			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
+		} else if activeDate.isYesterday {
+			pageTitle.text = "Yesterday"
+			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
 		} else {
-			todayButton.setTitleColor(UIColor.black, for: .normal)
-			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
+			pageTitle.text = activeDate.toFormat("EEEE")
+			subtitle.text = activeDate.toFormat("MMMM d").uppercased()
 		}
-		subtitle.text = activeDate.toFormat("EEEE, MMM d")
+		
+//		subtitle.text = subText
+//		pageTitle.text = title
 	}
 
 	fileprivate func handleKeyboard(with notification: NSNotification, keyboardWillShow: Bool) {
@@ -123,7 +153,13 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	fileprivate func removeFoucsFromAddTaskField() {
-		
+		addTaskTextField.resignFirstResponder()
+		UIView.animate(withDuration: 0.25, animations: {
+			self.updateTextAfterRemovingFocus()
+		})
+	}
+	
+	fileprivate func updateTextAfterRemovingFocus() {
 		if let todoText = addTaskTextField.text, todoText.isNotEmpty {
 			addTaskTextField.isHidden = false
 			addTaskLabel.isHidden = true
@@ -137,7 +173,6 @@ class TaskListViewController: KeyboardViewController {
 			plusButton.isHidden = false
 			greyCircleButton.isHidden = true
 		}
-		addTaskTextField.resignFirstResponder()
 	}
 	
 	fileprivate func bringFoucsToAddTaskField() {
@@ -157,7 +192,6 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return todos.count
 		return tasks.count
 	}
 	
@@ -166,15 +200,32 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TodoCell
 		let todo = Todo(task: tasks[indexPath.row])
 		
-//		cell?.updateCell(with: todo, activeDate: activeDate)
-		
 		cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
 		
 		return cell ?? UITableViewCell()
 	}
 	
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		
+		let delete = UITableViewRowAction(style: .normal, title: "Delete", handler: { (_, _) in
+			
+			let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+			
+			options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+				
+				let task = self.tasks[indexPath.row]
+			
+				task.mr_deleteEntity(in: .mr_default())
+			NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
+				
+				self.reload()
+			}))
+			options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+				
+			}))
+			self.present(options, animated: true, completion: nil)
+		})
+		return [delete]
 	}
 }
 
@@ -192,12 +243,13 @@ extension TaskListViewController: TodoCellDelegate {
 extension TaskListViewController: UITextFieldDelegate {
 	
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		removeFoucsFromAddTaskField()
+//		removeFoucsFromAddTaskField()
+		
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		add(todo: textField.text)
-		reset()
+		textField.clear()
 		return true
 	}
 	
@@ -211,11 +263,27 @@ extension TaskListViewController: UITextFieldDelegate {
 		let todo = Todo(title: text, date: activeDate)
 		
 		self.saveTodo(todo)
+		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
+//			addTaskTextField.clear()
+			self.reload()
+			
+//			let lastElement = self.tasks.count - 1
+			
+//			if self.todoListView.numberOfRows(inSection: 0) >= lastElement {
+//				self.todoListView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
+
+//			}
+			
+		}
 	}
 	
 	func reset() {
-		addTaskTextField.clear()
-		addTaskTextField.resignFirstResponder()
+//		addTaskTextField.clear()
+//		addTaskTextField.resignFirstResponder()
+		
+	}
+	
+	func reload() {
 		tasks = Task.getTasks(for: activeDate)
 	}
 
@@ -238,7 +306,6 @@ extension TaskListViewController: UITextFieldDelegate {
 		
 		let task = Task(context: context)
 		task.setTask(with: todo)
-		context.mr_saveToPersistentStore(completion: nil)
 	}
 	
 	@available(*, deprecated)
@@ -250,7 +317,7 @@ extension TaskListViewController: UITextFieldDelegate {
 			t.setTask(with: todo)
 			return t
 		}
-		
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
 	}
 }
+
