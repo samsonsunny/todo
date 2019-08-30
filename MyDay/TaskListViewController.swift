@@ -101,20 +101,7 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	func updateHeader() {
-//		if activeDate.isToday {
-//			todayButton.setTitleColor(UIColor.purple, for: .normal)
-//			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
-//		} else {
-//			todayButton.setTitleColor(UIColor.black, for: .normal)
-//			todayButton.setTitleColor(UIColor.darkGray, for: .highlighted)
-//		}
-		// , MMM d
-//		pageTitle.text = "My Tasks"
-		//activeDate.toFormat("My Tasks")
-//		let subText = activeDate.toFormat("EEEE, MMMM d").uppercased()
-		//EEEE, MMM d")
-//		let title = activeDate.isToday ? "Today": activeDate.isTomorrow ? "Tomorrow": activeDate.isYesterday ? "Yesterday" : activeDate.toFormat("MMM d")
-		
+
 		if activeDate.isToday {
 			pageTitle.text = "Today"
 			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
@@ -128,9 +115,6 @@ class TaskListViewController: KeyboardViewController {
 			pageTitle.text = activeDate.toFormat("EEEE")
 			subtitle.text = activeDate.toFormat("MMMM d").uppercased()
 		}
-		
-//		subtitle.text = subText
-//		pageTitle.text = title
 	}
 
 	fileprivate func handleKeyboard(with notification: NSNotification, keyboardWillShow: Bool) {
