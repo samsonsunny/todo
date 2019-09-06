@@ -10,13 +10,14 @@ import UIKit
 
 protocol TodoCellDelegate: class {
 	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?)
+	func didMoreMenuTapped(on indexPath: IndexPath?)
 }
 
 class TodoCell: UITableViewCell {
 	
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var circleButton: UIButton!
-	
+	@IBOutlet weak var moreButton: UIButton!
 	private let tickCircle = UIImage(named: "tick-circle")
 	private let greyCircle = UIImage(named: "grey-circle")
 	private var indexPath: IndexPath?
@@ -36,6 +37,10 @@ class TodoCell: UITableViewCell {
 		feedBackGenerator.impactOccurred()
 		todo?.isCompleted = !todoStatus
 		delegate?.didTodoCompleted(todo, indexPath: indexPath)
+	}
+	
+	@IBAction func moreMenuTapped(_ sender: Any) {
+		delegate?.didMoreMenuTapped(on: indexPath)
 	}
 	
 	func updateCell(with todo: Todo, delegate: TodoCellDelegate, indexPath: IndexPath) {
@@ -60,9 +65,9 @@ class TodoCell: UITableViewCell {
 		let titleText = NSMutableAttributedString(string: text)
 		if isCompleted {
 			titleText.applyStrikeThroughStyle()
-			title.textColor = UIColor.lightGray
+			title.textColor = UIColor.subTitleLightGrey
 		} else {
-			title.textColor = UIColor.black
+			title.textColor = UIColor.titleGrey
 		}
 		title.attributedText = titleText
 	}
