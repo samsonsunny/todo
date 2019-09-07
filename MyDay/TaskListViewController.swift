@@ -73,6 +73,12 @@ class TaskListViewController: KeyboardViewController {
 		}
 	}
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		removeFoucsFromAddTaskField()
+		adjustAddTaskView(height: 0, keyboard: false)
+	}
+	
 	@IBAction func todayButtonTapped(_ sender: Any) {
 		paginationHandler?.didTodayButtonTapped()
 	}
@@ -107,15 +113,12 @@ class TaskListViewController: KeyboardViewController {
 		if activeDate.isToday {
 			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
 			subtitle.text = activeDate.toFormat("EEEE").uppercased()
-//				+ ", Today").uppercased()
 		} else if activeDate.isTomorrow {
 			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
 			subtitle.text = activeDate.toFormat("EEEE").uppercased()
-//				+ ", Tomorrow").uppercased()
 		} else if activeDate.isYesterday {
 			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
 			subtitle.text = activeDate.toFormat("EEEE").uppercased()
-//				+ ", Yesterday").uppercased()
 		} else {
 			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
 			subtitle.text = activeDate.toFormat("EEEE").uppercased()
@@ -193,14 +196,6 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		return cell ?? UITableViewCell()
 	}
-	
-//	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//		let delete = UITableViewRowAction(style: .normal, title: "Delete", handler: { (_, _) in
-//
-
-//		return [delete]
-//	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		removeFoucsFromAddTaskField()
@@ -300,21 +295,22 @@ extension TaskListViewController: UITextFieldDelegate {
 
 extension UIColor {
 	static var titlePurple: UIColor {
-		return UIColor(red: 92/255, green: 30/255, blue: 218/255, alpha: 1)
+		return UIColor(red: 100/255, green: 20/255, blue: 200/255, alpha: 1)
 	}
 	
 	static var subTitlePurple: UIColor {
-		return UIColor(red: 92/255, green: 30/255, blue: 218/255, alpha: 0.6)
+		return titlePurple.withAlphaComponent(0.8)
 	}
+	
 	static var titleGrey: UIColor {
 		return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)
 	}
 	
 	static var subTitleGrey: UIColor {
-		return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+		return titleGrey.withAlphaComponent(0.6)
 	}
 	
 	static var subTitleLightGrey: UIColor {
-		return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
+		return titleGrey.withAlphaComponent(0.4)
 	}
 }

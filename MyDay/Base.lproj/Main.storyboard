@@ -22,9 +22,6 @@
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
-        <array key="Lato-Semibold.ttf">
-            <string>Lato-Semibold</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Task Page View Controller-->
@@ -44,10 +41,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zlg-nX-B8F">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59v-jB-ddj">
-                                        <rect key="frame" x="0.0" y="49" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="59" width="414" height="1"/>
                                         <color key="backgroundColor" white="0.95999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="kWg-AA-WOy"/>
@@ -55,32 +52,32 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-aH-0Fp" userLabel="TitleView">
-                                        <rect key="frame" x="15" y="10" width="48" height="30.5"/>
+                                        <rect key="frame" x="15" y="11" width="56" height="38.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEP 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ea-1W-tMq">
-                                                <rect key="frame" x="0.0" y="0.0" width="41" height="19.5"/>
-                                                <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="56" height="26.5"/>
+                                                <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="22"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THURSDAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtF-81-7gK">
-                                                <rect key="frame" x="0.0" y="19.5" width="48" height="11"/>
-                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="9"/>
+                                                <rect key="frame" x="0.0" y="26.5" width="53.5" height="12"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="10"/>
                                                 <color key="textColor" red="0.36078431370000003" green="0.1176470588" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbF-hM-tbK" customClass="RoundedButton" customModule="MyDay" customModuleProvider="target">
-                                        <rect key="frame" x="371" y="10" width="35" height="30"/>
-                                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="366" y="15" width="40" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="2qQ-CA-k48"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="2qQ-CA-k48"/>
                                             <constraint firstAttribute="height" constant="30" id="nyI-2M-Bh0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="10"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                         <state key="normal" title="Today">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -96,7 +93,7 @@
                                 <constraints>
                                     <constraint firstItem="VbF-hM-tbK" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="1My-GA-euP"/>
                                     <constraint firstItem="ng8-aH-0Fp" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="3Ez-xi-IEw"/>
-                                    <constraint firstAttribute="height" constant="50" id="7Nb-hz-jp2"/>
+                                    <constraint firstAttribute="height" constant="60" id="7Nb-hz-jp2"/>
                                     <constraint firstItem="VbF-hM-tbK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ng8-aH-0Fp" secondAttribute="trailing" constant="8" symbolic="YES" id="Hb5-Xk-7LU"/>
                                     <constraint firstItem="ng8-aH-0Fp" firstAttribute="leading" secondItem="Zlg-nX-B8F" secondAttribute="leading" constant="15" id="YgE-8x-ST4"/>
                                     <constraint firstAttribute="trailing" secondItem="VbF-hM-tbK" secondAttribute="trailing" constant="8" id="cZ7-Su-iq3"/>
@@ -106,7 +103,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-Uv-ADz">
-                                <rect key="frame" x="0.0" y="94" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="698"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.92000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
