@@ -14,6 +14,8 @@ let userDefaults: UserDefaults = UserDefaults.standard
 class TaskListViewController: KeyboardViewController {
 	
 	@IBOutlet weak var todayButton: RoundedButton!
+	@IBOutlet weak var editButton: RoundedButton!
+	
 	@IBOutlet fileprivate weak var addTaskView: UIView!
 	@IBOutlet fileprivate weak var addTaskTextField: UITextField!
 	@IBOutlet fileprivate weak var addTaskButton: UIButton!
@@ -83,6 +85,21 @@ class TaskListViewController: KeyboardViewController {
 		paginationHandler?.didTodayButtonTapped()
 	}
 	
+	@IBAction func editButtonTapped(_ sender: Any) {
+		if editButton.titleLabel?.text == "Edit" {
+			self.todoListView.setEditing(true, animated: true)
+			editButton.setTitle("Done", for: .normal)
+			todayButton.isHidden = true
+			addTaskView.isHidden = true
+			removeFoucsFromAddTaskField()
+		} else {
+			self.todoListView.setEditing(false, animated: true)
+			editButton.setTitle("Edit", for: .normal)
+			todayButton.isHidden = false
+			addTaskView.isHidden = false
+		}
+	}
+	
 	@IBAction func addNewTask(_ sender: Any) {
 		bringFoucsToAddTaskField()
 	}
@@ -93,6 +110,7 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	@objc func listViewTapped() {
+		
 		if addTaskTextField.isFirstResponder {
 			removeFoucsFromAddTaskField()
 		} else {
@@ -168,6 +186,11 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	fileprivate func bringFoucsToAddTaskField() {
+		
+		guard !todoListView.isEditing else {
+			return
+		}
+		
 		addTaskButton.isHidden = true
 		plusButton.isHidden = true
 		addTaskLabel.isHidden = true
@@ -195,6 +218,14 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
 		
 		return cell ?? UITableViewCell()
+	}
+	
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
+			self.promptDeleteAlert(for: indexPath)
+		}
+		deleteAction.backgroundColor = UIColor.red
+		return [deleteAction]
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -288,29 +319,5 @@ extension TaskListViewController: UITextFieldDelegate {
 		options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 		}))
 		self.present(options, animated: true, completion: nil)
-	}
-}
-
-
-
-extension UIColor {
-	static var titlePurple: UIColor {
-		return UIColor(red: 100/255, green: 20/255, blue: 200/255, alpha: 1)
-	}
-	
-	static var subTitlePurple: UIColor {
-		return titlePurple.withAlphaComponent(0.8)
-	}
-	
-	static var titleGrey: UIColor {
-		return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.8)
-	}
-	
-	static var subTitleGrey: UIColor {
-		return titleGrey.withAlphaComponent(0.6)
-	}
-	
-	static var subTitleLightGrey: UIColor {
-		return titleGrey.withAlphaComponent(0.4)
 	}
 }

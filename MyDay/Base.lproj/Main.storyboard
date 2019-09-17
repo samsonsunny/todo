@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p5D-1u-qyq">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p5D-1u-qyq">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,37 +66,61 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbF-hM-tbK" customClass="RoundedButton" customModule="MyDay" customModuleProvider="target">
-                                        <rect key="frame" x="366" y="15" width="40" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="2qQ-CA-k48"/>
-                                            <constraint firstAttribute="height" constant="30" id="nyI-2M-Bh0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                        <state key="normal" title="Today">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="todayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8cp-5Q-Gpq"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-gp-9Y0">
+                                        <rect key="frame" x="314" y="15" width="80" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIN-aQ-Gqd" customClass="RoundedButton" customModule="MyDay" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="MbI-2s-ZT1"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="pPQ-0D-Cnt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                <state key="normal" title="Today">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="todayButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ON9-Ak-92Q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbF-hM-tbK" customClass="RoundedButton" customModule="MyDay" customModuleProvider="target">
+                                                <rect key="frame" x="40" y="0.0" width="40" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="2qQ-CA-k48"/>
+                                                    <constraint firstAttribute="height" constant="30" id="nyI-2M-Bh0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                                                <state key="normal" title="Edit">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="editButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vY4-Al-s4b"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="VbF-hM-tbK" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="1My-GA-euP"/>
                                     <constraint firstItem="ng8-aH-0Fp" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="3Ez-xi-IEw"/>
                                     <constraint firstAttribute="height" constant="60" id="7Nb-hz-jp2"/>
-                                    <constraint firstItem="VbF-hM-tbK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ng8-aH-0Fp" secondAttribute="trailing" constant="8" symbolic="YES" id="Hb5-Xk-7LU"/>
+                                    <constraint firstItem="1V7-gp-9Y0" firstAttribute="centerY" secondItem="Zlg-nX-B8F" secondAttribute="centerY" id="MqM-h0-buC"/>
                                     <constraint firstItem="ng8-aH-0Fp" firstAttribute="leading" secondItem="Zlg-nX-B8F" secondAttribute="leading" constant="15" id="YgE-8x-ST4"/>
-                                    <constraint firstAttribute="trailing" secondItem="VbF-hM-tbK" secondAttribute="trailing" constant="8" id="cZ7-Su-iq3"/>
                                     <constraint firstAttribute="bottom" secondItem="59v-jB-ddj" secondAttribute="bottom" id="eFq-IO-Pji"/>
                                     <constraint firstAttribute="trailing" secondItem="59v-jB-ddj" secondAttribute="trailing" id="le6-NT-raJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1V7-gp-9Y0" secondAttribute="trailing" constant="20" id="syn-to-Gzk"/>
                                     <constraint firstItem="59v-jB-ddj" firstAttribute="leading" secondItem="Zlg-nX-B8F" secondAttribute="leading" id="uMl-1N-5wX"/>
                                 </constraints>
                             </view>
@@ -112,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="amw-G6-ndZ" id="voa-Fu-vb5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br8-pl-kmY">
@@ -122,7 +144,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlB-Zr-TwG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="ghd-zd-8pn"/>
                                                     </constraints>
@@ -195,7 +217,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="GQ9-1c-I9n"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -253,11 +274,12 @@
                         <outlet property="addTaskTextField" destination="NH7-GE-m8i" id="khH-GF-blh"/>
                         <outlet property="addTaskView" destination="d7J-Ir-SYg" id="Umi-F4-ewo"/>
                         <outlet property="addTaskViewBottomLayout" destination="NDA-tg-Cgv" id="b7S-4T-ThO"/>
+                        <outlet property="editButton" destination="VbF-hM-tbK" id="TyU-ag-OMj"/>
                         <outlet property="greyCircleButton" destination="6To-OA-Hed" id="fZB-Bp-Z6V"/>
                         <outlet property="pageTitle" destination="2Ea-1W-tMq" id="Bcf-9W-gVD"/>
                         <outlet property="plusButton" destination="Oln-uy-GSK" id="j3e-tk-2m6"/>
                         <outlet property="subtitle" destination="YtF-81-7gK" id="T2l-Rl-LQ3"/>
-                        <outlet property="todayButton" destination="VbF-hM-tbK" id="fw3-fm-w2x"/>
+                        <outlet property="todayButton" destination="AIN-aQ-Gqd" id="H1I-pg-duF"/>
                         <outlet property="todoListView" destination="Fc8-Uv-ADz" id="VXJ-ex-4Hu"/>
                     </connections>
                 </viewController>
