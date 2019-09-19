@@ -31,6 +31,10 @@ class TodoCell: UITableViewCell {
 	
 	@IBAction func completedButtonTapped(_ sender: Any) {
 		
+		guard !isEditing else {
+			return 
+		}
+		
 		guard let todoStatus = todo?.isCompleted else {
 			return
 		}
@@ -47,6 +51,12 @@ class TodoCell: UITableViewCell {
 		self.todo = todo
 		self.delegate = delegate
 		self.indexPath = indexPath
+//		circleButton.isHidden = false
+	}
+	
+	func updateCell(with todo: Todo) {
+		self.todo = todo
+//		circleButton.isHidden = true
 	}
 	
 	private func updateTodoCell(_ todo: Todo?) {

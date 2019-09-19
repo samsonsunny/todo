@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p5D-1u-qyq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,13 +21,47 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Today-->
+        <scene sceneID="BCc-9j-fIG">
+            <objects>
+                <viewController id="mOw-Be-4nw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Yx-Xx-5Yt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8RO-rT-gZx" customClass="TaskListView" customModule="MyDay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8RO-rT-gZx" firstAttribute="top" secondItem="TJJ-9X-D0Q" secondAttribute="top" id="GsH-cA-LmN"/>
+                            <constraint firstItem="TJJ-9X-D0Q" firstAttribute="trailing" secondItem="8RO-rT-gZx" secondAttribute="trailing" id="I7t-Fn-Ufc"/>
+                            <constraint firstItem="8RO-rT-gZx" firstAttribute="leading" secondItem="TJJ-9X-D0Q" secondAttribute="leading" id="SwU-8F-b7m"/>
+                            <constraint firstItem="8RO-rT-gZx" firstAttribute="bottom" secondItem="TJJ-9X-D0Q" secondAttribute="bottom" id="lW0-cs-oZZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TJJ-9X-D0Q"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Today" id="0ee-Lv-dZ6">
+                        <barButtonItem key="leftBarButtonItem" id="fLd-uV-pWz"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="T7W-7S-X55"/>
+                            <barButtonItem title="Item" id="REW-RD-lym"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQx-Rh-Ia7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194.20289855072465" y="120.53571428571428"/>
+        </scene>
         <!--Task Page View Controller-->
         <scene sceneID="htf-J9-2xC">
             <objects>
                 <pageViewController storyboardIdentifier="TaskPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="p5D-1u-qyq" customClass="TaskPageViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8n-Xy-W9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="121"/>
+            <point key="canvasLocation" x="1208.6956521739132" y="120.53571428571428"/>
         </scene>
         <!--Task List View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -285,7 +318,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="120.53571428571428"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="120.53571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3lZ-PX-X64">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ayj-pL-fiH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zjT-0n-WVO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mOw-Be-4nw" kind="relationship" relationship="rootViewController" id="z3k-Pf-epr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEY-D7-uAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-717.39130434782612" y="120.53571428571428"/>
         </scene>
     </scenes>
     <resources>

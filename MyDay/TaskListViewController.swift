@@ -57,10 +57,34 @@ class TaskListViewController: KeyboardViewController {
 		todoListView.addGestureRecognizer(tapGesture)
 		addTaskTextField.delegate = self
 		activeDate = Date().dateAtStartOf(.day).dateByAdding(pageNumber, .day).date
+		toggleTodayButton()
+		toggleEditButton()
+	}
+	
+	func toggleTodayButton() {
 		if activeDate.isToday {
 			todayButton.isHidden = true
+		} else if todoListView.isEditing {
+			todayButton.isHidden = true
 		} else {
-			todayButton.isHidden = false 
+			todayButton.isHidden = false
+		}
+	}
+	
+	func toggleEditButton() {
+		if tasks.isEmpty {
+			editButton.isHidden = true
+			self.todoListView.setEditing(false, animated: true)
+		} else {
+			editButton.isHidden = false
+		}
+	}
+	
+	func toggleAddTaskButton() {
+		if todoListView.isEditing {
+			addTaskView.isHidden = true
+		} else {
+			addTaskView.isHidden = false
 		}
 	}
 	
@@ -89,15 +113,13 @@ class TaskListViewController: KeyboardViewController {
 		if editButton.titleLabel?.text == "Edit" {
 			self.todoListView.setEditing(true, animated: true)
 			editButton.setTitle("Done", for: .normal)
-			todayButton.isHidden = true
-			addTaskView.isHidden = true
 			removeFoucsFromAddTaskField()
 		} else {
 			self.todoListView.setEditing(false, animated: true)
 			editButton.setTitle("Edit", for: .normal)
-			todayButton.isHidden = false
-			addTaskView.isHidden = false
 		}
+		toggleAddTaskButton()
+		toggleTodayButton()
 	}
 	
 	@IBAction func addNewTask(_ sender: Any) {
@@ -215,14 +237,19 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TodoCell
 		let todo = Todo(task: tasks[indexPath.row])
 		
-		cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
-		
+//		if tableView.isEditing {
+//			cell?.updateCell(with: todo)
+//		} else {
+			cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
+//		}
+								
 		return cell ?? UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
-			self.promptDeleteAlert(for: indexPath)
+			self.deleteTodo(inRow: indexPath.row)
+//			self.promptDeleteAlert(for: indexPath)
 		}
 		deleteAction.backgroundColor = UIColor.red
 		return [deleteAction]
@@ -287,11 +314,14 @@ extension TaskListViewController: UITextFieldDelegate {
 		tasks = Task.getTasks(for: activeDate)
 		DispatchQueue.main.async {
 			self.todoListView.reloadData()
+			self.toggleEditButton()
+			self.toggleAddTaskButton()
 		}
 	}
 	
 	func refetchTaskAndScrollToLastRow() {
 		tasks = Task.getTasks(for: activeDate)
+		toggleEditButton()
 		DispatchQueue.main.async {
 			self.todoListView.reloadData()
 			let lastRow = self.todoListView.numberOfRows(inSection: 0) - 1
@@ -308,16 +338,17 @@ extension TaskListViewController: UITextFieldDelegate {
 		let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
 		options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-
-			let task = self.tasks[indexPath.row]
-
-			task.mr_deleteEntity(in: .mr_default())
-		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
-
-			self.refetchTasks()
+			self.deleteTodo(inRow: indexPath.row)
 		}))
 		options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
 		}))
 		self.present(options, animated: true, completion: nil)
+	}
+	
+	func deleteTodo(inRow row: Int) {
+		let task = self.tasks[row]
+		task.mr_deleteEntity(in: .mr_default())
+		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
+		refetchTasks()
 	}
 }
