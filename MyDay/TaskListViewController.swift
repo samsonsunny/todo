@@ -63,21 +63,24 @@ class TaskListViewController: KeyboardViewController {
 	
 	func toggleTodayButton() {
 		if activeDate.isToday {
-			todayButton.isHidden = true
+			todayButton.isUserInteractionEnabled = false
+			todayButton.tintColor = UIColor.gray
 		} else if todoListView.isEditing {
-			todayButton.isHidden = true
+			todayButton.isUserInteractionEnabled = false
+			todayButton.tintColor = UIColor.gray
 		} else {
-			todayButton.isHidden = false
+			todayButton.isUserInteractionEnabled = true
+			todayButton.tintColor = UIColor.systemIndigo
 		}
 	}
 	
 	func toggleEditButton() {
-		if tasks.isEmpty {
-			editButton.isHidden = true
-			self.todoListView.setEditing(false, animated: true)
-		} else {
-			editButton.isHidden = false
-		}
+//		if tasks.isEmpty {
+//			editButton.isHidden = true
+//			self.todoListView.setEditing(false, animated: true)
+//		} else {
+//			editButton.isHidden = false
+//		}
 	}
 	
 	func toggleAddTaskButton() {
@@ -90,12 +93,9 @@ class TaskListViewController: KeyboardViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		
 		if activeDate.isToday {
-			pageTitle.textColor = UIColor.titlePurple
-			subtitle.textColor = UIColor.subTitlePurple
-		} else {
-			pageTitle.textColor = UIColor.titleGrey
-			subtitle.textColor = UIColor.subTitleGrey
+			pageTitle.textColor = UIColor(named: "HighlightColor")
 		}
 	}
 	
@@ -110,14 +110,18 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	@IBAction func editButtonTapped(_ sender: Any) {
-		if editButton.titleLabel?.text == "Edit" {
+		
+		if editButton.image(for: .normal) == UIImage(systemName: "ellipsis") {
 			self.todoListView.setEditing(true, animated: true)
 			editButton.setTitle("Done", for: .normal)
+			editButton.setImage(nil, for: .normal)
 			removeFoucsFromAddTaskField()
 		} else {
 			self.todoListView.setEditing(false, animated: true)
-			editButton.setTitle("Edit", for: .normal)
+			editButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+			editButton.setTitle(nil, for: .normal)
 		}
+		
 		toggleAddTaskButton()
 		toggleTodayButton()
 	}

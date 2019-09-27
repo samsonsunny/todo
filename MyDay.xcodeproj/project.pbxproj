@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2238F334233C5231007330A4 /* TaskListHolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F333233C5226007330A4 /* TaskListHolderViewController.swift */; };
+		2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F335233C5297007330A4 /* TaskListBaseViewController.swift */; };
+		2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F337233C52B9007330A4 /* DatePickerViewController.swift */; };
+		2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F339233C52DC007330A4 /* AddTaskView.swift */; };
 		2241C44D2309288A0032235B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44C2309288A0032235B /* TodoCell.swift */; };
 		2241C44F2309332F0032235B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44E2309332F0032235B /* Todo.swift */; };
 		2254608623307A000071DA1D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254608523307A000071DA1D /* Color+Extension.swift */; };
@@ -48,6 +52,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2238F333233C5226007330A4 /* TaskListHolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListHolderViewController.swift; sourceTree = "<group>"; };
+		2238F335233C5297007330A4 /* TaskListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListBaseViewController.swift; sourceTree = "<group>"; };
+		2238F337233C52B9007330A4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		2238F339233C52DC007330A4 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		2241C44C2309288A0032235B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		2241C44E2309332F0032235B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2254608523307A000071DA1D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -125,6 +133,10 @@
 		2282CF8A200B31270051901C /* MyDay */ = {
 			isa = PBXGroup;
 			children = (
+				2238F333233C5226007330A4 /* TaskListHolderViewController.swift */,
+				2238F339233C52DC007330A4 /* AddTaskView.swift */,
+				2238F335233C5297007330A4 /* TaskListBaseViewController.swift */,
+				2238F337233C52B9007330A4 /* DatePickerViewController.swift */,
 				2282CF8B200B31270051901C /* AppDelegate.swift */,
 				2241C44C2309288A0032235B /* TodoCell.swift */,
 				2241C44E2309332F0032235B /* Todo.swift */,
@@ -330,14 +342,18 @@
 				2241C44F2309332F0032235B /* Todo.swift in Sources */,
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
+				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
 				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
 				2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */,
 				227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */,
+				2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */,
 				2254608823308B190071DA1D /* TaskListView.swift in Sources */,
 				2254608623307A000071DA1D /* Color+Extension.swift in Sources */,
 				22E8C1DD23013021007D7472 /* GradientView.swift in Sources */,
+				2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */,
+				2238F334233C5231007330A4 /* TaskListHolderViewController.swift in Sources */,
 				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
 				22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */,
@@ -492,7 +508,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -516,7 +532,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,7 +542,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

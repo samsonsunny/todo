@@ -18,8 +18,12 @@ class TodoCell: UITableViewCell {
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var circleButton: UIButton!
 	@IBOutlet weak var moreButton: UIButton!
-	private let tickCircle = UIImage(named: "tick-circle")
-	private let greyCircle = UIImage(named: "grey-circle")
+//	private let tickCircle = UIImage(named: "tick-circle")
+//	private let greyCircle = UIImage(named: "grey-circle")
+	
+	private let tickCircle = UIImage(systemName: "largecircle.fill.circle")
+	private let greyCircle = UIImage(systemName: "circle")
+	
 	private var indexPath: IndexPath?
 	private var delegate: TodoCellDelegate?
 	private var feedBackGenerator = UIImpactFeedbackGenerator()
@@ -75,9 +79,14 @@ class TodoCell: UITableViewCell {
 		let titleText = NSMutableAttributedString(string: text)
 		if isCompleted {
 			titleText.applyStrikeThroughStyle()
-			title.textColor = UIColor.subTitleLightGrey
+			title.textColor = UIColor(named: "StrikeColor")
 		} else {
-			title.textColor = UIColor.titleGrey
+			
+//			if self.traitCollection.userInterfaceStyle == .dark  {
+				title.textColor = UIColor(named: "TitleColor")
+//			} else {
+//				title.textColor = UIColor.black
+//			}
 		}
 		title.attributedText = titleText
 	}
