@@ -10,36 +10,56 @@ import UIKit
 
 class AddTaskView: UIView {
 	
-	lazy var leadingButton: UIButton = {
-		let _leadingButton = UIButton(frame: CGRect(x: 20, y: 0, width: 20, height: 20))
+	@IBOutlet weak var leadingButton: UIButton!
+	@IBOutlet weak var addTaskLabel: UILabel!
+	@IBOutlet weak var addTaskTextField: UITextField!
+	@IBOutlet weak var addTaskButton: UIButton!
+	@IBOutlet weak var addTaskButtonHeightConstraint: NSLayoutConstraint!
 	
-		return _leadingButton
-	}()
+	private let circleImage = UIImage(systemName: "circle")
+	private let plusImage = UIImage(systemName: "plus")
+	private let defaultViewHeight = CGFloat(60)
 	
-	lazy var textField: UITextField = {
-		let _textField = UITextField(frame: CGRect(x: 60, y: 0, width: self.frame.width - 60, height: self.frame.height))
-		_textField.placeholder = "Add Task"
-		return _textField
-	}()
-	
-	override func draw(_ rect: CGRect) {
-		print("draw")
-		leadingButton.setTitle("Hello", for: .normal)
+	override func awakeFromNib() {
+		super.awakeFromNib()
 	}
 	
-//	override init(frame: CGRect) {
-//		super.init(frame: frame)
-//		initialise()
-//	}
-//
-//	required init?(coder: NSCoder) {
-//		super.init(coder: coder)
-//		initialise()
-//		fatalError("init(coder:) has not been implemented")
-//	}
+	@IBAction func addTaskButtonTapped(_ sender: Any) {
+		bringFocusToAddTaskTextField()
+	}
 	
-	func initialise() {
-		self.leadingButton.setImage(UIImage(systemName: "plus"), for: .normal)
-//		self.leadingButton..setImage(UIImage(systemName: "plus"), for: .normal)
+	func adjustViewBasedOnKeyboard(visibility willShow: Bool, notification: NSNotification) {
+		let height = getKeyboardHeight(from: notification.userInfo)
+		adjustAddTaskView(height: height, keyboard: willShow)
+	}
+	
+	private func bringFocusToAddTaskTextField() {
+		hideAddTaskTextField(false)
+		hideAddTaskButton(true)
+		leadingButton.setImage(circleImage, for: .normal)
+		addTaskTextField.becomeFirstResponder()
+	}
+	
+	private func hideAddTaskTextField(_ hide: Bool) {
+		addTaskTextField.isHidden = hide
+	}
+	
+	private func hideAddTaskButton(_ hide: Bool) {
+		addTaskLabel.isHidden = hide
+		addTaskButton.isHidden = hide
+	}
+	
+	private func getKeyboardHeight(from notificationPayload: [AnyHashable : Any]?) -> CGFloat {
+		if let frame = notificationPayload?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
+			return frame.size.height
+		}
+		return 0
+	}
+	
+	private func adjustAddTaskView(height: CGFloat, keyboard isVisible: Bool) {
+		addTaskButtonHeightConstraint.constant = isVisible ? height : defaultViewHeight
+		UIView.animate(withDuration: 0.25) {
+			self.layoutIfNeeded()
+		}
 	}
 }

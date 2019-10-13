@@ -1,19 +1,21 @@
 //
-//  TaskListHolderViewController.swift
+//  TodoListViewController.swift
 //  MyDay
 //
-//  Created by Sam on 9/26/19.
+//  Created by Sam on 10/12/19.
 //  Copyright © 2019 samsonsunny. All rights reserved.
 //
 
 import UIKit
 
-class TaskListHolderViewController: UIViewController {
-
+class TodoListViewController: UIViewController {
+	
+	@IBOutlet weak var todoListView: TaskTableView!
+	
+	var pageNumber: Int = 0
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		self.title = "Today"
 
         // Do any additional setup after loading the view.
     }

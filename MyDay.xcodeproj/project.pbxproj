@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2238F334233C5231007330A4 /* TaskListHolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F333233C5226007330A4 /* TaskListHolderViewController.swift */; };
 		2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F335233C5297007330A4 /* TaskListBaseViewController.swift */; };
 		2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F337233C52B9007330A4 /* DatePickerViewController.swift */; };
 		2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F339233C52DC007330A4 /* AddTaskView.swift */; };
+		223CF3D32351D4A300F20C0D /* TaskTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D22351D4A300F20C0D /* TaskTableView.swift */; };
+		223CF3D52351D86C00F20C0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D42351D86C00F20C0D /* CalendarViewController.swift */; };
+		223CF3D72351D87800F20C0D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D62351D87800F20C0D /* SettingsViewController.swift */; };
 		2241C44D2309288A0032235B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44C2309288A0032235B /* TodoCell.swift */; };
 		2241C44F2309332F0032235B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44E2309332F0032235B /* Todo.swift */; };
 		2254608623307A000071DA1D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254608523307A000071DA1D /* Color+Extension.swift */; };
-		2254608823308B190071DA1D /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254608723308B190071DA1D /* TaskListView.swift */; };
 		2254608A233092E30071DA1D /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22546089233092E30071DA1D /* TaskViewController.swift */; };
 		226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226191A5231028FF00C5A716 /* KeyboardViewController.swift */; };
 		227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227416DF2311072200570513 /* Task+CoreDataClass.swift */; };
@@ -27,6 +28,8 @@
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
 		22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */; };
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
+		22D64DCC2351EB27004A4B5E /* DayPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCB2351EB27004A4B5E /* DayPaginator.swift */; };
+		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
 		22E8C1C923012E69007D7472 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */; };
 		22E8C1CA23012E69007D7472 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B623012E68007D7472 /* Lato-Hairline.ttf */; };
@@ -52,14 +55,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2238F333233C5226007330A4 /* TaskListHolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListHolderViewController.swift; sourceTree = "<group>"; };
 		2238F335233C5297007330A4 /* TaskListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListBaseViewController.swift; sourceTree = "<group>"; };
 		2238F337233C52B9007330A4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		2238F339233C52DC007330A4 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		223CF3D22351D4A300F20C0D /* TaskTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableView.swift; sourceTree = "<group>"; };
+		223CF3D42351D86C00F20C0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		223CF3D62351D87800F20C0D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2241C44C2309288A0032235B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		2241C44E2309332F0032235B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2254608523307A000071DA1D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		2254608723308B190071DA1D /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		22546089233092E30071DA1D /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		226191A5231028FF00C5A716 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		227416DF2311072200570513 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		2282CF9A200B31280051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageViewController.swift; sourceTree = "<group>"; };
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		22D64DCB2351EB27004A4B5E /* DayPaginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPaginator.swift; sourceTree = "<group>"; };
+		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		22E8C1B623012E68007D7472 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -133,7 +139,12 @@
 		2282CF8A200B31270051901C /* MyDay */ = {
 			isa = PBXGroup;
 			children = (
-				2238F333233C5226007330A4 /* TaskListHolderViewController.swift */,
+				223CF3D42351D86C00F20C0D /* CalendarViewController.swift */,
+				22D64DCB2351EB27004A4B5E /* DayPaginator.swift */,
+				223CF3D62351D87800F20C0D /* SettingsViewController.swift */,
+				22546089233092E30071DA1D /* TaskViewController.swift */,
+				223CF3D22351D4A300F20C0D /* TaskTableView.swift */,
+				22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */,
 				2238F339233C52DC007330A4 /* AddTaskView.swift */,
 				2238F335233C5297007330A4 /* TaskListBaseViewController.swift */,
 				2238F337233C52B9007330A4 /* DatePickerViewController.swift */,
@@ -142,13 +153,11 @@
 				2241C44E2309332F0032235B /* Todo.swift */,
 				2282CF8D200B31270051901C /* TaskListViewController.swift */,
 				22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */,
-				22546089233092E30071DA1D /* TaskViewController.swift */,
 				226191A5231028FF00C5A716 /* KeyboardViewController.swift */,
 				22C682022303B17F00447F21 /* Utils.swift */,
 				2254608523307A000071DA1D /* Color+Extension.swift */,
 				22E8C1DC23013021007D7472 /* GradientView.swift */,
 				2282CF8F200B31270051901C /* Main.storyboard */,
-				2254608723308B190071DA1D /* TaskListView.swift */,
 				2282CF95200B31280051901C /* Assets.xcassets */,
 				2282CF97200B31280051901C /* LaunchScreen.storyboard */,
 				2282CF9A200B31280051901C /* Info.plist */,
@@ -342,18 +351,21 @@
 				2241C44F2309332F0032235B /* Todo.swift in Sources */,
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
+				223CF3D72351D87800F20C0D /* SettingsViewController.swift in Sources */,
 				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
 				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
+				22D64DCC2351EB27004A4B5E /* DayPaginator.swift in Sources */,
 				2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */,
 				227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */,
 				2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */,
-				2254608823308B190071DA1D /* TaskListView.swift in Sources */,
+				223CF3D52351D86C00F20C0D /* CalendarViewController.swift in Sources */,
 				2254608623307A000071DA1D /* Color+Extension.swift in Sources */,
 				22E8C1DD23013021007D7472 /* GradientView.swift in Sources */,
+				22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */,
 				2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */,
-				2238F334233C5231007330A4 /* TaskListHolderViewController.swift in Sources */,
+				223CF3D32351D4A300F20C0D /* TaskTableView.swift in Sources */,
 				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
 				22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */,
