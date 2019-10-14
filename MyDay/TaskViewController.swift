@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 class TaskViewController: KeyboardViewController {
 	
@@ -16,31 +17,57 @@ class TaskViewController: KeyboardViewController {
 	
 	@IBOutlet weak var pageContainer: UIView!
 	
-	let paginator: DayPaginator = DayPaginator(transitionStyle: .scroll, navigationOrientation: .horizontal)
+	var selectedDateFromCalendar: Date = Date().dateAtStartOf(.day)
 	
-	var activeSegmentIndex: Int = 1 {
+	private var selectedDateFromSegementedView: Date {
+		switch activeSegmentIndex {
+		case 0:
+			return selectedDateFromCalendar.dateByAdding(-1, .day).date
+		case 2:
+			return selectedDateFromCalendar.dateByAdding(1, .day).date
+		default:
+			return selectedDateFromCalendar
+		}
+	}
+		
+	// Used just to utilise the animation of view controller presentation.
+	private let paginator = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+	
+	private var activeSegmentIndex: Int = 1 {
 		didSet {
-			
-			paginator.setDefaultPage(direction: .forward)
-			
-//			if oldValue != activeSegmentIndex {
-//				if activeSegmentIndex == 0 {
-//					paginator.setDefaultPage(direction: .reverse)
-//				} else if activeSegmentIndex == 2 {
-//					paginator.setDefaultPage(direction: .forward)
-//				} else if activeSegmentIndex > oldValue {
-//					paginator.setDefaultPage(direction: .reverse)
-//				} else if activeSegmentIndex < oldValue {
-//					paginator.setDefaultPage(direction: .forward)
-//				}
-//			}
+			if let todoView = todoListView {
+				todoView.activeDate = selectedDateFromSegementedView
+				self.addViewController(forPagination: todoView, direction: .forward, animated: true)
+			}
 		}
 	}
 	
+	private var todoListView: TodoListViewController? {
+		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+		let vc = storyBoard.instantiateViewController(withIdentifier: "TodoListViewControllerID")
+		return vc as? TodoListViewController
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		self.addTaskView.tasker = self 
+		self.addPaginator()
+		self.addViewController(forPagination: todoListView, direction: .forward, animated: false)
+	}
+	
+	@IBAction func dayChanged(_ sender: UISegmentedControl) {
+		activeSegmentIndex = sender.selectedSegmentIndex
+	}
+	
+	@objc override func keyBoardWillHide(_ notification: NSNotification) {
+		addTaskView.adjustViewBasedOnKeyboard(visibility: false, notification: notification)
+	}
+	
+	@objc override func keyBoardWillShow(_ notification: NSNotification) {
+		addTaskView.adjustViewBasedOnKeyboard(visibility: true, notification: notification)
+	}
+	
+	private func addPaginator() {
 		self.addChild(paginator)
 		paginator.view.translatesAutoresizingMaskIntoConstraints = false
 		pageContainer.addSubview(paginator.view)
@@ -54,37 +81,25 @@ class TaskViewController: KeyboardViewController {
 		paginator.didMove(toParent: self)
 	}
 	
-//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//		if segue.identifier == "pagination" {
-//			self.paginator = segue.destination as? DayPaginator
-//		}
-//	}
-	
-	@IBAction func dayChanged(_ sender: UISegmentedControl) {
-		activeSegmentIndex = sender.selectedSegmentIndex
-//		switch sender.selectedSegmentIndex {
-//		case 0:
-//			print("0")
-//			activeSegmentIndex = sender.selectedSegmentIndex
-//			paginator.setDefaultPage(direction: .forward)
-//		case 1:
-//			print("1")
-//			paginator.setDefaultPage(direction: .reverse)
-//		case 2:
-//			print("2")
-//			paginator.setDefaultPage(direction: .reverse)
-//		default:
-//			print("wrong option")
-//		}
+	private func addViewController(forPagination taskListView: TodoListViewController?, direction: UIPageViewController.NavigationDirection, animated: Bool = true) {
+		if let viewController = taskListView {
+			paginator.setViewControllers([viewController],
+										 direction: direction,
+										 animated: animated,
+										 completion: nil)
+		}
 	}
 	
-	@objc override func keyBoardWillHide(_ notification: NSNotification) {
+	func saveTodo(_ todo: Todo, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) {
+		let task = Task(context: context)
+		task.setTask(with: todo)
+		context.mr_saveToPersistentStore() 
+	}
+}
 
-		addTaskView.adjustViewBasedOnKeyboard(visibility: false, notification: notification)
-	}
-	
-	@objc override func keyBoardWillShow(_ notification: NSNotification) {
-		
-		addTaskView.adjustViewBasedOnKeyboard(visibility: true, notification: notification)
+extension TaskViewController: AddTasker {
+	func addTask(with text: String) {
+		let todo = Todo(title: text, date: selectedDateFromSegementedView)
+		saveTodo(todo)
 	}
 }

@@ -12,7 +12,9 @@ class TaskTableView: UITableView {
 	
 	var tasks: [Task] = [] {
 		didSet {
-			print("tasks")
+			DispatchQueue.main.async {
+				self.reloadData()
+			}
 		}
 	}
 	
@@ -27,14 +29,14 @@ class TaskTableView: UITableView {
 extension TaskTableView: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		return tasks.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TodoCell
 				
-		let todo = Todo(title: "Hello", date: Date())
+		let todo = Todo(task: tasks[indexPath.row])
 		
 		cell?.updateCell(with: todo)
 		

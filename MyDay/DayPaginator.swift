@@ -8,10 +8,8 @@
 
 import UIKit
 
-class DayPaginator: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-	
-	var pageNumber = 0
-	
+class DayPaginator: UIPageViewController, UIPageViewControllerDelegate {
+		
 	override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
 		
 		super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: options)
@@ -24,64 +22,8 @@ class DayPaginator: UIPageViewController, UIPageViewControllerDelegate, UIPageVi
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.setDefaultPage(direction: .forward)
 		self.delegate = self
-//		self.dataSource = self
-	}
-	
-//	override func setViewControllers(_ viewControllers: [UIViewController]?, direction: UIPageViewController.NavigationDirection, animated: Bool, completion: ((Bool) -> Void)? = nil) {
-//		<#code#>
-//	}
-	
-	func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-		if completed {
-			guard let taskList = (pageViewController.viewControllers?.first) as? TodoListViewController else {
-				return
-			}
-			pageNumber = taskList.pageNumber
-		}
-	}
-	
-	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-		
-		let _taskListView = getTaskListView()
-		_taskListView?.pageNumber = pageNumber - 1
-		
-		return _taskListView
-	}
-	
-	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-		
-		let _taskListView = getTaskListView()
-		_taskListView?.pageNumber = pageNumber + 1
-		
-		return _taskListView
-	}
-	
-	func setDefaultPage(direction: NavigationDirection) {
-		let _taskListView = getTaskListView()
-		_taskListView?.pageNumber = pageNumber
-		
-		self.setViewControllers([_taskListView!], direction: direction, animated: true, completion: nil)
-	}
-	
-	func getTaskListView() -> TodoListViewController? {
-		let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-		let vc = storyBoard.instantiateViewController(withIdentifier: "TodoListViewControllerID") as? TodoListViewController
-//		vc?.paginationHandler = self
-		return vc
+//		self.setViewControllers([viewController!], direction: .forward, animated: false, completion: nil)
 	}
 }
 
-//
-//extension TaskPageViewController: TaskPageDelegate {
-//	func didTodayButtonTapped() {
-//		if pageNumber > 0 {
-//			pageNumber = 0
-//			setDefaultPage(direction: .reverse)
-//		} else if pageNumber < 0 {
-//			pageNumber = 0
-//			setDefaultPage(direction: .forward)
-//		}
-//	}
-//}

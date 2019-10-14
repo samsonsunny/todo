@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AddTaskView: UIView {
+protocol AddTasker: class {
+	func addTask(with text: String)
+}
+
+class AddTaskView: UIView, UITextFieldDelegate {
 	
 	@IBOutlet weak var leadingButton: UIButton!
 	@IBOutlet weak var addTaskLabel: UILabel!
@@ -20,8 +24,11 @@ class AddTaskView: UIView {
 	private let plusImage = UIImage(systemName: "plus")
 	private let defaultViewHeight = CGFloat(60)
 	
+	weak var tasker: AddTasker? 
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		addTaskTextField.delegate = self
 	}
 	
 	@IBAction func addTaskButtonTapped(_ sender: Any) {
@@ -39,6 +46,31 @@ class AddTaskView: UIView {
 		leadingButton.setImage(circleImage, for: .normal)
 		addTaskTextField.becomeFirstResponder()
 	}
+	
+	private func removeFoucsFromAddTaskTextField() {
+		addTaskTextField.resignFirstResponder()
+		UIView.animate(withDuration: 0.25, animations: {
+//			self.updateTextAfterRemovingFocus()
+		})
+	}
+	
+	//
+	//fileprivate func updateTextAfterRemovingFocus() {
+	//	if let todoText = addTaskTextField.text, todoText.isNotEmpty {
+	//		addTaskTextField.isHidden = false
+	//		addTaskLabel.isHidden = true
+	//		addTaskButton.isHidden = true
+	//		plusButton.isHidden = true
+	//		greyCircleButton.isHidden = false
+	//	} else {
+	//		addTaskTextField.isHidden = true
+	//		addTaskLabel.isHidden = false
+	//		addTaskButton.isHidden = false
+	//		plusButton.isHidden = false
+	//		greyCircleButton.isHidden = true
+	//	}
+	//}
+	//
 	
 	private func hideAddTaskTextField(_ hide: Bool) {
 		addTaskTextField.isHidden = hide
@@ -61,5 +93,15 @@ class AddTaskView: UIView {
 		UIView.animate(withDuration: 0.25) {
 			self.layoutIfNeeded()
 		}
+	}
+
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		guard let text = textField.text, text.isNotEmpty else {
+			removeFoucsFromAddTaskTextField()
+			return true
+		}
+		tasker?.addTask(with: text)
+		textField.clear()
+		return true
 	}
 }

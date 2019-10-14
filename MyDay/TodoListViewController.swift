@@ -11,24 +11,23 @@ import UIKit
 class TodoListViewController: UIViewController {
 	
 	@IBOutlet weak var todoListView: TaskTableView!
+			
+	var activeDate: Date = Date().dateAtStartOf(.day) {
+		didSet {
+			tasks = Task.getTasks(for: activeDate)
+		}
+	}
 	
-	var pageNumber: Int = 0
+	private var tasks: [Task] = [] {
+		didSet {
+			if isViewLoaded {
+				todoListView.tasks = tasks
+			}
+		}
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+		todoListView.tasks = tasks
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
