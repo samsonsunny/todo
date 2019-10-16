@@ -40,45 +40,38 @@ class AddTaskView: UIView, UITextFieldDelegate {
 		adjustAddTaskView(height: height, keyboard: willShow)
 	}
 	
-	private func bringFocusToAddTaskTextField() {
-		hideAddTaskTextField(false)
-		hideAddTaskButton(true)
-		leadingButton.setImage(circleImage, for: .normal)
+	func bringFocusToAddTaskTextField() {
+		self.setActiveViewMode()
 		addTaskTextField.becomeFirstResponder()
 	}
 	
-	private func removeFoucsFromAddTaskTextField() {
+	func removeFoucsFromAddTaskTextField() {
 		addTaskTextField.resignFirstResponder()
 		UIView.animate(withDuration: 0.25, animations: {
-//			self.updateTextAfterRemovingFocus()
+			self.updateView()
 		})
 	}
 	
-	//
-	//fileprivate func updateTextAfterRemovingFocus() {
-	//	if let todoText = addTaskTextField.text, todoText.isNotEmpty {
-	//		addTaskTextField.isHidden = false
-	//		addTaskLabel.isHidden = true
-	//		addTaskButton.isHidden = true
-	//		plusButton.isHidden = true
-	//		greyCircleButton.isHidden = false
-	//	} else {
-	//		addTaskTextField.isHidden = true
-	//		addTaskLabel.isHidden = false
-	//		addTaskButton.isHidden = false
-	//		plusButton.isHidden = false
-	//		greyCircleButton.isHidden = true
-	//	}
-	//}
-	//
-	
-	private func hideAddTaskTextField(_ hide: Bool) {
-		addTaskTextField.isHidden = hide
+	private func updateView() {
+		if let todoText = addTaskTextField.text, todoText.isNotEmpty {
+			self.setActiveViewMode()
+		} else {
+			self.setDefaultViewMode()
+		}
 	}
 	
-	private func hideAddTaskButton(_ hide: Bool) {
-		addTaskLabel.isHidden = hide
-		addTaskButton.isHidden = hide
+	private func setDefaultViewMode() {
+		addTaskTextField.isHidden = true
+		addTaskLabel.isHidden = false
+		addTaskButton.isHidden = false
+		leadingButton.setImage(plusImage, for: .normal)
+	}
+	
+	private func setActiveViewMode() {
+		addTaskTextField.isHidden = false
+		addTaskLabel.isHidden = true
+		addTaskButton.isHidden = true
+		leadingButton.setImage(circleImage, for: .normal)
 	}
 	
 	private func getKeyboardHeight(from notificationPayload: [AnyHashable : Any]?) -> CGFloat {

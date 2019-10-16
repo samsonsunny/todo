@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221327732356B5B5000EDB4E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221327722356B5B5000EDB4E /* TabBarController.swift */; };
 		2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F335233C5297007330A4 /* TaskListBaseViewController.swift */; };
 		2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F337233C52B9007330A4 /* DatePickerViewController.swift */; };
 		2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F339233C52DC007330A4 /* AddTaskView.swift */; };
@@ -20,6 +21,12 @@
 		226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226191A5231028FF00C5A716 /* KeyboardViewController.swift */; };
 		227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227416DF2311072200570513 /* Task+CoreDataClass.swift */; };
 		227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227416E02311072200570513 /* Task+CoreDataProperties.swift */; };
+		2279EDC82356B83D00675EAA /* MonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC22356B83D00675EAA /* MonthViewController.swift */; };
+		2279EDC92356B83D00675EAA /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2279EDC32356B83D00675EAA /* EmptyCell.xib */; };
+		2279EDCA2356B83D00675EAA /* DayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2279EDC42356B83D00675EAA /* DayCell.xib */; };
+		2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC52356B83D00675EAA /* MonthPickerViewController.swift */; };
+		2279EDCC2356B83D00675EAA /* CollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC62356B83D00675EAA /* CollectionViewCells.swift */; };
+		2279EDCD2356B83D00675EAA /* MonthViewPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC72356B83D00675EAA /* MonthViewPagination.swift */; };
 		2282CF8C200B31270051901C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8B200B31270051901C /* AppDelegate.swift */; };
 		2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8D200B31270051901C /* TaskListViewController.swift */; };
 		2282CF91200B31270051901C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF8F200B31270051901C /* Main.storyboard */; };
@@ -55,6 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		221327722356B5B5000EDB4E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2238F335233C5297007330A4 /* TaskListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListBaseViewController.swift; sourceTree = "<group>"; };
 		2238F337233C52B9007330A4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		2238F339233C52DC007330A4 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
@@ -68,6 +76,12 @@
 		226191A5231028FF00C5A716 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		227416DF2311072200570513 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		227416E02311072200570513 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2279EDC22356B83D00675EAA /* MonthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewController.swift; sourceTree = "<group>"; };
+		2279EDC32356B83D00675EAA /* EmptyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
+		2279EDC42356B83D00675EAA /* DayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCell.xib; sourceTree = "<group>"; };
+		2279EDC52356B83D00675EAA /* MonthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerViewController.swift; sourceTree = "<group>"; };
+		2279EDC62356B83D00675EAA /* CollectionViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCells.swift; sourceTree = "<group>"; };
+		2279EDC72356B83D00675EAA /* MonthViewPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewPagination.swift; sourceTree = "<group>"; };
 		2282CF88200B31270051901C /* MyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282CF8B200B31270051901C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2282CF8D200B31270051901C /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +132,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2279EDC12356B83D00675EAA /* Month */ = {
+			isa = PBXGroup;
+			children = (
+				2279EDC22356B83D00675EAA /* MonthViewController.swift */,
+				2279EDC32356B83D00675EAA /* EmptyCell.xib */,
+				2279EDC42356B83D00675EAA /* DayCell.xib */,
+				2279EDC52356B83D00675EAA /* MonthPickerViewController.swift */,
+				2279EDC62356B83D00675EAA /* CollectionViewCells.swift */,
+				2279EDC72356B83D00675EAA /* MonthViewPagination.swift */,
+			);
+			path = Month;
+			sourceTree = "<group>";
+		};
 		2282CF7F200B31270051901C = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +166,10 @@
 		2282CF8A200B31270051901C /* MyDay */ = {
 			isa = PBXGroup;
 			children = (
+				2279EDC12356B83D00675EAA /* Month */,
 				223CF3D42351D86C00F20C0D /* CalendarViewController.swift */,
 				22D64DCB2351EB27004A4B5E /* DayPaginator.swift */,
+				221327722356B5B5000EDB4E /* TabBarController.swift */,
 				223CF3D62351D87800F20C0D /* SettingsViewController.swift */,
 				22546089233092E30071DA1D /* TaskViewController.swift */,
 				223CF3D22351D4A300F20C0D /* TaskTableView.swift */,
@@ -278,6 +307,7 @@
 				22E8C1D023012E69007D7472 /* Lato-Medium.ttf in Resources */,
 				22E8C1D323012E69007D7472 /* Lato-HairlineItalic.ttf in Resources */,
 				22E8C1CB23012E69007D7472 /* Lato-Black.ttf in Resources */,
+				2279EDC92356B83D00675EAA /* EmptyCell.xib in Resources */,
 				22E8C1CD23012E69007D7472 /* Lato-HeavyItalic.ttf in Resources */,
 				22E8C1D923012E69007D7472 /* Lato-Light.ttf in Resources */,
 				2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */,
@@ -295,6 +325,7 @@
 				22E8C1C923012E69007D7472 /* Lato-MediumItalic.ttf in Resources */,
 				22E8C1D223012E69007D7472 /* Lato-LightItalic.ttf in Resources */,
 				22E8C1D823012E69007D7472 /* Lato-BoldItalic.ttf in Resources */,
+				2279EDCA2356B83D00675EAA /* DayCell.xib in Resources */,
 				22E8C1DA23012E69007D7472 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,10 +383,14 @@
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
 				223CF3D72351D87800F20C0D /* SettingsViewController.swift in Sources */,
+				221327732356B5B5000EDB4E /* TabBarController.swift in Sources */,
+				2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */,
 				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
 				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
+				2279EDCD2356B83D00675EAA /* MonthViewPagination.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
+				2279EDCC2356B83D00675EAA /* CollectionViewCells.swift in Sources */,
 				22D64DCC2351EB27004A4B5E /* DayPaginator.swift in Sources */,
 				2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */,
 				227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */,
@@ -366,6 +401,7 @@
 				22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */,
 				2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */,
 				223CF3D32351D4A300F20C0D /* TaskTableView.swift in Sources */,
+				2279EDC82356B83D00675EAA /* MonthViewController.swift in Sources */,
 				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
 				22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */,
@@ -517,7 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -525,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -541,7 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -549,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

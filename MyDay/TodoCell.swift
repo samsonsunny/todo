@@ -51,7 +51,7 @@ class TodoCell: UITableViewCell {
 		delegate?.didMoreMenuTapped(on: indexPath)
 	}
 	
-	func updateCell(with todo: Todo, delegate: TodoCellDelegate, indexPath: IndexPath) {
+	func updateCell(with todo: Todo, delegate: TodoCellDelegate?, indexPath: IndexPath) {
 		self.todo = todo
 		self.delegate = delegate
 		self.indexPath = indexPath
