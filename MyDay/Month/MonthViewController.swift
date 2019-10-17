@@ -20,12 +20,12 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 	}
 	
 	lazy var weekTitleHeader: UIStackView = {
-		let stackView = UIStackView(frame: CGRect(x: 12, y: 0, width: self.view.frame.width, height: 30))
+		let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
 		self.view.addSubview(stackView)
 		let weekShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 		for index in 0...6 {
 			let weekDay = UIButton()
-//			weekDay.setTitleColor(UIColor, for: .normal)
+			weekDay.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
 			weekDay.setTitle("\(weekShortName[index])", for: .normal)
 			weekDay.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
 			weekDay.titleLabel?.textAlignment = .left
@@ -39,7 +39,7 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 	
 	lazy var monthCollectionView: UICollectionView = {
 		
-		let monthViewFrame = CGRect(x: 12, y: weekTitleHeader.frame.height, width: self.view.bounds.width, height: self.view.bounds.height)
+		let monthViewFrame = CGRect(x: 0, y: weekTitleHeader.frame.height, width: self.view.bounds.width, height: self.view.bounds.height)
 		
 		var layout = UICollectionViewFlowLayout()
 //		layout.scrollDirection = .vertical
@@ -56,7 +56,7 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 		collectionView.dataSource = self
 		collectionView.delegate = self
 		
-//		collectionView.backgroundColor = UIColor.white
+		collectionView.backgroundColor = UIColor(named: "BackgroundColor")
 		collectionView.register(UINib(nibName: "DayCell", bundle: nil), forCellWithReuseIdentifier: "DayCell")
 		collectionView.register(UINib(nibName: "EmptyCell", bundle: nil), forCellWithReuseIdentifier: "EmptyCell")
 		return collectionView
@@ -118,12 +118,14 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 		
 		cell.date = date
 		
-		if date == givenDate {
-			cell.backgroundColor = UIColor.black
-		}
+//		if date == givenDate {
+//			cell.backgroundColor = UIColor.black
+//		}
 		
 		if date.isToday {
-			cell.backgroundColor = UIColor.red
+//			cell.backgroundColor = UIColor.green
+			
+			cell.day.tintColor = UIColor.green
 		}
 		
 		return cell
@@ -132,8 +134,17 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		if let cell = collectionView.cellForItem(at: indexPath) as? DayCell {
-			cell.backgroundColor = UIColor.yellow
+			let bgColor = cell.backgroundColor
+			let color = cell.day.tintColor
+			cell.backgroundColor = UIColor.blue
+			cell.day.tintColor = UIColor(named: "TitleColor")
 			delegate?.didSelectDateFromCollectionView(cell.date)
+//			collectionView.deselectItem(at: indexPath, animated: true)
+			
+			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+				cell.backgroundColor = bgColor
+				cell.day.tintColor = color
+			}
 		}
 	}
 }
