@@ -12,7 +12,10 @@ import MagicalRecord
 let userDefaults: UserDefaults = UserDefaults.standard
 
 class TaskListViewController: KeyboardViewController {
-
+	
+	@IBOutlet weak var todayButton: RoundedButton!
+	@IBOutlet weak var editButton: RoundedButton!
+	
 	@IBOutlet fileprivate weak var addTaskView: UIView!
 	@IBOutlet fileprivate weak var addTaskTextField: UITextField!
 	@IBOutlet fileprivate weak var addTaskButton: UIButton!
@@ -21,30 +24,26 @@ class TaskListViewController: KeyboardViewController {
 	@IBOutlet fileprivate weak var plusButton: UIButton!
 	@IBOutlet fileprivate weak var addTaskLabel: UILabel!
 	@IBOutlet fileprivate weak var addTaskViewBottomLayout: NSLayoutConstraint!
-//	@IBOutlet fileprivate weak var todayButton: UIButton!
-	
 	@IBOutlet weak var pageTitle: UILabel!
-	
 	@IBOutlet fileprivate weak var subtitle: UILabel!
+	
+	weak var paginationHandler: TaskPageDelegate? 
+	
+	var pageNumber: Int = 0
 	
 	var activeDate: Date = Date().dateAtStartOf(.day) {
 		didSet {
-			reload()
+			refetchTasks()
 			updateHeader()
 		}
 	}
 	
-	var tasks: [Task] = [] {
-		didSet {
-			DispatchQueue.main.async {
-				self.todoListView.reloadData()
-			}
-		}
-	}
+	var tasks: [Task] = []
 	
 	private lazy var tapGesture: UITapGestureRecognizer = {
 		let gesture = UITapGestureRecognizer(target: self, action: #selector(listViewTapped))
-//		gesture.cancelsTouchesInView = true
+		gesture.cancelsTouchesInView = false
+		gesture.delegate = self
 		return gesture
 	}()
 	
@@ -57,34 +56,87 @@ class TaskListViewController: KeyboardViewController {
 		todoListView.allowsSelection = true
 		todoListView.addGestureRecognizer(tapGesture)
 		addTaskTextField.delegate = self
-		activeDate = Date().dateAtStartOf(.day)
+		activeDate = Date().dateAtStartOf(.day).dateByAdding(pageNumber, .day).date
+		toggleTodayButton()
+		toggleEditButton()
+	}
+	
+	func toggleTodayButton() {
+		if activeDate.isToday {
+			todayButton.isUserInteractionEnabled = false
+			todayButton.tintColor = UIColor.gray
+		} else if todoListView.isEditing {
+			todayButton.isUserInteractionEnabled = false
+			todayButton.tintColor = UIColor.gray
+		} else {
+			todayButton.isUserInteractionEnabled = true
+			todayButton.tintColor = UIColor.systemIndigo
+		}
+	}
+	
+	func toggleEditButton() {
+//		if tasks.isEmpty {
+//			editButton.isHidden = true
+//			self.todoListView.setEditing(false, animated: true)
+//		} else {
+//			editButton.isHidden = false
+//		}
+	}
+	
+	func toggleAddTaskButton() {
+		if todoListView.isEditing {
+			addTaskView.isHidden = true
+		} else {
+			addTaskView.isHidden = false
+		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		
+		if activeDate.isToday {
+			pageTitle.textColor = UIColor(named: "HighlightColor")
+		}
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		removeFoucsFromAddTaskField()
+		adjustAddTaskView(height: 0, keyboard: false)
+	}
+	
+	@IBAction func todayButtonTapped(_ sender: Any) {
+		paginationHandler?.didTodayButtonTapped()
+	}
+	
+	@IBAction func editButtonTapped(_ sender: Any) {
 		
+		if editButton.image(for: .normal) == UIImage(systemName: "ellipsis") {
+			self.todoListView.setEditing(true, animated: true)
+			editButton.setTitle("Done", for: .normal)
+			editButton.setImage(nil, for: .normal)
+			removeFoucsFromAddTaskField()
+		} else {
+			self.todoListView.setEditing(false, animated: true)
+			editButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+			editButton.setTitle(nil, for: .normal)
+		}
+		
+		toggleAddTaskButton()
+		toggleTodayButton()
 	}
 	
 	@IBAction func addNewTask(_ sender: Any) {
 		bringFoucsToAddTaskField()
 	}
 	
-	@IBAction func prevButtonTapped(_ sender: Any) {
-		activeDate = activeDate.dateByAdding(-1, .day).date
-	}
-	
-	@IBAction func nextButtonTapped(_ sender: Any) {
-		activeDate = activeDate.dateByAdding(1, .day).date
-	}
-	
-	@IBAction func todayButtonTapped(_ sender: Any) {
-		activeDate = Date().dateAtStartOf(.day)
-	}
-	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		self.view.endEditing(true)
-//		removeFoucsFromAddTaskField()
+		removeFoucsFromAddTaskField()
 	}
 	
 	@objc func listViewTapped() {
-	
+		
 		if addTaskTextField.isFirstResponder {
 			removeFoucsFromAddTaskField()
 		} else {
@@ -103,17 +155,17 @@ class TaskListViewController: KeyboardViewController {
 	func updateHeader() {
 
 		if activeDate.isToday {
-			pageTitle.text = "Today"
-			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
+			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
+			subtitle.text = activeDate.toFormat("EEEE").uppercased()
 		} else if activeDate.isTomorrow {
-			pageTitle.text = "Tomorrow"
-			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
+			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
+			subtitle.text = activeDate.toFormat("EEEE").uppercased()
 		} else if activeDate.isYesterday {
-			pageTitle.text = "Yesterday"
-			subtitle.text = activeDate.toFormat("EEEE,  MMMM d").uppercased()
+			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
+			subtitle.text = activeDate.toFormat("EEEE").uppercased()
 		} else {
-			pageTitle.text = activeDate.toFormat("EEEE")
-			subtitle.text = activeDate.toFormat("MMMM d").uppercased()
+			pageTitle.text = activeDate.toFormat("MMM d").uppercased()
+			subtitle.text = activeDate.toFormat("EEEE").uppercased()
 		}
 	}
 
@@ -160,6 +212,11 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	fileprivate func bringFoucsToAddTaskField() {
+		
+		guard !todoListView.isEditing else {
+			return
+		}
+		
 		addTaskButton.isHidden = true
 		plusButton.isHidden = true
 		addTaskLabel.isHidden = true
@@ -184,32 +241,26 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TodoCell
 		let todo = Todo(task: tasks[indexPath.row])
 		
-		cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
-		
+//		if tableView.isEditing {
+//			cell?.updateCell(with: todo)
+//		} else {
+			cell?.updateCell(with: todo, delegate: self, indexPath: indexPath)
+//		}
+								
 		return cell ?? UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-		
-		let delete = UITableViewRowAction(style: .normal, title: "Delete", handler: { (_, _) in
-			
-			let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-			
-			options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-				
-				let task = self.tasks[indexPath.row]
-			
-				task.mr_deleteEntity(in: .mr_default())
-			NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
-				
-				self.reload()
-			}))
-			options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-				
-			}))
-			self.present(options, animated: true, completion: nil)
-		})
-		return [delete]
+		let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexpath) in
+			self.deleteTodo(inRow: indexPath.row)
+//			self.promptDeleteAlert(for: indexPath)
+		}
+		deleteAction.backgroundColor = UIColor.red
+		return [deleteAction]
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		removeFoucsFromAddTaskField()
 	}
 }
 
@@ -222,86 +273,86 @@ extension TaskListViewController: TodoCellDelegate {
 		task.setTask(with: _todo)
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
 	}
+	
+	func didMoreMenuTapped(on indexPath: IndexPath?) {
+		guard let taskIndexPath = indexPath else {
+			return
+		}
+		promptDeleteAlert(for: taskIndexPath)
+	}
+}
+
+extension TaskListViewController: UIGestureRecognizerDelegate {
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+		let location = touch.location(in: todoListView)
+		if todoListView.indexPathForRow(at: location) != nil {
+			return false
+		}
+		return true
+	}
 }
 
 extension TaskListViewController: UITextFieldDelegate {
 	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-//		removeFoucsFromAddTaskField()
-		
-	}
-	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		add(todo: textField.text)
+		guard let text = textField.text, text.isNotEmpty else {
+			removeFoucsFromAddTaskField()
+			return true
+		}
+		add(todo: text)
 		textField.clear()
 		return true
 	}
 	
-	func add(todo title: String?) {
-		guard let text = title, text.isNotEmpty else { return }
-//		let key = activeDate.toString()
-//		var todos: [Todo] = getTodosFromUserDefaults(for: key)
-//		todos.append()
-//		persistTodosInUserDefaults(todos, for: key)
-		
-		let todo = Todo(title: text, date: activeDate)
+	func add(todo title: String) {
+
+		let todo = Todo(title: title, date: activeDate)
 		
 		self.saveTodo(todo)
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
-//			addTaskTextField.clear()
-			self.reload()
-			
-//			let lastElement = self.tasks.count - 1
-			
-//			if self.todoListView.numberOfRows(inSection: 0) >= lastElement {
-//				self.todoListView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .middle, animated: true)
-
-//			}
-			
+			self.refetchTaskAndScrollToLastRow() 
 		}
 	}
 	
-	func reset() {
-//		addTaskTextField.clear()
-//		addTaskTextField.resignFirstResponder()
-		
-	}
-	
-	func reload() {
+	func refetchTasks() {
 		tasks = Task.getTasks(for: activeDate)
+		DispatchQueue.main.async {
+			self.todoListView.reloadData()
+			self.toggleEditButton()
+			self.toggleAddTaskButton()
+		}
+	}
+	
+	func refetchTaskAndScrollToLastRow() {
+		tasks = Task.getTasks(for: activeDate)
+		toggleEditButton()
+		DispatchQueue.main.async {
+			self.todoListView.reloadData()
+			let lastRow = self.todoListView.numberOfRows(inSection: 0) - 1
+			self.todoListView.scrollToRow(at: IndexPath(row: lastRow, section: 0), at: .bottom, animated: true)
+		}
 	}
 
-	@available(*, deprecated)
-	func getTodosFromUserDefaults(for key: String) -> [Todo] {
-		guard let data = userDefaults.value(forKey: key) as? Data, let todos = try? PropertyListDecoder().decode(Array<Todo>.self, from: data) else {
-			return []
-		}
-		return todos
-	}
-	
-//
-//	@available(*, deprecated)
-//	func persistTodosInUserDefaults(_ todos: [Todo], for key: String) {
-//
-//		userDefaults.set(try? PropertyListEncoder().encode(todos), forKey:key)
-//	}
-	
 	func saveTodo(_ todo: Todo, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) {
-		
 		let task = Task(context: context)
 		task.setTask(with: todo)
 	}
 	
-	@available(*, deprecated)
-	func migrateUserDefaultsTodosIntoCoreData() {
-		let todos = getTodosFromUserDefaults(for: activeDate.toString())
-		
-		let tasks = todos.map { (todo) -> Task in
-			let t = Task(context: NSManagedObjectContext.mr_default())
-			t.setTask(with: todo)
-			return t
-		}
+	func promptDeleteAlert(for indexPath: IndexPath) {
+		let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+		options.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+			self.deleteTodo(inRow: indexPath.row)
+		}))
+		options.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+		}))
+		self.present(options, animated: true, completion: nil)
+	}
+	
+	func deleteTodo(inRow row: Int) {
+		let task = self.tasks[row]
+		task.mr_deleteEntity(in: .mr_default())
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
+		refetchTasks()
 	}
 }
-

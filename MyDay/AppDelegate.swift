@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Saves changes in the application's managed object context before the application terminates.
 //		self.saveContext()
 		
-//		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
+		NSManagedObjectContext.mr_default().mr_saveToPersistentStore(completion: nil)
 	}
 
 	// MARK: - Core Data stack

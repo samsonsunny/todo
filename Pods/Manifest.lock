@@ -2,7 +2,7 @@ PODS:
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
-  - SwiftDate (5.1.0)
+  - SwiftDate (6.0.3)
 
 DEPENDENCIES:
   - MagicalRecord
@@ -15,8 +15,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
-  SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
+  SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
 
-PODFILE CHECKSUM: 63a1a2247fe469f0c962aab3cc5774fe77f9c36d
+PODFILE CHECKSUM: 933ade62001120e30b03ca11c8892680611599b9
 
 COCOAPODS: 1.7.5

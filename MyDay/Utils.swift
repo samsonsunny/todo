@@ -33,3 +33,16 @@ extension String {
 		return !self.isEmpty
 	}
 }
+
+class RoundedButton: UIButton {
+	required init?(coder aDecoder: NSCoder) {
+	
+		super.init(coder: aDecoder)
+	}
+	
+	@IBInspectable var cornerRadius: CGFloat = 0.0 {
+		didSet {
+			self.layer.cornerRadius = cornerRadius
+		}
+	}
+}
