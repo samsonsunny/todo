@@ -10,6 +10,8 @@ import UIKit
 
 protocol AddTasker: class {
 	func addTask(with text: String)
+	func showNextPage()
+	func showPrevPage()
 }
 
 class AddTaskView: UIView, UITextFieldDelegate {
@@ -19,6 +21,14 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	@IBOutlet weak var addTaskTextField: UITextField!
 	@IBOutlet weak var addTaskButton: UIButton!
 	@IBOutlet weak var addTaskButtonHeightConstraint: NSLayoutConstraint!
+	
+	@IBOutlet weak var backButtonWidthConstraint: NSLayoutConstraint!
+	
+	@IBOutlet weak var nextButtonWidthConstraint: NSLayoutConstraint!
+	
+	// Next
+	// Prev
+	
 	
 	private let circleImage = UIImage(systemName: "circle")
 	private let plusImage = UIImage(systemName: "plus")
@@ -35,12 +45,31 @@ class AddTaskView: UIView, UITextFieldDelegate {
 		bringFocusToAddTaskTextField()
 	}
 	
+	@IBAction func prevButtonTapped(_ sender: Any) {
+		tasker?.showPrevPage()
+	}
+	
+	@IBAction func nextButtonTapped(_ sender: Any) {
+		tasker?.showNextPage()
+	}
+	
+	func hidePageNavigationButtons(_ hide: Bool) {
+		if hide {
+			nextButtonWidthConstraint.constant = 0
+			backButtonWidthConstraint.constant = 0
+		} else {
+			nextButtonWidthConstraint.constant = 60
+			backButtonWidthConstraint.constant = 60
+		}
+	}
+	
 	func adjustViewBasedOnKeyboard(visibility willShow: Bool, notification: NSNotification) {
 		let height = getKeyboardHeight(from: notification.userInfo)
 		adjustAddTaskView(height: height, keyboard: willShow)
 	}
 	
 	func bringFocusToAddTaskTextField() {
+		
 		self.setActiveViewMode()
 		addTaskTextField.becomeFirstResponder()
 	}
@@ -61,6 +90,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func setDefaultViewMode() {
+		hidePageNavigationButtons(false)
 		addTaskTextField.isHidden = true
 		addTaskLabel.isHidden = false
 		addTaskButton.isHidden = false
@@ -68,6 +98,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func setActiveViewMode() {
+		hidePageNavigationButtons(true)
 		addTaskTextField.isHidden = false
 		addTaskLabel.isHidden = true
 		addTaskButton.isHidden = true

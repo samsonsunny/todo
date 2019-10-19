@@ -10,36 +10,15 @@ import UIKit
 import MagicalRecord
 
 class TaskViewController: KeyboardViewController {
-	
-	@IBOutlet weak var daySegmentedView: UISegmentedControl!
-	
+		
 	@IBOutlet weak var addTaskView: AddTaskView!
 	
-	private var dayPaginator: UIPageViewController?
-		
-	var selectedDateFromCalendar: Date = Date().dateAtStartOf(.day) {
+	var dayPaginator: UIPageViewController?
+	var activeDate: Date = Date().dateAtStartOf(.day) {
 		didSet {
-			self.activeDates = [
-				selectedDateFromCalendar.dateByAdding(-1, .day).date,
-				selectedDateFromCalendar,
-				selectedDateFromCalendar.dateByAdding(1, .day).date
-			]
-		}
-	}
-	
-	private var activeDates: [Date] = [
-		Date().dateAtStartOf(.day).dateByAdding(-1, .day).date,
-		Date().dateAtStartOf(.day),
-		Date().dateAtStartOf(.day).dateByAdding(1, .day).date
-	]
-	
-	private var selectedDateFromSegementedView: Date {
-		return activeDates[activeSegmentIndex]
-	}
-	
-	private var activeSegmentIndex: Int = 1 {
-		didSet {
-			setTodoListViewController(todoListView)
+			if self.isViewLoaded {
+				self.updatePageTitle(from: activeDate)
+			}
 		}
 	}
 	
@@ -52,49 +31,42 @@ class TaskViewController: KeyboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.addTaskView.tasker = self
-		self.setTodoListViewController(todoListView)
-		self.updateSegmentsTitle()
+		self.setTodoListViewController(todoListView, direction: .forward, animated: false)
+
+		self.updatePageTitle(from: activeDate)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "dayPaginationSegue" {
+		if segue.identifier == SegueID.dayPagination.rawValue {
 			self.dayPaginator = segue.destination as? UIPageViewController
 		}
 	}
 	
-	@IBAction func dayChanged(_ sender: UISegmentedControl) {
-		activeSegmentIndex = sender.selectedSegmentIndex
-	}
-	
-	@objc override func keyBoardWillHide(_ notification: NSNotification) {
+	override func keyBoardWillHide(_ notification: NSNotification) {
 		addTaskView.adjustViewBasedOnKeyboard(visibility: false, notification: notification)
 	}
 	
-	@objc override func keyBoardWillShow(_ notification: NSNotification) {
+	override func keyBoardWillShow(_ notification: NSNotification) {
 		addTaskView.adjustViewBasedOnKeyboard(visibility: true, notification: notification)
 	}
 	
-	private func updateSegmentsTitle() {
-		
-		if selectedDateFromCalendar.isToday {
-			daySegmentedView.setTitle("Yesterday", forSegmentAt: 0)
-			daySegmentedView.setTitle("Today", forSegmentAt: 1)
-			daySegmentedView.setTitle("Tomorrow", forSegmentAt: 2)
+	private func updatePageTitle(from date: Date) {
+		if date.isToday {
+			self.title = "Today"
+		} else if date.isTomorrow {
+			self.title = "Tomorrow"
+		} else if date.isYesterday {
+			self.title = "Yesterday"
 		} else {
-			let prevDay = selectedDateFromCalendar.dateByAdding(-1, .day).date
-			let nextDay = selectedDateFromCalendar.dateByAdding(1, .day).date
-			
-			daySegmentedView.setTitle(prevDay.toFormat("MMM d"), forSegmentAt: 0)
-			daySegmentedView.setTitle(selectedDateFromCalendar.toFormat("MMM d"), forSegmentAt: 1)
-			daySegmentedView.setTitle(nextDay.toFormat("MMM d"), forSegmentAt: 2)
+			self.title = date.toFormat("MMMM d")
 		}
 	}
 	
-	private func setTodoListViewController(_ vc: TodoListViewController?) {
+	private func setTodoListViewController(_ vc: TodoListViewController?, direction: UIPageViewController.NavigationDirection, animated: Bool = true) {
 		if let todoView = vc {
-			todoView.activeDate = selectedDateFromSegementedView
+			todoView.activeDate = activeDate
 			todoView.delegate = self
-			self.addViewController(forPagination: todoView, direction: .forward, animated: false)
+			self.addViewController(forPagination: todoView, direction: direction, animated: animated)
 		}
 	}
 	
@@ -121,38 +93,17 @@ class TaskViewController: KeyboardViewController {
 
 extension TaskViewController: AddTasker {
 	func addTask(with text: String) {
-		let todo = Todo(title: text, date: selectedDateFromSegementedView)
+		let todo = Todo(title: text, date: activeDate)
 		saveTodo(todo)
 	}
-}
-
-extension TaskViewController: TodoListDelegate {
-	func listViewTapped() {
-		if addTaskView.addTaskTextField.isFirstResponder {
-			addTaskView.removeFoucsFromAddTaskTextField()
-		} else {
-			addTaskView.bringFocusToAddTaskTextField()
-		}
+	
+	func showNextPage() {
+		activeDate = activeDate.dateByAdding(1, .day).date
+		setTodoListViewController(todoListView, direction: .forward)
 	}
 	
-	func listViewDragged(_ scrollView: UIScrollView) {
-		if addTaskView.addTaskTextField.isFirstResponder {
-			addTaskView.removeFoucsFromAddTaskTextField()
-		}
-	}
-	
-	func deleteTask(_ task: Task) {
-		task.mr_deleteEntity(in: .mr_default())
-		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
-			(self.dayPaginator?.viewControllers?.first as? TodoListViewController)?.reloadTasks()
-		}
-	}
-	
-	func updateTask(_ task: Task, with todo: Todo) {
-		task.setTask(with: todo)
-		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
-			(self.dayPaginator?.viewControllers?.first as? TodoListViewController)?.reloadTasks()
-		}
+	func showPrevPage() {
+		activeDate = activeDate.dateByAdding(-1, .day).date
+		setTodoListViewController(todoListView, direction: .reverse)
 	}
 }
-

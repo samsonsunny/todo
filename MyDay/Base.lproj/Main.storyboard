@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EkN-Yk-sKu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGh-Hx-4Oc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-V0-oCr">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <connections>
                                     <segue destination="9Ky-Jb-uRr" kind="embed" identifier="monthPaginationSegue" id="uRx-Oh-MoA"/>
                                 </connections>
@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJ1-9L-eG5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="-467"/>
+            <point key="canvasLocation" x="2226" y="-467"/>
         </scene>
         <!--Month Page View Controller-->
         <scene sceneID="x6D-bU-mJg">
@@ -59,37 +59,60 @@
             </objects>
             <point key="canvasLocation" x="3025" y="-467"/>
         </scene>
-        <!--Tasks-->
+        <!--Agenda View Controller-->
+        <scene sceneID="2qm-Xc-EDi">
+            <objects>
+                <viewController storyboardIdentifier="AgendaViewControllerID" id="Fgt-vN-3IK" customClass="AgendaViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l8X-M2-OzQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="McI-0P-Rxw">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXv-kG-lAv">
+                                <rect key="frame" x="20" y="54" width="344" height="70"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="RJx-s3-GaS" kind="show" id="eS3-p1-AKA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tS2-Bc-a6x" firstAttribute="bottom" secondItem="McI-0P-Rxw" secondAttribute="bottom" id="1UE-lH-mhf"/>
+                            <constraint firstItem="tS2-Bc-a6x" firstAttribute="trailing" secondItem="McI-0P-Rxw" secondAttribute="trailing" id="FcR-jq-ZXg"/>
+                            <constraint firstItem="tS2-Bc-a6x" firstAttribute="trailing" secondItem="oXv-kG-lAv" secondAttribute="trailing" constant="50" id="GWB-Gx-TM2"/>
+                            <constraint firstItem="oXv-kG-lAv" firstAttribute="leading" secondItem="tS2-Bc-a6x" secondAttribute="leading" constant="20" id="IJj-Ez-ADd"/>
+                            <constraint firstItem="oXv-kG-lAv" firstAttribute="top" secondItem="tS2-Bc-a6x" secondAttribute="top" constant="10" id="RqJ-NX-Qbf"/>
+                            <constraint firstItem="McI-0P-Rxw" firstAttribute="leading" secondItem="tS2-Bc-a6x" secondAttribute="leading" id="ryx-Xm-mUc"/>
+                            <constraint firstItem="McI-0P-Rxw" firstAttribute="top" secondItem="tS2-Bc-a6x" secondAttribute="top" constant="100" id="tuU-Sq-vL5"/>
+                            <constraint firstItem="McI-0P-Rxw" firstAttribute="top" secondItem="oXv-kG-lAv" secondAttribute="bottom" constant="20" id="yER-aL-YH4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tS2-Bc-a6x"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-uP-IiX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3971" y="-467"/>
+        </scene>
+        <!--Task View Controller-->
         <scene sceneID="eHZ-9U-4bR">
             <objects>
                 <viewController storyboardIdentifier="TaskViewControllerID" id="RJx-s3-GaS" customClass="TaskViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LnP-Hw-gYS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="yYA-sC-uO8">
-                                <rect key="frame" x="57" y="44" width="300" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Na8-Z4-lWu"/>
-                                    <constraint firstAttribute="height" constant="30" id="zaW-6M-nRx"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Yesterday"/>
-                                    <segment title="Today"/>
-                                    <segment title="Tomorrow"/>
-                                </segments>
-                                <connections>
-                                    <action selector="dayChanged:" destination="RJx-s3-GaS" eventType="valueChanged" id="90w-xL-p6j"/>
-                                </connections>
-                            </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJw-tt-Jkh">
-                                <rect key="frame" x="0.0" y="82" width="414" height="719"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="747"/>
                                 <connections>
                                     <segue destination="5nj-zO-qIy" kind="embed" identifier="dayPaginationSegue" id="qgd-aW-bqV"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COC-ui-hYO" customClass="AddTaskView" customModule="MyDay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="801" width="414" height="61"/>
+                                <rect key="frame" x="0.0" y="747" width="414" height="61"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pu-Uo-ZQ2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
@@ -97,17 +120,22 @@
                                             <constraint firstAttribute="height" constant="1" id="L1e-D3-1LC"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-An-82j">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7J-SJ-Zbt">
+                                        <rect key="frame" x="0.0" y="12.5" width="60" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="la3-Oy-sLQ"/>
+                                            <constraint firstAttribute="width" constant="60" id="pul-gb-iPp"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" image="arrow.left" catalog="system">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
+                                        </state>
                                         <connections>
-                                            <action selector="addTaskButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="9OL-Is-Anq"/>
+                                            <action selector="prevButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="RfU-FL-9Nj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-HH-JaQ">
-                                        <rect key="frame" x="15" y="16" width="30" height="30"/>
+                                        <rect key="frame" x="70" y="16" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="LB8-41-1Mi"/>
                                             <constraint firstAttribute="height" constant="30" id="Noz-mb-2Jb"/>
@@ -118,7 +146,7 @@
                                         </state>
                                     </button>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Task..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQK-wH-0RC">
-                                        <rect key="frame" x="60" y="16" width="344" height="30"/>
+                                        <rect key="frame" x="115" y="16" width="221" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ueB-GF-B53"/>
                                         </constraints>
@@ -127,7 +155,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-ZK-l1o">
-                                        <rect key="frame" x="60" y="16" width="344" height="30"/>
+                                        <rect key="frame" x="115" y="16" width="221" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="O8U-r1-dNn"/>
                                         </constraints>
@@ -135,57 +163,83 @@
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-An-82j">
+                                        <rect key="frame" x="70" y="1" width="266" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="la3-Oy-sLQ"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="addTaskButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="9OL-Is-Anq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZo-Gl-Ao8">
+                                        <rect key="frame" x="346" y="19.5" width="60" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="ylF-ET-HZ2"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.right" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="semibold">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            </preferredSymbolConfiguration>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="t9U-io-I1T"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="6Zl-HH-JaQ" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="1cT-y2-azL"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="leading" id="2vs-Ld-zpJ"/>
                                     <constraint firstItem="2Pu-Uo-ZQ2" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="3u5-oX-Dvt"/>
+                                    <constraint firstItem="x7J-SJ-Zbt" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="8ya-sq-qdh"/>
                                     <constraint firstItem="q7V-An-82j" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" id="IhE-fC-zQ0"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="Jgc-8T-Dpl"/>
+                                    <constraint firstItem="sZo-Gl-Ao8" firstAttribute="leading" secondItem="AQK-wH-0RC" secondAttribute="trailing" constant="10" id="KS1-UP-HzG"/>
+                                    <constraint firstItem="sZo-Gl-Ao8" firstAttribute="centerY" secondItem="COC-ui-hYO" secondAttribute="centerY" id="KiO-DQ-RJb"/>
+                                    <constraint firstItem="x7J-SJ-Zbt" firstAttribute="centerY" secondItem="COC-ui-hYO" secondAttribute="centerY" id="Kuw-ya-8Xb"/>
                                     <constraint firstAttribute="trailing" secondItem="2Pu-Uo-ZQ2" secondAttribute="trailing" id="OE6-Hu-7yo"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="W0r-nK-IxA"/>
                                     <constraint firstItem="AQK-wH-0RC" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="W7U-Gm-oIv"/>
-                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" constant="15" id="Yzk-NY-580"/>
+                                    <constraint firstAttribute="trailing" secondItem="sZo-Gl-Ao8" secondAttribute="trailing" constant="8" id="Y8g-2d-Xm5"/>
+                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="leading" secondItem="x7J-SJ-Zbt" secondAttribute="trailing" constant="10" id="ZqN-rY-aXD"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="dJ5-OY-qSA"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="trailing" constant="15" id="hUx-Oc-0sM"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="jaY-hP-3DR"/>
                                     <constraint firstItem="2Pu-Uo-ZQ2" firstAttribute="top" secondItem="COC-ui-hYO" secondAttribute="top" id="lUE-CS-RQH"/>
                                     <constraint firstAttribute="bottom" secondItem="q7V-An-82j" secondAttribute="bottom" id="sHY-UJ-9Of"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="leading" secondItem="AQK-wH-0RC" secondAttribute="leading" id="u7N-bo-VnF"/>
-                                    <constraint firstAttribute="trailing" secondItem="q7V-An-82j" secondAttribute="trailing" id="xSt-9G-zv1"/>
-                                    <constraint firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" constant="10" id="xpP-dG-Enu"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="addTaskButton" destination="q7V-An-82j" id="iVu-ai-s8o"/>
                                     <outlet property="addTaskButtonHeightConstraint" destination="la3-Oy-sLQ" id="xKy-nF-rP1"/>
                                     <outlet property="addTaskLabel" destination="Gpz-ZK-l1o" id="EbH-MO-Qk3"/>
                                     <outlet property="addTaskTextField" destination="AQK-wH-0RC" id="5xf-g9-Iaa"/>
+                                    <outlet property="backButtonWidthConstraint" destination="pul-gb-iPp" id="6gF-Ww-QmS"/>
                                     <outlet property="leadingButton" destination="6Zl-HH-JaQ" id="ie1-VQ-bd1"/>
+                                    <outlet property="nextButtonWidthConstraint" destination="ylF-ET-HZ2" id="SCf-v2-g85"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="yYA-sC-uO8" firstAttribute="centerX" secondItem="LnP-Hw-gYS" secondAttribute="centerX" id="1y0-QW-4KV"/>
                             <constraint firstItem="zJw-tt-Jkh" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="4y1-S5-5NR"/>
-                            <constraint firstItem="yYA-sC-uO8" firstAttribute="top" secondItem="ARr-aE-rsv" secondAttribute="top" id="6AP-G0-Ieq"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="Bd1-hq-Bl4"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="trailing" secondItem="ARr-aE-rsv" secondAttribute="trailing" id="O2q-ZQ-lpa"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="bottom" secondItem="ARr-aE-rsv" secondAttribute="bottom" id="SUh-cv-hVT"/>
+                            <constraint firstItem="zJw-tt-Jkh" firstAttribute="top" secondItem="ARr-aE-rsv" secondAttribute="top" id="TPY-3u-0ZO"/>
                             <constraint firstItem="ARr-aE-rsv" firstAttribute="trailing" secondItem="zJw-tt-Jkh" secondAttribute="trailing" id="UDt-31-0Sx"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="top" secondItem="zJw-tt-Jkh" secondAttribute="bottom" id="hCD-JI-Kuk"/>
-                            <constraint firstItem="zJw-tt-Jkh" firstAttribute="top" secondItem="yYA-sC-uO8" secondAttribute="bottom" constant="8" id="qsq-OZ-9GA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ARr-aE-rsv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tasks" id="sQH-YP-zhC"/>
+                    <navigationItem key="navigationItem" id="dZ3-US-gpl"/>
                     <connections>
                         <outlet property="addTaskView" destination="COC-ui-hYO" id="KyI-iK-jbs"/>
-                        <outlet property="daySegmentedView" destination="yYA-sC-uO8" id="Ncy-6S-FLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tez-c2-WHp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4016" y="-467"/>
+            <point key="canvasLocation" x="5810" y="-467"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q8s-gv-XOy">
@@ -197,13 +251,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ZGh-Hx-4Oc" kind="relationship" relationship="viewControllers" id="km0-kP-Dbc"/>
                         <segue destination="YX7-8g-bQM" kind="relationship" relationship="viewControllers" id="cyz-b5-e1M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwD-En-5le" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441" y="-110"/>
+            <point key="canvasLocation" x="509" y="305"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="41A-Mq-Wg9">
@@ -211,7 +264,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5nj-zO-qIy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AX-BM-1dj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4874" y="-467"/>
+            <point key="canvasLocation" x="6668" y="-467"/>
         </scene>
         <!--Todo List View Controller-->
         <scene sceneID="sxo-JD-fjP">
@@ -292,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDn-9o-VpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5777" y="-467"/>
+            <point key="canvasLocation" x="7571" y="-467"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Jai-n7-PCH">
@@ -383,6 +436,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="arrow.right" catalog="system" width="64" height="48"/>
         <image name="circle" catalog="system" width="64" height="62"/>
         <image name="gear" catalog="system" width="64" height="60"/>
         <image name="list.bullet" catalog="system" width="64" height="44"/>

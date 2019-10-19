@@ -37,7 +37,7 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "monthPaginationSegue" {
+		if segue.identifier == SegueID.monthPagination.rawValue {
 			(segue.destination as? MonthPageViewController)?.activeDate = activeDate
 			(segue.destination as? MonthPageViewController)?.monthPickerDelegate = self
 		}
@@ -74,10 +74,15 @@ extension MonthPickerViewController {
 //		self.present(calendarView!, animated: true, completion: nil)
 		
 		
-		let vc = UIStoryboard(name: "Main", bundle: nil)
-		.instantiateViewController(identifier: "TaskViewControllerID") as? TaskViewController
-		vc?.selectedDateFromCalendar = activeDate
+//		let vc = UIStoryboard(name: "Main", bundle: nil)
+//		.instantiateViewController(identifier: "TaskViewControllerID") as? TaskViewController
+//		vc?.selectedDateFromCalendar = activeDate
 		
-		self.navigationController?.pushViewController(vc!, animated: true)
+		self.navigationController?.pushViewController(agendaView!, animated: true)
+	}
+	
+	var agendaView: AgendaViewController? {
+		return UIStoryboard(name: "Main", bundle: nil)
+		.instantiateViewController(identifier: "AgendaViewControllerID") as? AgendaViewController
 	}
 }

@@ -28,6 +28,8 @@
 		2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF92200B31270051901C /* MyDay.xcdatamodeld */; };
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
+		2287CFB4235B407200490DCF /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287CFB3235B407200490DCF /* Identifiers.swift */; };
+		2287CFB6235B435900490DCF /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287CFB5235B435900490DCF /* AgendaViewController.swift */; };
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
 		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
@@ -50,6 +52,7 @@
 		22E8C1D923012E69007D7472 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C523012E69007D7472 /* Lato-Light.ttf */; };
 		22E8C1DA23012E69007D7472 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C623012E69007D7472 /* Lato-Regular.ttf */; };
 		22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */; };
+		22FC6BCC235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */; };
 		364430FA050937DED743659D /* Pods_MyDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,8 @@
 		2282CF95200B31280051901C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2282CF98200B31280051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2282CF9A200B31280051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2287CFB3235B407200490DCF /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		2287CFB5235B435900490DCF /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		22E8C1C523012E69007D7472 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		22E8C1C623012E69007D7472 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
+		22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+TodoListDelegate.swift"; sourceTree = "<group>"; };
 		3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B19D26A264F7E5BBC35E103 /* Pods-MyDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.debug.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.debug.xcconfig"; sourceTree = "<group>"; };
 		C96AB425A4B4DF0E1E0EC898 /* Pods-MyDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.release.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				2279EDC12356B83D00675EAA /* Month */,
 				221327722356B5B5000EDB4E /* TabBarController.swift */,
 				22546089233092E30071DA1D /* TaskViewController.swift */,
+				22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */,
 				223CF3D22351D4A300F20C0D /* TaskTableView.swift */,
 				22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */,
 				2238F339233C52DC007330A4 /* AddTaskView.swift */,
@@ -162,7 +169,9 @@
 				226191A5231028FF00C5A716 /* KeyboardViewController.swift */,
 				22C682022303B17F00447F21 /* Utils.swift */,
 				2254608523307A000071DA1D /* Color+Extension.swift */,
+				2287CFB3235B407200490DCF /* Identifiers.swift */,
 				2282CF8F200B31270051901C /* Main.storyboard */,
+				2287CFB5235B435900490DCF /* AgendaViewController.swift */,
 				2282CF95200B31280051901C /* Assets.xcassets */,
 				2282CF97200B31280051901C /* LaunchScreen.storyboard */,
 				2282CF9A200B31280051901C /* Info.plist */,
@@ -362,7 +371,10 @@
 				2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */,
 				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
+				2287CFB4235B407200490DCF /* Identifiers.swift in Sources */,
+				2287CFB6235B435900490DCF /* AgendaViewController.swift in Sources */,
 				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
+				22FC6BCC235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift in Sources */,
 				2279EDCD2356B83D00675EAA /* MonthViewPagination.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
 				2279EDCC2356B83D00675EAA /* CollectionViewCells.swift in Sources */,
