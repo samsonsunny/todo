@@ -37,7 +37,7 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "page" {
+		if segue.identifier == "monthPaginationSegue" {
 			(segue.destination as? MonthPageViewController)?.activeDate = activeDate
 			(segue.destination as? MonthPageViewController)?.monthPickerDelegate = self
 		}

@@ -15,8 +15,8 @@ class TaskViewController: KeyboardViewController {
 	
 	@IBOutlet weak var addTaskView: AddTaskView!
 	
-	@IBOutlet weak var pageContainer: UIView!
-	
+	private var dayPaginator: UIPageViewController?
+		
 	var selectedDateFromCalendar: Date = Date().dateAtStartOf(.day) {
 		didSet {
 			self.activeDates = [
@@ -37,9 +37,6 @@ class TaskViewController: KeyboardViewController {
 		return activeDates[activeSegmentIndex]
 	}
 	
-	// Used just to utilise the animation of view controller presentation.
-	private let paginator = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-	
 	private var activeSegmentIndex: Int = 1 {
 		didSet {
 			setTodoListViewController(todoListView)
@@ -54,10 +51,15 @@ class TaskViewController: KeyboardViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.addTaskView.tasker = self 
-		self.addPaginator()
+		self.addTaskView.tasker = self
 		self.setTodoListViewController(todoListView)
 		self.updateSegmentsTitle()
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "dayPaginationSegue" {
+			self.dayPaginator = segue.destination as? UIPageViewController
+		}
 	}
 	
 	@IBAction func dayChanged(_ sender: UISegmentedControl) {
@@ -88,20 +90,6 @@ class TaskViewController: KeyboardViewController {
 		}
 	}
 	
-	private func addPaginator() {
-		self.addChild(paginator)
-		paginator.view.translatesAutoresizingMaskIntoConstraints = false
-		pageContainer.addSubview(paginator.view)
-		
-		NSLayoutConstraint.activate([
-			paginator.view.leadingAnchor.constraint(equalTo: pageContainer.leadingAnchor),
-			paginator.view.trailingAnchor.constraint(equalTo: pageContainer.trailingAnchor),
-			paginator.view.topAnchor.constraint(equalTo: pageContainer.topAnchor),
-			paginator.view.bottomAnchor.constraint(equalTo: pageContainer.bottomAnchor)
-		])
-		paginator.didMove(toParent: self)
-	}
-	
 	private func setTodoListViewController(_ vc: TodoListViewController?) {
 		if let todoView = vc {
 			todoView.activeDate = selectedDateFromSegementedView
@@ -112,7 +100,7 @@ class TaskViewController: KeyboardViewController {
 	
 	private func addViewController(forPagination taskListView: TodoListViewController, direction: UIPageViewController.NavigationDirection, animated: Bool = true) {
 		
-		paginator.setViewControllers([taskListView],
+		dayPaginator?.setViewControllers([taskListView],
 									 direction: direction,
 									 animated: animated,
 									 completion: nil)
@@ -126,17 +114,8 @@ class TaskViewController: KeyboardViewController {
 		}
 	}
 	
-	//	func refetchTasks() {
-	//		tasks = Task.getTasks(for: activeDate)
-	//		DispatchQueue.main.async {
-	//			self.todoListView.reloadData()
-	//			self.toggleEditButton()
-	//			self.toggleAddTaskButton()
-	//		}
-	//	}
-	
 	func refetchTaskAndScrollToLastRow() {
-		(paginator.viewControllers?.first as? TodoListViewController)?.refreshView(scrollToLastRow: true)
+		(dayPaginator?.viewControllers?.first as? TodoListViewController)?.refreshView(scrollToLastRow: true)
 	}
 }
 
@@ -165,14 +144,14 @@ extension TaskViewController: TodoListDelegate {
 	func deleteTask(_ task: Task) {
 		task.mr_deleteEntity(in: .mr_default())
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
-			(self.paginator.viewControllers?.first as? TodoListViewController)?.reloadTasks()
+			(self.dayPaginator?.viewControllers?.first as? TodoListViewController)?.reloadTasks()
 		}
 	}
 	
 	func updateTask(_ task: Task, with todo: Todo) {
 		task.setTask(with: todo)
 		NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (bool, nil) in
-			(self.paginator.viewControllers?.first as? TodoListViewController)?.reloadTasks()
+			(self.dayPaginator?.viewControllers?.first as? TodoListViewController)?.reloadTasks()
 		}
 	}
 }
