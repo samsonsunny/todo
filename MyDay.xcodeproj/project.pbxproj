@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		221327732356B5B5000EDB4E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221327722356B5B5000EDB4E /* TabBarController.swift */; };
-		2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F335233C5297007330A4 /* TaskListBaseViewController.swift */; };
-		2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F337233C52B9007330A4 /* DatePickerViewController.swift */; };
+		2216323E235DF06A0086CF3A /* DateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2216323D235DF06A0086CF3A /* DateSliderView.swift */; };
 		2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238F339233C52DC007330A4 /* AddTaskView.swift */; };
 		223CF3D32351D4A300F20C0D /* TaskTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D22351D4A300F20C0D /* TaskTableView.swift */; };
-		223CF3D52351D86C00F20C0D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D42351D86C00F20C0D /* CalendarViewController.swift */; };
-		223CF3D72351D87800F20C0D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223CF3D62351D87800F20C0D /* SettingsViewController.swift */; };
 		2241C44D2309288A0032235B /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44C2309288A0032235B /* TodoCell.swift */; };
 		2241C44F2309332F0032235B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2241C44E2309332F0032235B /* Todo.swift */; };
 		2254608623307A000071DA1D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254608523307A000071DA1D /* Color+Extension.swift */; };
@@ -28,14 +24,12 @@
 		2279EDCC2356B83D00675EAA /* CollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC62356B83D00675EAA /* CollectionViewCells.swift */; };
 		2279EDCD2356B83D00675EAA /* MonthViewPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2279EDC72356B83D00675EAA /* MonthViewPagination.swift */; };
 		2282CF8C200B31270051901C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8B200B31270051901C /* AppDelegate.swift */; };
-		2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF8D200B31270051901C /* TaskListViewController.swift */; };
 		2282CF91200B31270051901C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF8F200B31270051901C /* Main.storyboard */; };
 		2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2282CF92200B31270051901C /* MyDay.xcdatamodeld */; };
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
-		22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */; };
+		2287CFB4235B407200490DCF /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287CFB3235B407200490DCF /* Identifiers.swift */; };
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
-		22D64DCC2351EB27004A4B5E /* DayPaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCB2351EB27004A4B5E /* DayPaginator.swift */; };
 		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
 		22E8C1C923012E69007D7472 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */; };
@@ -57,18 +51,14 @@
 		22E8C1D923012E69007D7472 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C523012E69007D7472 /* Lato-Light.ttf */; };
 		22E8C1DA23012E69007D7472 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C623012E69007D7472 /* Lato-Regular.ttf */; };
 		22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */; };
-		22E8C1DD23013021007D7472 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C1DC23013021007D7472 /* GradientView.swift */; };
+		22FC6BCC235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */; };
 		364430FA050937DED743659D /* Pods_MyDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		221327722356B5B5000EDB4E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		2238F335233C5297007330A4 /* TaskListBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListBaseViewController.swift; sourceTree = "<group>"; };
-		2238F337233C52B9007330A4 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		2216323D235DF06A0086CF3A /* DateSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSliderView.swift; sourceTree = "<group>"; };
 		2238F339233C52DC007330A4 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		223CF3D22351D4A300F20C0D /* TaskTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableView.swift; sourceTree = "<group>"; };
-		223CF3D42351D86C00F20C0D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		223CF3D62351D87800F20C0D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2241C44C2309288A0032235B /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		2241C44E2309332F0032235B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2254608523307A000071DA1D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -84,15 +74,13 @@
 		2279EDC72356B83D00675EAA /* MonthViewPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewPagination.swift; sourceTree = "<group>"; };
 		2282CF88200B31270051901C /* MyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282CF8B200B31270051901C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2282CF8D200B31270051901C /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		2282CF90200B31270051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2282CF93200B31270051901C /* MyDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDay.xcdatamodel; sourceTree = "<group>"; };
 		2282CF95200B31280051901C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2282CF98200B31280051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2282CF9A200B31280051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageViewController.swift; sourceTree = "<group>"; };
+		2287CFB3235B407200490DCF /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		22D64DCB2351EB27004A4B5E /* DayPaginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPaginator.swift; sourceTree = "<group>"; };
 		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -114,7 +102,7 @@
 		22E8C1C523012E69007D7472 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		22E8C1C623012E69007D7472 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
-		22E8C1DC23013021007D7472 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+TodoListDelegate.swift"; sourceTree = "<group>"; };
 		3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B19D26A264F7E5BBC35E103 /* Pods-MyDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.debug.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.debug.xcconfig"; sourceTree = "<group>"; };
 		C96AB425A4B4DF0E1E0EC898 /* Pods-MyDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.release.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,25 +155,19 @@
 			isa = PBXGroup;
 			children = (
 				2279EDC12356B83D00675EAA /* Month */,
-				223CF3D42351D86C00F20C0D /* CalendarViewController.swift */,
-				22D64DCB2351EB27004A4B5E /* DayPaginator.swift */,
-				221327722356B5B5000EDB4E /* TabBarController.swift */,
-				223CF3D62351D87800F20C0D /* SettingsViewController.swift */,
 				22546089233092E30071DA1D /* TaskViewController.swift */,
+				22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */,
 				223CF3D22351D4A300F20C0D /* TaskTableView.swift */,
+				2216323D235DF06A0086CF3A /* DateSliderView.swift */,
 				22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */,
 				2238F339233C52DC007330A4 /* AddTaskView.swift */,
-				2238F335233C5297007330A4 /* TaskListBaseViewController.swift */,
-				2238F337233C52B9007330A4 /* DatePickerViewController.swift */,
 				2282CF8B200B31270051901C /* AppDelegate.swift */,
 				2241C44C2309288A0032235B /* TodoCell.swift */,
 				2241C44E2309332F0032235B /* Todo.swift */,
-				2282CF8D200B31270051901C /* TaskListViewController.swift */,
-				22A3000B231F4EEA00A1EA50 /* TaskPageViewController.swift */,
 				226191A5231028FF00C5A716 /* KeyboardViewController.swift */,
 				22C682022303B17F00447F21 /* Utils.swift */,
 				2254608523307A000071DA1D /* Color+Extension.swift */,
-				22E8C1DC23013021007D7472 /* GradientView.swift */,
+				2287CFB3235B407200490DCF /* Identifiers.swift */,
 				2282CF8F200B31270051901C /* Main.storyboard */,
 				2282CF95200B31280051901C /* Assets.xcassets */,
 				2282CF97200B31280051901C /* LaunchScreen.storyboard */,
@@ -382,29 +364,23 @@
 				2241C44F2309332F0032235B /* Todo.swift in Sources */,
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
-				223CF3D72351D87800F20C0D /* SettingsViewController.swift in Sources */,
-				221327732356B5B5000EDB4E /* TabBarController.swift in Sources */,
 				2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */,
 				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
+				2287CFB4235B407200490DCF /* Identifiers.swift in Sources */,
 				227416E22311072200570513 /* Task+CoreDataProperties.swift in Sources */,
+				22FC6BCC235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift in Sources */,
 				2279EDCD2356B83D00675EAA /* MonthViewPagination.swift in Sources */,
 				2282CF94200B31270051901C /* MyDay.xcdatamodeld in Sources */,
 				2279EDCC2356B83D00675EAA /* CollectionViewCells.swift in Sources */,
-				22D64DCC2351EB27004A4B5E /* DayPaginator.swift in Sources */,
-				2282CF8E200B31270051901C /* TaskListViewController.swift in Sources */,
 				227416E12311072200570513 /* Task+CoreDataClass.swift in Sources */,
-				2238F336233C5297007330A4 /* TaskListBaseViewController.swift in Sources */,
-				223CF3D52351D86C00F20C0D /* CalendarViewController.swift in Sources */,
 				2254608623307A000071DA1D /* Color+Extension.swift in Sources */,
-				22E8C1DD23013021007D7472 /* GradientView.swift in Sources */,
 				22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */,
-				2238F338233C52B9007330A4 /* DatePickerViewController.swift in Sources */,
 				223CF3D32351D4A300F20C0D /* TaskTableView.swift in Sources */,
 				2279EDC82356B83D00675EAA /* MonthViewController.swift in Sources */,
 				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
-				22A3000C231F4EEA00A1EA50 /* TaskPageViewController.swift in Sources */,
+				2216323E235DF06A0086CF3A /* DateSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,12 +32,15 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		self.title = ""
 		setMonthNameAsTitle(from: activeDate)
+		
+		self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+//		self.navigationController?.navigationBar.shadowImage = nil 
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "page" {
+		if segue.identifier == SegueID.monthPagination.rawValue {
 			(segue.destination as? MonthPageViewController)?.activeDate = activeDate
 			(segue.destination as? MonthPageViewController)?.monthPickerDelegate = self
 		}
@@ -52,7 +55,7 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	}
 	
 	private func setMonthNameAsTitle(from date: Date) {
-		self.title = date.monthName(.default)
+//		self.title = date.monthName(.default)
 	}
 	
 	func didSelectPickerDate(_ date: Date) {
@@ -76,7 +79,7 @@ extension MonthPickerViewController {
 		
 		let vc = UIStoryboard(name: "Main", bundle: nil)
 		.instantiateViewController(identifier: "TaskViewControllerID") as? TaskViewController
-		vc?.selectedDateFromCalendar = activeDate
+		vc?.activeDate = activeDate
 		
 		self.navigationController?.pushViewController(vc!, animated: true)
 	}

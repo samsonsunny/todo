@@ -21,7 +21,6 @@ extension UIView {
 	}
 }
 
-
 extension UITextField {
 	func clear() {
 		self.text = nil
