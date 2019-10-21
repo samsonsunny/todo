@@ -26,10 +26,6 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	
 	@IBOutlet weak var nextButtonWidthConstraint: NSLayoutConstraint!
 	
-	// Next
-	// Prev
-	
-	
 	private let circleImage = UIImage(systemName: "circle")
 	private let plusImage = UIImage(systemName: "plus")
 	private let defaultViewHeight = CGFloat(60)
@@ -54,6 +50,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	func hidePageNavigationButtons(_ hide: Bool) {
+		return
 		if hide {
 			nextButtonWidthConstraint.constant = 0
 			backButtonWidthConstraint.constant = 0
