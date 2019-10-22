@@ -33,6 +33,16 @@ extension String {
 	}
 }
 
+extension UIView{
+
+	func setBorder(radius: CGFloat, color: UIColor = UIColor.clear) {
+		self.layer.cornerRadius = CGFloat(radius)
+		self.layer.borderWidth = 1
+		self.layer.borderColor = color.cgColor
+        self.clipsToBounds = true
+    }
+}
+
 class RoundedButton: UIButton {
 	required init?(coder aDecoder: NSCoder) {
 	

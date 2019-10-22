@@ -13,6 +13,10 @@ enum SegueID: String {
 	case dayPagination = "dayPaginationSegue"
 }
 
-//enum ViewControllerID: String {
-//	case taskList
-//}
+enum ViewController {
+	case todoList
+	
+	var id: String {
+		return "TodoListViewControllerID"
+	}
+}

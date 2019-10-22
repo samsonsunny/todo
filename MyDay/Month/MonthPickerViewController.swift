@@ -55,7 +55,7 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	}
 	
 	private func setMonthNameAsTitle(from date: Date) {
-//		self.title = date.monthName(.default)
+		self.title = date.monthName(.default)
 	}
 	
 	func didSelectPickerDate(_ date: Date) {

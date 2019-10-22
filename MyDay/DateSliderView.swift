@@ -9,22 +9,80 @@
 import UIKit
 import SwiftDate
 
+protocol DateSliderHelper: class {
+	func didSelectCell(forDate date: Date)
+}
+
 class DateSliderView: UICollectionView {
+	
+	let currentYear: Int = Date().dateAtStartOf(.day).year
 	
 	var selectedDate: Date = Date().dateAtStartOf(.day) {
 		didSet {
-			if let index = dates.firstIndex(of: selectedDate) {
-				self.reloadItems(at: [IndexPath(item: index, section: 0)])
+			guard let index = self.dates.firstIndex(of: selectedDate) else {
+				return
 			}
+			let indexPath = IndexPath(item: index, section: 0)
+			let isDateVisible = self.indexPathsForVisibleItems.contains(indexPath)
+			self.reloadData()
+
+			if !isDateVisible {
+				scrollTo(date: selectedDate)
+			}
+			
+//			let cell = self.cellForItem(at: indexPath)?.frame
 		}
 	}
 	
-	let dates = Date.enumerateDates(from: Date().dateAtStartOf(.day).dateByAdding(-1000, .day).date, to: Date().dateAtStartOf(.day).dateByAdding(1000, .day).date, increment: DateComponents(day: 1))
+	let dates = Date.enumerateDates(
+		from: Date().dateAtStartOf(.day).dateByAdding(-1000, .day).date,
+		to: Date().dateAtStartOf(.day).dateByAdding(1000, .day).date,
+		increment: DateComponents(day: 1))
+	
+	var helper: DateSliderHelper?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		self.delegate = self
 		self.dataSource = self
+	}
+	
+	func scrollTo(date: Date, animated: Bool = true) {
+		guard let index = self.dates.firstIndex(of: date) else {
+			return
+		}
+		self.scrollToItem(at: IndexPath(item: index-1, section: 0), at: .left, animated: animated)
+	}
+	
+	func sliderTitle() {
+		let sortedRows = self.indexPathsForVisibleItems.map { (indexPath) -> Int in
+			return indexPath.row
+		}.sorted(by: <)
+		
+		if let firstRow = sortedRows.first, let lastRow = sortedRows.last {
+			
+			let firstDate = dates[firstRow]
+			let lastDate = dates[lastRow]
+			
+			if firstDate.year == currentYear && lastDate.year == currentYear {
+				if firstDate.month == lastDate.month {
+					print(firstDate.monthName(.default))
+				} else {
+					print("\(firstDate.monthName(.default)) - \(lastDate.monthName(.default))")
+				}
+			} else {
+				if firstDate.month == lastDate.month {
+					print("\(firstDate.monthName(.default)) \(firstDate.year)")
+				} else {
+					if firstDate.year == lastDate.year {
+						print("\(firstDate.monthName(.default)) - \(lastDate.monthName(.default)) \(firstDate.year)")
+					} else {
+						print("\(firstDate.monthName(.default)) \(firstDate.year) - \(lastDate.monthName(.default)) \(lastDate.year)")
+					}
+					
+				}
+			}
+		}
 	}
 }
 
@@ -35,6 +93,7 @@ extension DateSliderView: UICollectionViewDelegate, UICollectionViewDataSource, 
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day", for: indexPath) as? DaySliderCell else {
 			return UICollectionViewCell()
 		}
@@ -42,33 +101,21 @@ extension DateSliderView: UICollectionViewDelegate, UICollectionViewDataSource, 
 			return UICollectionViewCell()
 		}
 		cell.updateCell(with: dates[indexPath.row], selectedDate: selectedDate)
+		sliderTitle()
 		return cell
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
-//		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "day", for: indexPath) as? DaySliderCell else {
-//			return
-//		}
-//		cell.setBorder(radius: 15, color: UIColor.black)
+		guard indexPath.row < numberOfItems(inSection: 0) else {
+			return
+		}
+		helper?.didSelectCell(forDate: dates[indexPath.row])
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return CGSize(width: 54, height: 54)
 	}
 }
-
-extension UIView{
-
-	func setBorder(radius: CGFloat, color: UIColor = UIColor.clear) {
-		self.layer.cornerRadius = CGFloat(radius)
-		self.layer.borderWidth = 1
-		self.layer.borderColor = color.cgColor
-        self.clipsToBounds = true
-    }
-}
-
-
 
 class DaySliderCell: UICollectionViewCell {
 	
