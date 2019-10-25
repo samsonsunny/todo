@@ -15,6 +15,8 @@ class TaskViewController: KeyboardViewController {
 	@IBOutlet weak var addTaskView: AddTaskView!
 	@IBOutlet weak var dateSliderView: DateSliderView!
 	
+	@IBOutlet weak var sliderHeaderLabel: UILabel!
+	
 	var dayPaginator: UIPageViewController?
 	
 	var activeDate: Date = Date().dateAtStartOf(.day) {
@@ -40,6 +42,9 @@ class TaskViewController: KeyboardViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+//		self.navigationItem.backBarButtonItem?.title = "Go"
+		
 		addTaskView.tasker = self
 		dateSliderView.helper = self
 		dateSliderView.selectedDate = activeDate
@@ -47,6 +52,7 @@ class TaskViewController: KeyboardViewController {
 		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
 			self.dateSliderView.scrollTo(date: self.activeDate, animated: false)
 		})
+		sliderHeaderLabel.text = "October"
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -135,6 +141,14 @@ extension TaskViewController: AddTasker {
 }
 
 extension TaskViewController: DateSliderHelper {
+	func updateSliderHeader(with text: String) {
+		if let title = sliderHeaderLabel.text, title != text {
+			DispatchQueue.main.async {
+				self.sliderHeaderLabel.text = text
+			}
+		}
+	}
+	
 	func didSelectCell(forDate date: Date) {
 		self.activeDate = date
 	}

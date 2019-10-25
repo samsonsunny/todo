@@ -11,6 +11,7 @@ import SwiftDate
 
 protocol DateSliderHelper: class {
 	func didSelectCell(forDate date: Date)
+	func updateSliderHeader(with text: String)
 }
 
 class DateSliderView: UICollectionView {
@@ -64,24 +65,26 @@ class DateSliderView: UICollectionView {
 			let firstDate = dates[firstRow]
 			let lastDate = dates[lastRow]
 			
+			var title: String = ""
+			
 			if firstDate.year == currentYear && lastDate.year == currentYear {
 				if firstDate.month == lastDate.month {
-					print(firstDate.monthName(.default))
+					title = firstDate.monthName(.default)
 				} else {
-					print("\(firstDate.monthName(.default)) - \(lastDate.monthName(.default))")
+					title = "\(firstDate.monthName(.default)) - \(lastDate.monthName(.default))"
 				}
 			} else {
 				if firstDate.month == lastDate.month {
-					print("\(firstDate.monthName(.default)) \(firstDate.year)")
+					title = "\(firstDate.monthName(.default)) \(firstDate.year)"
 				} else {
 					if firstDate.year == lastDate.year {
-						print("\(firstDate.monthName(.default)) - \(lastDate.monthName(.default)) \(firstDate.year)")
+						title = "\(firstDate.monthName(.default)) - \(lastDate.monthName(.default)) \(firstDate.year)"
 					} else {
-						print("\(firstDate.monthName(.default)) \(firstDate.year) - \(lastDate.monthName(.default)) \(lastDate.year)")
+						title = "\(firstDate.monthName(.default)) \(firstDate.year) - \(lastDate.monthName(.default)) \(lastDate.year)"
 					}
-					
 				}
 			}
+			helper?.updateSliderHeader(with: title)
 		}
 	}
 }
@@ -151,18 +154,25 @@ class DaySliderCell: UICollectionViewCell {
 	private func updateBorder() {
 		if isSelected {
 			self.setBorder(radius: 12, color: UIColor.systemIndigo)
+//		} else if let date = date, date.isToday {
+//			self.setBorder(radius: 12, color: UIColor.gray)
 		} else {
 			self.setBorder(radius: 12, color: UIColor.systemGray5)
 		}
 	}
 	
 	private func updateTextColor() {
+		
 		if isSelected {
 			self.weekDayLabel.textColor = UIColor.systemIndigo
 			self.dayLabel.textColor	= UIColor.systemIndigo
+		} else if let date = date, date.isToday {
+			self.weekDayLabel.textColor = UIColor.systemIndigo //.withAlphaComponent(0.6)
+//			self.dayLabel.textColor	= UIColor.systemIndigo.withAlphaComponent(0.8)
 		} else {
 			self.weekDayLabel.textColor = UIColor.black.withAlphaComponent(0.8)
 			self.dayLabel.textColor	= UIColor.black
 		}
+		
 	}
 }

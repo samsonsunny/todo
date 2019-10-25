@@ -22,12 +22,12 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 	lazy var weekTitleHeader: UIStackView = {
 		let stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
 		self.view.addSubview(stackView)
-		let weekShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+		let weekShortName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 		for index in 0...6 {
 			let weekDay = UIButton()
-			weekDay.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
+			weekDay.setTitleColor(UIColor.black, for: .normal)
 			weekDay.setTitle("\(weekShortName[index])", for: .normal)
-			weekDay.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+			weekDay.titleLabel?.font = UIFont(name: "Lato-Bold", size: 14)// .systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
 			weekDay.titleLabel?.textAlignment = .left
 			stackView.addArrangedSubview(weekDay)
 		}
@@ -45,6 +45,7 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 //		layout.scrollDirection = .vertical
 //		layout.itemSize = CGSize(width: monthViewFrame.width/7, height: monthViewFrame.height/7)
 //		layout.minimumLineSpacing = CGFloat(0)
+		
 		layout.minimumInteritemSpacing = CGFloat(0)
 		layout.minimumLineSpacing = CGFloat(0)
 		
@@ -114,19 +115,19 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 		
 		cell.day.setTitle("\(date.day)", for: .normal)
 		cell.day.isUserInteractionEnabled = false
-		cell.day.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
+		cell.day.titleLabel?.font = UIFont(name: "Lato-Medium", size: 20)
 		
-		cell.date = date
+		cell.updateCell(with: date)
 		
 //		if date == givenDate {
 //			cell.backgroundColor = UIColor.black
 //		}
 		
-		if date.isToday {
-//			cell.backgroundColor = UIColor.green
-			
-			cell.day.tintColor = UIColor.green
-		}
+//		if date.isToday {
+////			cell.backgroundColor = UIColor.green
+//
+//			cell.day.tintColor = UIColor.systemIndigo
+//		}
 		
 		return cell
 	}
@@ -134,17 +135,17 @@ class MonthViewController: UIViewController, UICollectionViewDataSource, UIColle
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		if let cell = collectionView.cellForItem(at: indexPath) as? DayCell {
-			let bgColor = cell.backgroundColor
-			let color = cell.day.tintColor
-			cell.backgroundColor = UIColor.blue
-			cell.day.tintColor = UIColor(named: "TitleColor")
+//			let bgColor = cell.backgroundColor
+//			let color = cell.day.tintColor
+//			cell.backgroundColor = UIColor.blue
+//			cell.day.tintColor = UIColor(named: "TitleColor")
 			delegate?.didSelectDateFromCollectionView(cell.date)
 //			collectionView.deselectItem(at: indexPath, animated: true)
 			
-			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-				cell.backgroundColor = bgColor
-				cell.day.tintColor = color
-			}
+//			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//				cell.backgroundColor = bgColor
+//				cell.day.tintColor = color
+//			}
 		}
 	}
 }

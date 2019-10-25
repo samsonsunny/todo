@@ -30,19 +30,25 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	
 	@IBOutlet weak var monthViewContainer: UIView!
 	
+	@IBOutlet weak var monthTitleLabel: UILabel!
+	
+	var paginator: MonthPageViewController?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = ""
 		setMonthNameAsTitle(from: activeDate)
 		
-		self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+		
 //		self.navigationController?.navigationBar.shadowImage = nil 
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == SegueID.monthPagination.rawValue {
-			(segue.destination as? MonthPageViewController)?.activeDate = activeDate
-			(segue.destination as? MonthPageViewController)?.monthPickerDelegate = self
+			
+			paginator = segue.destination as? MonthPageViewController
+			paginator?.activeDate = activeDate
+			paginator?.monthPickerDelegate = self
 		}
 	}
 	
@@ -55,7 +61,12 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 	}
 	
 	private func setMonthNameAsTitle(from date: Date) {
-		self.title = date.monthName(.default)
+		if date.year == Date().dateAtStartOf(.day).year {
+			monthTitleLabel.text = date.monthName(.default)
+		} else {
+			monthTitleLabel.text = "\(date.monthName(.default)) \(date.year)"
+		}
+		
 	}
 	
 	func didSelectPickerDate(_ date: Date) {
@@ -63,8 +74,9 @@ class MonthPickerViewController: UIViewController, MonthPickerDelegate {
 		loadCalendarView() 
 	}
 	
-	@objc func todayButtonTapped() {
-		
+	@IBAction func todayButtonTapped(_ sender: Any) {
+		paginator?.activeDate = Date().dateAtStartOf(.day).date
+		paginator?.setDefaultView()
 	}
 }
 

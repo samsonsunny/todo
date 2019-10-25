@@ -33,6 +33,10 @@ class MonthPageViewController: UIPageViewController, UIPageViewControllerDataSou
 		super.viewDidLoad()
 		dataSource = self
 		delegate = self
+		setDefaultView() 
+	}
+	
+	func setDefaultView() {
 		let vc = MonthViewController()
 		vc.givenDate = activeDate
 		vc.delegate = self

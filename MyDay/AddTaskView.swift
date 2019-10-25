@@ -22,10 +22,6 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	@IBOutlet weak var addTaskButton: UIButton!
 	@IBOutlet weak var addTaskButtonHeightConstraint: NSLayoutConstraint!
 	
-	@IBOutlet weak var backButtonWidthConstraint: NSLayoutConstraint!
-	
-	@IBOutlet weak var nextButtonWidthConstraint: NSLayoutConstraint!
-	
 	private let circleImage = UIImage(systemName: "circle")
 	private let plusImage = UIImage(systemName: "plus")
 	private let defaultViewHeight = CGFloat(60)
@@ -39,25 +35,6 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	
 	@IBAction func addTaskButtonTapped(_ sender: Any) {
 		bringFocusToAddTaskTextField()
-	}
-	
-	@IBAction func prevButtonTapped(_ sender: Any) {
-		tasker?.showPrevPage()
-	}
-	
-	@IBAction func nextButtonTapped(_ sender: Any) {
-		tasker?.showNextPage()
-	}
-	
-	func hidePageNavigationButtons(_ hide: Bool) {
-		return
-		if hide {
-			nextButtonWidthConstraint.constant = 0
-			backButtonWidthConstraint.constant = 0
-		} else {
-			nextButtonWidthConstraint.constant = 60
-			backButtonWidthConstraint.constant = 60
-		}
 	}
 	
 	func adjustViewBasedOnKeyboard(visibility willShow: Bool, notification: NSNotification) {
@@ -87,7 +64,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func setDefaultViewMode() {
-		hidePageNavigationButtons(false)
+
 		addTaskTextField.isHidden = true
 		addTaskLabel.isHidden = false
 		addTaskButton.isHidden = false
@@ -95,7 +72,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func setActiveViewMode() {
-		hidePageNavigationButtons(true)
+	
 		addTaskTextField.isHidden = false
 		addTaskLabel.isHidden = true
 		addTaskButton.isHidden = true
@@ -110,7 +87,7 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func adjustAddTaskView(height: CGFloat, keyboard isVisible: Bool) {
-		addTaskButtonHeightConstraint.constant = isVisible ? height : defaultViewHeight
+		addTaskButtonHeightConstraint.constant = isVisible ? height + 30 : defaultViewHeight
 		UIView.animate(withDuration: 0.25) {
 			self.layoutIfNeeded()
 		}

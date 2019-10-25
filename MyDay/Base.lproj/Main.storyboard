@@ -29,23 +29,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-V0-oCr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="684"/>
                                 <connections>
                                     <segue destination="9Ky-Jb-uRr" kind="embed" identifier="monthPaginationSegue" id="uRx-Oh-MoA"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-0Z-I9z">
+                                <rect key="frame" x="12" y="20" width="402" height="60"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="L5E-HP-cLc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="q8F-V0-oCr" firstAttribute="leading" secondItem="4dq-rd-4vG" secondAttribute="leading" id="1tl-Hg-jvO"/>
-                            <constraint firstItem="q8F-V0-oCr" firstAttribute="top" secondItem="4dq-rd-4vG" secondAttribute="top" id="RHF-6O-6G1"/>
+                            <constraint firstItem="dWH-0Z-I9z" firstAttribute="leading" secondItem="4dq-rd-4vG" secondAttribute="leading" constant="12" id="Jfe-y5-KW9"/>
+                            <constraint firstItem="q8F-V0-oCr" firstAttribute="top" secondItem="dWH-0Z-I9z" secondAttribute="bottom" constant="10" id="LfF-n3-DZ7"/>
                             <constraint firstItem="4dq-rd-4vG" firstAttribute="bottom" secondItem="q8F-V0-oCr" secondAttribute="bottom" id="WiC-WZ-DDL"/>
+                            <constraint firstItem="dWH-0Z-I9z" firstAttribute="top" secondItem="4dq-rd-4vG" secondAttribute="top" constant="20" id="ZDA-6q-gnx"/>
                             <constraint firstItem="4dq-rd-4vG" firstAttribute="trailing" secondItem="q8F-V0-oCr" secondAttribute="trailing" id="kMm-Dq-EQp"/>
+                            <constraint firstItem="4dq-rd-4vG" firstAttribute="trailing" secondItem="dWH-0Z-I9z" secondAttribute="trailing" id="q0F-bu-auh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4dq-rd-4vG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OCB-od-mX1"/>
+                    <navigationItem key="navigationItem" id="OCB-od-mX1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="S4b-hA-dEo">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uZc-eH-GTc">
+                                <rect key="frame" x="334" y="5.5" width="60" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="todayButtonTapped:" destination="FVd-4u-SiB" eventType="touchUpInside" id="mBm-WU-qBR"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="monthTitleLabel" destination="dWH-0Z-I9z" id="Bj6-R4-c8B"/>
                         <outlet property="monthViewContainer" destination="q8F-V0-oCr" id="lwS-QZ-efR"/>
                     </connections>
                 </viewController>
@@ -74,8 +103,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-Vz-dNb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jz-5v-KAL">
+                                        <rect key="frame" x="178" y="0.0" width="58.5" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="a9R-Ja-3Uw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                        <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-KR-HUS" customClass="DateSliderView" customModule="MyDay" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="0.0" width="410" height="79"/>
+                                        <rect key="frame" x="4" y="16" width="410" height="63"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fge-dP-tA8">
                                             <size key="itemSize" width="54" height="54"/>
@@ -85,7 +123,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="day" id="MB3-9X-RXh" customClass="DaySliderCell" customModule="MyDay" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="12.5" width="54" height="54"/>
+                                                <rect key="frame" x="0.0" y="4.5" width="54" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pye-mE-bt4">
                                                     <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -117,6 +155,7 @@
                                                         <constraint firstItem="CSh-TM-vew" firstAttribute="leading" secondItem="Pye-mE-bt4" secondAttribute="leading" id="PnW-yP-UfO"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
+                                                <size key="customSize" width="54" height="54"/>
                                                 <connections>
                                                     <outlet property="dayLabel" destination="WN2-WJ-7pY" id="T3K-zY-NPO"/>
                                                     <outlet property="weekDayLabel" destination="3dL-Su-HDe" id="UJi-dR-fa7"/>
@@ -138,10 +177,12 @@
                                     <constraint firstAttribute="bottom" secondItem="NLv-gJ-ZJ1" secondAttribute="bottom" id="8lF-sg-9Jr"/>
                                     <constraint firstItem="NLv-gJ-ZJ1" firstAttribute="top" secondItem="dSA-KR-HUS" secondAttribute="bottom" id="GMj-6x-zLv"/>
                                     <constraint firstAttribute="height" constant="80" id="GkF-NY-tsg"/>
+                                    <constraint firstItem="dSA-KR-HUS" firstAttribute="top" secondItem="8Jz-5v-KAL" secondAttribute="bottom" id="Joz-eQ-uIW"/>
                                     <constraint firstItem="NLv-gJ-ZJ1" firstAttribute="leading" secondItem="mHs-Vz-dNb" secondAttribute="leading" id="OZo-q5-DNq"/>
                                     <constraint firstAttribute="trailing" secondItem="dSA-KR-HUS" secondAttribute="trailing" id="aoG-dz-SkY"/>
-                                    <constraint firstItem="dSA-KR-HUS" firstAttribute="top" secondItem="mHs-Vz-dNb" secondAttribute="top" id="kam-xR-8Ug"/>
+                                    <constraint firstItem="8Jz-5v-KAL" firstAttribute="top" secondItem="mHs-Vz-dNb" secondAttribute="top" id="q7b-44-hku"/>
                                     <constraint firstItem="dSA-KR-HUS" firstAttribute="leading" secondItem="mHs-Vz-dNb" secondAttribute="leading" constant="4" id="rXD-OA-7c0"/>
+                                    <constraint firstItem="8Jz-5v-KAL" firstAttribute="centerX" secondItem="NLv-gJ-ZJ1" secondAttribute="centerX" id="wTg-Hy-vXb"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJw-tt-Jkh">
@@ -159,22 +200,8 @@
                                             <constraint firstAttribute="height" constant="1" id="L1e-D3-1LC"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7J-SJ-Zbt">
-                                        <rect key="frame" x="0.0" y="12.5" width="0.0" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" id="pul-gb-iPp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <state key="normal" image="arrow.left" catalog="system">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="semibold"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="prevButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="RfU-FL-9Nj"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-HH-JaQ">
-                                        <rect key="frame" x="10" y="16" width="30" height="30"/>
+                                        <rect key="frame" x="15" y="16" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="LB8-41-1Mi"/>
                                             <constraint firstAttribute="height" constant="30" id="Noz-mb-2Jb"/>
@@ -185,25 +212,25 @@
                                         </state>
                                     </button>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Task..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQK-wH-0RC">
-                                        <rect key="frame" x="55" y="16" width="341" height="30"/>
+                                        <rect key="frame" x="60" y="16" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ueB-GF-B53"/>
                                         </constraints>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-ZK-l1o">
-                                        <rect key="frame" x="55" y="16" width="341" height="30"/>
+                                        <rect key="frame" x="60" y="16" width="354" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="O8U-r1-dNn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-An-82j">
-                                        <rect key="frame" x="10" y="1" width="386" height="60"/>
+                                        <rect key="frame" x="0.0" y="1" width="414" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="la3-Oy-sLQ"/>
                                         </constraints>
@@ -211,36 +238,18 @@
                                             <action selector="addTaskButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="9OL-Is-Anq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZo-Gl-Ao8">
-                                        <rect key="frame" x="406" y="19.5" width="0.0" height="22"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" id="ylF-ET-HZ2"/>
-                                        </constraints>
-                                        <state key="normal" image="arrow.right" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large" weight="semibold">
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            </preferredSymbolConfiguration>
-                                        </state>
-                                        <connections>
-                                            <action selector="nextButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="t9U-io-I1T"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="6Zl-HH-JaQ" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="1cT-y2-azL"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="leading" id="2vs-Ld-zpJ"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="leading" constant="-15" id="2vs-Ld-zpJ"/>
                                     <constraint firstItem="2Pu-Uo-ZQ2" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="3u5-oX-Dvt"/>
-                                    <constraint firstItem="x7J-SJ-Zbt" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="8ya-sq-qdh"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="DPf-ga-fiY"/>
                                     <constraint firstItem="q7V-An-82j" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" id="IhE-fC-zQ0"/>
-                                    <constraint firstItem="sZo-Gl-Ao8" firstAttribute="leading" secondItem="AQK-wH-0RC" secondAttribute="trailing" constant="10" id="KS1-UP-HzG"/>
-                                    <constraint firstItem="sZo-Gl-Ao8" firstAttribute="centerY" secondItem="COC-ui-hYO" secondAttribute="centerY" id="KiO-DQ-RJb"/>
-                                    <constraint firstItem="x7J-SJ-Zbt" firstAttribute="centerY" secondItem="COC-ui-hYO" secondAttribute="centerY" id="Kuw-ya-8Xb"/>
+                                    <constraint firstAttribute="trailing" secondItem="q7V-An-82j" secondAttribute="trailing" id="MZ7-Ck-bLn"/>
                                     <constraint firstAttribute="trailing" secondItem="2Pu-Uo-ZQ2" secondAttribute="trailing" id="OE6-Hu-7yo"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="W0r-nK-IxA"/>
                                     <constraint firstItem="AQK-wH-0RC" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="W7U-Gm-oIv"/>
-                                    <constraint firstAttribute="trailing" secondItem="sZo-Gl-Ao8" secondAttribute="trailing" constant="8" id="Y8g-2d-Xm5"/>
-                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="leading" secondItem="x7J-SJ-Zbt" secondAttribute="trailing" constant="10" id="ZqN-rY-aXD"/>
                                     <constraint firstItem="q7V-An-82j" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="dJ5-OY-qSA"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="trailing" constant="15" id="hUx-Oc-0sM"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="jaY-hP-3DR"/>
@@ -253,13 +262,12 @@
                                     <outlet property="addTaskButtonHeightConstraint" destination="la3-Oy-sLQ" id="xKy-nF-rP1"/>
                                     <outlet property="addTaskLabel" destination="Gpz-ZK-l1o" id="EbH-MO-Qk3"/>
                                     <outlet property="addTaskTextField" destination="AQK-wH-0RC" id="5xf-g9-Iaa"/>
-                                    <outlet property="backButtonWidthConstraint" destination="pul-gb-iPp" id="6gF-Ww-QmS"/>
                                     <outlet property="leadingButton" destination="6Zl-HH-JaQ" id="ie1-VQ-bd1"/>
-                                    <outlet property="nextButtonWidthConstraint" destination="ylF-ET-HZ2" id="SCf-v2-g85"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zJw-tt-Jkh" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="4y1-S5-5NR"/>
                             <constraint firstItem="zJw-tt-Jkh" firstAttribute="top" secondItem="mHs-Vz-dNb" secondAttribute="bottom" id="A8d-0N-49r"/>
@@ -279,7 +287,11 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lm5-q4-x0L">
                                 <rect key="frame" x="334" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Today"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="todayButtonTapped:" destination="RJx-s3-GaS" eventType="touchUpInside" id="q0A-fu-9jD"/>
                                 </connections>
@@ -289,6 +301,7 @@
                     <connections>
                         <outlet property="addTaskView" destination="COC-ui-hYO" id="KyI-iK-jbs"/>
                         <outlet property="dateSliderView" destination="dSA-KR-HUS" id="WAo-L8-JX2"/>
+                        <outlet property="sliderHeaderLabel" destination="8Jz-5v-KAL" id="5S1-VK-X6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tez-c2-WHp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -324,6 +337,7 @@
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyj-Qo-XbJ">
                                                     <rect key="frame" x="65" y="20" width="321" height="20.5"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" name="TitleColor"/>
                                                     <nil key="highlightedColor"/>
@@ -333,6 +347,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="JYW-R6-BNh"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="completedButtonTapped:" destination="GSk-z5-rny" eventType="touchUpInside" id="8fS-m6-tIL"/>
                                                     </connections>
@@ -343,6 +358,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="kNb-HE-JvX"/>
                                                         <constraint firstAttribute="width" constant="30" id="uJt-7M-qDi"/>
                                                     </constraints>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="circle" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium" weight="semibold"/>
                                                     </state>
@@ -387,11 +403,12 @@
         <!--Navigation Controller-->
         <scene sceneID="hyT-tl-kj2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HKN-0h-b6M" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerID" automaticallyAdjustsScrollViewInsets="NO" id="HKN-0h-b6M" customClass="NavigationController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OSF-jF-bIR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -408,8 +425,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="arrow.right" catalog="system" width="64" height="48"/>
         <image name="circle" catalog="system" width="64" height="62"/>
         <image name="plus" catalog="system" width="64" height="58"/>
         <namedColor name="BackgroundColor">
