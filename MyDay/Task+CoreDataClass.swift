@@ -37,4 +37,10 @@ public class Task: NSManagedObject {
 		
 		return tasks
 	}
+	
+//	class func getTasks(from startDate: Date, toDate: Date, in context: NSManagedObjectContext = NSManagedObjectContext.mr_default()) -> NSFetchedResultsController<NSFetchRequestResult> {
+//		
+//		
+//		self.mr_fetchAllGrouped(by: "modifiedDate", with: <#T##NSPredicate?#>, sortedBy: "modifiedDate", ascending: true)
+//	}
 }

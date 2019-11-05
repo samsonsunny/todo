@@ -8,6 +8,7 @@
 
 import UIKit
 import MagicalRecord
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		
 		MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "MyDay")
+		FirebaseApp.configure()
 		
 		return true
 	}

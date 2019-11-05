@@ -42,15 +42,34 @@ class TodoListViewController: UIViewController {
 		}
 	}
 	
+	private var taskPerDate: [Int: [Task]] = [:] {
+		didSet {
+			if isViewLoaded {
+				todoListView.taskPerDate = taskPerDate
+			}
+		}
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		todoListView.tasks = tasks
+		todoListView.taskPerDate = taskPerDate
 		todoListView.addGestureRecognizer(tapGesture)
 		todoListView.helper = self
     }
 	
 	func reloadTasks() {
 		self.tasks = Task.getTasks(for: activeDate)
+		
+//		let x = Task.getTasks(for: activeDate)
+//		let y = Task.getTasks(for: activeDate.dateByAdding(1, .day).date)
+//		let z = Task.getTasks(for: activeDate.dateByAdding(2, .day).date)
+		
+		self.taskPerDate = [
+			0: Task.getTasks(for: activeDate),
+			1: Task.getTasks(for: activeDate.dateByAdding(1, .day).date),
+			2: Task.getTasks(for: activeDate.dateByAdding(2, .day).date)
+		]
 	}
 	
 	func refreshView(scrollToLastRow: Bool = false) {

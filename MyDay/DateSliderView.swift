@@ -166,11 +166,14 @@ class DaySliderCell: UICollectionViewCell {
 		if isSelected {
 			self.weekDayLabel.textColor = UIColor.systemIndigo
 			self.dayLabel.textColor	= UIColor.systemIndigo
+			self.backgroundColor = UIColor.white
 		} else if let date = date, date.isToday {
-			self.weekDayLabel.textColor = UIColor.systemIndigo //.withAlphaComponent(0.6)
+			self.backgroundColor = UIColor.systemGray5
+//			self.dayLabel.textColor = UIColor.systemIndigo //.withAlphaComponent(0.6)
 //			self.dayLabel.textColor	= UIColor.systemIndigo.withAlphaComponent(0.8)
 		} else {
-			self.weekDayLabel.textColor = UIColor.black.withAlphaComponent(0.8)
+			self.backgroundColor = UIColor.white
+			self.weekDayLabel.textColor = UIColor.gray //.black.withAlphaComponent(0.8)
 			self.dayLabel.textColor	= UIColor.black
 		}
 		

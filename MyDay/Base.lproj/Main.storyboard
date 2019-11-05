@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HKN-0h-b6M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Sq-Ym-cRK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -23,7 +23,7 @@
         <!--Month Picker View Controller-->
         <scene sceneID="lZn-5Z-j6I">
             <objects>
-                <viewController storyboardIdentifier="MonthPickerViewControllerID" id="FVd-4u-SiB" customClass="MonthPickerViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MonthPickerViewControllerID" id="FVd-4u-SiB" customClass="MonthPickerViewController" customModule="EveryDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YNe-tA-PTQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-0Z-I9z">
                                 <rect key="frame" x="12" y="20" width="402" height="60"/>
-                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="L5E-HP-cLc"/>
                                 </constraints>
@@ -63,9 +63,9 @@
                                 <rect key="frame" x="334" y="5.5" width="60" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Today">
-                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="todayButtonTapped:" destination="FVd-4u-SiB" eventType="touchUpInside" id="mBm-WU-qBR"/>
@@ -85,35 +85,35 @@
         <!--Month Page View Controller-->
         <scene sceneID="x6D-bU-mJg">
             <objects>
-                <pageViewController storyboardIdentifier="MonthPageViewControllerID" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9Ky-Jb-uRr" customClass="MonthPageViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="MonthPageViewControllerID" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9Ky-Jb-uRr" customClass="MonthPageViewController" customModule="EveryDay" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XEi-cL-gWa"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8HJ-RY-L6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6818.8405797101459" y="-467.41071428571428"/>
         </scene>
-        <!--Task View Controller-->
+        <!--Tasks-->
         <scene sceneID="eHZ-9U-4bR">
             <objects>
-                <viewController storyboardIdentifier="TaskViewControllerID" id="RJx-s3-GaS" customClass="TaskViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskViewControllerID" id="RJx-s3-GaS" customClass="TaskViewController" customModule="EveryDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LnP-Hw-gYS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-Vz-dNb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jz-5v-KAL">
-                                        <rect key="frame" x="178" y="0.0" width="58.5" height="16"/>
+                                        <rect key="frame" x="183.5" y="0.0" width="47.5" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="16" id="a9R-Ja-3Uw"/>
+                                            <constraint firstAttribute="height" id="a9R-Ja-3Uw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                        <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                        <color key="textColor" white="0.29999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-KR-HUS" customClass="DateSliderView" customModule="MyDay" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="16" width="410" height="63"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dSA-KR-HUS" customClass="DateSliderView" customModule="EveryDay" customModuleProvider="target">
+                                        <rect key="frame" x="4" y="0.0" width="410" height="79"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fge-dP-tA8">
                                             <size key="itemSize" width="54" height="54"/>
@@ -122,8 +122,8 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="day" id="MB3-9X-RXh" customClass="DaySliderCell" customModule="MyDay" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="4.5" width="54" height="54"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="day" id="MB3-9X-RXh" customClass="DaySliderCell" customModule="EveryDay" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="12.5" width="54" height="54"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pye-mE-bt4">
                                                     <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -133,14 +133,14 @@
                                                             <rect key="frame" x="0.0" y="10" width="54" height="34"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dL-Su-HDe">
-                                                                    <rect key="frame" x="10.5" y="0.0" width="33" height="10"/>
+                                                                    <rect key="frame" x="10.5" y="0.0" width="33" height="9"/>
                                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="10"/>
                                                                     <color key="textColor" white="0.29999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WN2-WJ-7pY">
-                                                                    <rect key="frame" x="13.5" y="10" width="27" height="24"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                                                    <rect key="frame" x="11.5" y="9" width="31.5" height="25"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="28"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -186,16 +186,23 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJw-tt-Jkh">
-                                <rect key="frame" x="0.0" y="124" width="414" height="677"/>
+                                <rect key="frame" x="0.0" y="220" width="414" height="582"/>
                                 <connections>
                                     <segue destination="5nj-zO-qIy" kind="embed" identifier="dayPaginationSegue" id="qgd-aW-bqV"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COC-ui-hYO" customClass="AddTaskView" customModule="MyDay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="801" width="414" height="61"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COC-ui-hYO" customClass="AddTaskView" customModule="EveryDay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-An-82j">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <connections>
+                                            <action selector="addTaskButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="9OL-Is-Anq"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pu-Uo-ZQ2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="L1e-D3-1LC"/>
                                         </constraints>
@@ -206,9 +213,11 @@
                                             <constraint firstAttribute="width" constant="30" id="LB8-41-1Mi"/>
                                             <constraint firstAttribute="height" constant="30" id="Noz-mb-2Jb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" image="plus" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18" scale="medium" weight="medium"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium" weight="medium">
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            </preferredSymbolConfiguration>
                                         </state>
                                     </button>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Task..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AQK-wH-0RC">
@@ -226,71 +235,63 @@
                                             <constraint firstAttribute="height" constant="30" id="O8U-r1-dNn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="15"/>
-                                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7V-An-82j">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="la3-Oy-sLQ"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="addTaskButtonTapped:" destination="COC-ui-hYO" eventType="touchUpInside" id="9OL-Is-Anq"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="1cT-y2-azL"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="leading" constant="-15" id="2vs-Ld-zpJ"/>
+                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" constant="15" id="3ZX-cy-uF2"/>
                                     <constraint firstItem="2Pu-Uo-ZQ2" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="3u5-oX-Dvt"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="DPf-ga-fiY"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" id="IhE-fC-zQ0"/>
+                                    <constraint firstItem="Gpz-ZK-l1o" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="AyM-hh-8uc"/>
+                                    <constraint firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="CZC-c0-WKX"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="leading" secondItem="COC-ui-hYO" secondAttribute="leading" id="E8N-Vc-pxQ"/>
+                                    <constraint firstItem="6Zl-HH-JaQ" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="Gq4-zf-ddq"/>
+                                    <constraint firstItem="AQK-wH-0RC" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="trailing" constant="15" id="LQc-jH-cEZ"/>
                                     <constraint firstAttribute="trailing" secondItem="q7V-An-82j" secondAttribute="trailing" id="MZ7-Ck-bLn"/>
                                     <constraint firstAttribute="trailing" secondItem="2Pu-Uo-ZQ2" secondAttribute="trailing" id="OE6-Hu-7yo"/>
-                                    <constraint firstItem="Gpz-ZK-l1o" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="W0r-nK-IxA"/>
-                                    <constraint firstItem="AQK-wH-0RC" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="W7U-Gm-oIv"/>
-                                    <constraint firstItem="q7V-An-82j" firstAttribute="trailing" secondItem="AQK-wH-0RC" secondAttribute="trailing" id="dJ5-OY-qSA"/>
+                                    <constraint firstItem="AQK-wH-0RC" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="UAR-YT-31f"/>
+                                    <constraint firstAttribute="height" constant="60" id="Vxq-w9-fqL"/>
                                     <constraint firstItem="Gpz-ZK-l1o" firstAttribute="leading" secondItem="6Zl-HH-JaQ" secondAttribute="trailing" constant="15" id="hUx-Oc-0sM"/>
-                                    <constraint firstItem="Gpz-ZK-l1o" firstAttribute="top" secondItem="2Pu-Uo-ZQ2" secondAttribute="bottom" constant="15" id="jaY-hP-3DR"/>
                                     <constraint firstItem="2Pu-Uo-ZQ2" firstAttribute="top" secondItem="COC-ui-hYO" secondAttribute="top" id="lUE-CS-RQH"/>
+                                    <constraint firstItem="q7V-An-82j" firstAttribute="top" secondItem="COC-ui-hYO" secondAttribute="top" id="n3o-D4-Pby"/>
                                     <constraint firstAttribute="bottom" secondItem="q7V-An-82j" secondAttribute="bottom" id="sHY-UJ-9Of"/>
-                                    <constraint firstItem="Gpz-ZK-l1o" firstAttribute="leading" secondItem="AQK-wH-0RC" secondAttribute="leading" id="u7N-bo-VnF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gpz-ZK-l1o" secondAttribute="trailing" id="tkx-xL-LiL"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="addTaskButton" destination="q7V-An-82j" id="iVu-ai-s8o"/>
-                                    <outlet property="addTaskButtonHeightConstraint" destination="la3-Oy-sLQ" id="xKy-nF-rP1"/>
                                     <outlet property="addTaskLabel" destination="Gpz-ZK-l1o" id="EbH-MO-Qk3"/>
                                     <outlet property="addTaskTextField" destination="AQK-wH-0RC" id="5xf-g9-Iaa"/>
+                                    <outlet property="addTaskViewBottomConstraint" destination="SUh-cv-hVT" id="VpD-at-bZO"/>
                                     <outlet property="leadingButton" destination="6Zl-HH-JaQ" id="ie1-VQ-bd1"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zJw-tt-Jkh" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="4y1-S5-5NR"/>
                             <constraint firstItem="zJw-tt-Jkh" firstAttribute="top" secondItem="mHs-Vz-dNb" secondAttribute="bottom" id="A8d-0N-49r"/>
+                            <constraint firstItem="mHs-Vz-dNb" firstAttribute="top" secondItem="ARr-aE-rsv" secondAttribute="top" id="BEt-SV-0Id"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="Bd1-hq-Bl4"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="trailing" secondItem="ARr-aE-rsv" secondAttribute="trailing" id="O2q-ZQ-lpa"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="bottom" secondItem="ARr-aE-rsv" secondAttribute="bottom" id="SUh-cv-hVT"/>
                             <constraint firstItem="ARr-aE-rsv" firstAttribute="trailing" secondItem="zJw-tt-Jkh" secondAttribute="trailing" id="UDt-31-0Sx"/>
-                            <constraint firstItem="mHs-Vz-dNb" firstAttribute="top" secondItem="ARr-aE-rsv" secondAttribute="top" id="c2X-ZS-ouu"/>
                             <constraint firstItem="mHs-Vz-dNb" firstAttribute="leading" secondItem="ARr-aE-rsv" secondAttribute="leading" id="c2v-gp-ihG"/>
                             <constraint firstItem="COC-ui-hYO" firstAttribute="top" secondItem="zJw-tt-Jkh" secondAttribute="bottom" id="hCD-JI-Kuk"/>
                             <constraint firstItem="ARr-aE-rsv" firstAttribute="trailing" secondItem="mHs-Vz-dNb" secondAttribute="trailing" id="o9B-Ht-nnw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ARr-aE-rsv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dZ3-US-gpl">
+                    <navigationItem key="navigationItem" title="Tasks" id="dZ3-US-gpl">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="frk-xV-sEK">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lm5-q4-x0L">
-                                <rect key="frame" x="334" y="7" width="60" height="30"/>
+                                <rect key="frame" x="334" y="6" width="60" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
-                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Today">
-                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="TODAY">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="todayButtonTapped:" destination="RJx-s3-GaS" eventType="touchUpInside" id="q0A-fu-9jD"/>
@@ -306,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tez-c2-WHp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8539.1304347826099" y="-467.41071428571428"/>
+            <point key="canvasLocation" x="9449.2753623188419" y="-467.41071428571428"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="41A-Mq-Wg9">
@@ -314,21 +315,21 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="5nj-zO-qIy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AX-BM-1dj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9397.1014492753638" y="-467.07589285714283"/>
+            <point key="canvasLocation" x="10307.246376811596" y="-467.07589285714283"/>
         </scene>
         <!--Todo List View Controller-->
         <scene sceneID="sxo-JD-fjP">
             <objects>
-                <viewController storyboardIdentifier="TodoListViewControllerID" id="ved-8u-Owt" customClass="TodoListViewController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodoListViewControllerID" id="ved-8u-Owt" customClass="TodoListViewController" customModule="EveryDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nMo-bB-gGX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJJ-hh-GAp" customClass="TaskTableView" customModule="MyDay" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hJJ-hh-GAp" customClass="TaskTableView" customModule="EveryDay" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="GSk-z5-rny" customClass="TodoCell" customModule="MyDay" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="GSk-z5-rny" customClass="TodoCell" customModule="EveryDay" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GSk-z5-rny" id="FZa-lD-uFq">
@@ -337,7 +338,7 @@
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyj-Qo-XbJ">
                                                     <rect key="frame" x="65" y="20" width="321" height="20.5"/>
-                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" name="TitleColor"/>
                                                     <nil key="highlightedColor"/>
@@ -347,7 +348,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="JYW-R6-BNh"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="completedButtonTapped:" destination="GSk-z5-rny" eventType="touchUpInside" id="8fS-m6-tIL"/>
                                                     </connections>
@@ -358,9 +359,12 @@
                                                         <constraint firstAttribute="height" constant="30" id="kNb-HE-JvX"/>
                                                         <constraint firstAttribute="width" constant="30" id="uJt-7M-qDi"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="circle" catalog="system">
-                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="medium" weight="semibold"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="medium" weight="medium">
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        </preferredSymbolConfiguration>
                                                     </state>
                                                 </button>
                                             </subviews>
@@ -398,17 +402,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDn-9o-VpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10250.72463768116" y="-467.41071428571428"/>
+            <point key="canvasLocation" x="11160.869565217392" y="-467.41071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hyT-tl-kj2">
             <objects>
-                <navigationController storyboardIdentifier="NavigationControllerID" automaticallyAdjustsScrollViewInsets="NO" id="HKN-0h-b6M" customClass="NavigationController" customModule="MyDay" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationControllerID" automaticallyAdjustsScrollViewInsets="NO" id="HKN-0h-b6M" customClass="NavigationController" customModule="EveryDay" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OSF-jF-bIR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,6 +426,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2y-9Q-dRI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5108.695652173913" y="-467.41071428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N4y-9W-zd4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Sq-Ym-cRK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zBq-ty-pCp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RJx-s3-GaS" kind="relationship" relationship="rootViewController" id="upG-Hc-a6a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDV-3Y-9Uz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8539.1304347826099" y="-467.41071428571428"/>
         </scene>
     </scenes>
     <resources>

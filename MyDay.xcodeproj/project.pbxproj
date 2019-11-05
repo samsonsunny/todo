@@ -32,6 +32,7 @@
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
 		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
 		22E0090B23629583005B4854 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0090A23629583005B4854 /* NavigationController.swift */; };
+		22E3081C23648EF900FA7AC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E3081B23648EF900FA7AC8 /* GoogleService-Info.plist */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
 		22E8C1C923012E69007D7472 /* Lato-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */; };
 		22E8C1CA23012E69007D7472 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B623012E68007D7472 /* Lato-Hairline.ttf */; };
@@ -73,7 +74,7 @@
 		2279EDC52356B83D00675EAA /* MonthPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthPickerViewController.swift; sourceTree = "<group>"; };
 		2279EDC62356B83D00675EAA /* CollectionViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCells.swift; sourceTree = "<group>"; };
 		2279EDC72356B83D00675EAA /* MonthViewPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthViewPagination.swift; sourceTree = "<group>"; };
-		2282CF88200B31270051901C /* MyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2282CF88200B31270051901C /* EveryDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2282CF8B200B31270051901C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2282CF90200B31270051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2282CF93200B31270051901C /* MyDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDay.xcdatamodel; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		22E0090A23629583005B4854 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		22E3081B23648EF900FA7AC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		22E8C1B523012E68007D7472 /* Lato-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-MediumItalic.ttf"; sourceTree = "<group>"; };
 		22E8C1B623012E68007D7472 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -148,7 +150,7 @@
 		2282CF89200B31270051901C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2282CF88200B31270051901C /* MyDay.app */,
+				2282CF88200B31270051901C /* EveryDay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +177,7 @@
 				2282CF95200B31280051901C /* Assets.xcassets */,
 				2282CF97200B31280051901C /* LaunchScreen.storyboard */,
 				2282CF9A200B31280051901C /* Info.plist */,
+				22E3081B23648EF900FA7AC8 /* GoogleService-Info.plist */,
 				2282CF92200B31270051901C /* MyDay.xcdatamodeld */,
 				227416DF2311072200570513 /* Task+CoreDataClass.swift */,
 				227416E02311072200570513 /* Task+CoreDataProperties.swift */,
@@ -246,7 +249,7 @@
 			);
 			name = MyDay;
 			productName = MyDay;
-			productReference = 2282CF88200B31270051901C /* MyDay.app */;
+			productReference = 2282CF88200B31270051901C /* EveryDay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -300,6 +303,7 @@
 				22E8C1CF23012E69007D7472 /* Lato-BlackItalic.ttf in Resources */,
 				22E8C1D723012E69007D7472 /* Lato-ThinItalic.ttf in Resources */,
 				2282CF96200B31280051901C /* Assets.xcassets in Resources */,
+				22E3081C23648EF900FA7AC8 /* GoogleService-Info.plist in Resources */,
 				22E8C1CA23012E69007D7472 /* Lato-Hairline.ttf in Resources */,
 				22E8C1D623012E69007D7472 /* README.txt in Resources */,
 				22E8C1D423012E69007D7472 /* Lato-Thin.ttf in Resources */,
@@ -533,7 +537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -543,7 +547,7 @@
 				);
 				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EveryDay;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -567,7 +571,7 @@
 				);
 				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EveryDay;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

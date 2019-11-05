@@ -7,5 +7,6 @@ target 'MyDay' do
 
    pod 'SwiftDate'
    pod 'MagicalRecord'
+	 pod 'Firebase/Analytics'
 
 end

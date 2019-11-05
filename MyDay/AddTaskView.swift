@@ -20,12 +20,13 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	@IBOutlet weak var addTaskLabel: UILabel!
 	@IBOutlet weak var addTaskTextField: UITextField!
 	@IBOutlet weak var addTaskButton: UIButton!
-	@IBOutlet weak var addTaskButtonHeightConstraint: NSLayoutConstraint!
+//	@IBOutlet weak var addTaskButtonHeightConstraint: NSLayoutConstraint!
+	
+	@IBOutlet weak var addTaskViewBottomConstraint: NSLayoutConstraint!
 	
 	private let circleImage = UIImage(systemName: "circle")
 	private let plusImage = UIImage(systemName: "plus")
-	private let defaultViewHeight = CGFloat(60)
-	
+		
 	weak var tasker: AddTasker? 
 	
 	override func awakeFromNib() {
@@ -87,9 +88,11 @@ class AddTaskView: UIView, UITextFieldDelegate {
 	}
 	
 	private func adjustAddTaskView(height: CGFloat, keyboard isVisible: Bool) {
-		addTaskButtonHeightConstraint.constant = isVisible ? height + 30 : defaultViewHeight
+		
+		self.addTaskViewBottomConstraint.constant = isVisible ? -height : CGFloat.zero
 		UIView.animate(withDuration: 0.25) {
-			self.layoutIfNeeded()
+			
+//			self.layoutIfNeeded()
 		}
 	}
 
