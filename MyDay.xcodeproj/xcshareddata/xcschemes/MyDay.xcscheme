@@ -47,6 +47,16 @@
                ReferencedContainer = "container:MyDay.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2200CB1223ABE54F00B73D52"
+               BuildableName = "EveryDayTests.xctest"
+               BlueprintName = "EveryDayTests"
+               ReferencedContainer = "container:MyDay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

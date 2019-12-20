@@ -43,8 +43,8 @@ class TaskViewController: KeyboardViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-//		self.navigationItem.backBarButtonItem?.title = "Go"
-		
+		self.navigationItem.hidesBackButton = true
+				
 		addTaskView.tasker = self
 		dateSliderView.helper = self
 		dateSliderView.selectedDate = activeDate

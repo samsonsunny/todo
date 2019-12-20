@@ -9,22 +9,24 @@
 import UIKit
 
 protocol TodoCellDelegate: class {
-	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?)
-	func didMoreMenuTapped(on indexPath: IndexPath?)
+//	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?)
+//	func didMoreMenuTapped(on indexPath: IndexPath?)
+	
+	func didTaskCompleted(_ completed: Bool, indexPath: IndexPath)
 }
 
 class TodoCell: UITableViewCell {
 	
 	@IBOutlet weak var title: UILabel!
 	@IBOutlet weak var circleButton: UIButton!
-	@IBOutlet weak var moreButton: UIButton!
+//	@IBOutlet weak var moreButton: UIButton!
 //	private let tickCircle = UIImage(named: "tick-circle")
 //	private let greyCircle = UIImage(named: "grey-circle")
 	
 	private let tickCircle = UIImage(systemName: "largecircle.fill.circle")
 	private let greyCircle = UIImage(systemName: "circle")
 	
-	private var indexPath: IndexPath?
+	private var indexPath: IndexPath = IndexPath(row: 0, section: 0)
 	private var delegate: TodoCellDelegate?
 	private var feedBackGenerator = UIImpactFeedbackGenerator()
 	private var todo: Todo? {
@@ -44,12 +46,15 @@ class TodoCell: UITableViewCell {
 		}
 		feedBackGenerator.impactOccurred()
 		todo?.isCompleted = !todoStatus
-		delegate?.didTodoCompleted(todo, indexPath: indexPath)
+		
+		delegate?.didTaskCompleted(!todoStatus, indexPath: indexPath)
+		
+//		delegate?.didTodoCompleted(todo, indexPath: indexPath)
 	}
 	
-	@IBAction func moreMenuTapped(_ sender: Any) {
-		delegate?.didMoreMenuTapped(on: indexPath)
-	}
+//	@IBAction func moreMenuTapped(_ sender: Any) {
+//		delegate?.didMoreMenuTapped(on: indexPath)
+//	}
 	
 	func updateCell(with todo: Todo, delegate: TodoCellDelegate?, indexPath: IndexPath) {
 		self.todo = todo

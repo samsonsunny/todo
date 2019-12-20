@@ -103,6 +103,10 @@ extension TodoListViewController: UIGestureRecognizerDelegate {
 
 extension TodoListViewController: TaskTableViewDelegate {
 	
+	func didTaskCompleted(_ completed: Bool, indexPath: IndexPath) {
+		
+	}
+	
 	func didTodoCompleted(_ todo: Todo?, indexPath: IndexPath?) {
 		guard let _todo = todo, let _indexPath = indexPath else {
 			return
