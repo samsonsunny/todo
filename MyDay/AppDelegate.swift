@@ -11,9 +11,12 @@ import MagicalRecord
 import Firebase
 import FirebaseFirestore
 import SwiftDate
+import StoreKit
 
 let versionNumber = "VersionNumber"
 let isPushedAll = "isPushedAll"
+let morningTime = "morningTime"
+let eveningTime = "eveningTime"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,9 +32,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		_ = Firestore.firestore()
 		storeVersionNumberInUserDefaults()
+		setDefaultReminderLeadTime() 
+		SwiftDate.defaultRegion = .local
+		SubscriptionService.shared.loadSubscriptionOptions()
 		
-		SwiftDate.defaultRegion = .local 
+//		guard let data = SubscriptionService.shared.loadReceipt() else {
+//            return true
+//        }
+        
+//        let body = [
+//            "receipt-data": data.base64EncodedString(),
+//            "password": "656ffc16c93847a48d16cbbda1b37899"
+//        ]
+//
+		let center = UNUserNotificationCenter.current()
+		center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+			// Enable or disable features based on authorization.
+			
+			if granted {
+				ReminderHelper.resetReminders()
+			}
+		}
+		
 		return true
+	}
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter,
+								willPresent notification: UNNotification,
+								withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		// Update the app interface directly.
+		
+		// Play a sound.
+		completionHandler(UNNotificationPresentationOptions.sound)
 	}
 	
 	private func storeVersionNumberInUserDefaults() {
@@ -42,6 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		if storedVersionNumber < currentVersion {
 			UserDefaults.standard.set(currentVersion, forKey: versionNumber)
+		}
+	}
+	
+	private func setDefaultReminderLeadTime() {
+		
+		let storedMorningLeadTime = 480
+		let storedEveningLeadTime = 1140
+
+		if (UserDefaults.standard.value(forKey: morningTime) as? Int) != nil, (UserDefaults.standard.value(forKey: eveningTime) as? Int) != nil {
+			
+			ReminderHelper.resetReminders()
+		} else {
+			UserDefaults.standard.set(storedMorningLeadTime, forKey: morningTime)
+			UserDefaults.standard.set(storedEveningLeadTime, forKey: eveningTime)
 		}
 	}
 
@@ -73,3 +119,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: SKPaymentTransactionObserver {
+    
+    func paymentQueue(_ queue: SKPaymentQueue,
+                      updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                handlePurchasingState(for: transaction, in: queue)
+            case .purchased:
+                handlePurchasedState(for: transaction, in: queue)
+            case .restored:
+                handleRestoredState(for: transaction, in: queue)
+            case .failed:
+                handleFailedState(for: transaction, in: queue)
+            case .deferred:
+                handleDeferredState(for: transaction, in: queue)
+            }
+        }
+    }
+    
+    func handlePurchasingState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+//        SMLog.info("Purchase state of product id: \(transaction.payment.productIdentifier)")
+    }
+    
+    func handlePurchasedState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+        
+//        let userDefaults = SharedUtils.getUserDefaults()
+        
+//        let productId = transaction.payment.productIdentifier
+        
+        SubscriptionService.shared.upgradePlan { (success) in
+			queue.finishTransaction(transaction)
+			NotificationCenter.default.post(name: SubscriptionService.purchaseSuccessfulNotification, object: nil)
+
+//            userDefaults.set(productId.contains("monthlypremium") ? AccountType.monthlyPremiumiOS.rawValue: AccountType.yearlyPremiumiOS.rawValue, forKey: "PlanType")
+//            AppConfig.shared.updateIntercomDetails()
+//            PlanUtils.shared.getPlanDetailsAndSave()
+        }
+    }
+    
+    func handleRestoredState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+//        SMLog.info("Purchase restored for product id: \(transaction.payment.productIdentifier)")
+    }
+    
+    func handleFailedState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+//        SMLog.error("Purchase failed for product id: \(transaction.payment.productIdentifier)")
+        NotificationCenter.default.post(name: SubscriptionService.purchaseCancelNotification, object: nil)
+    }
+    
+    func handleDeferredState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+//        SMLog.info("Purchase deferred for product id: \(transaction.payment.productIdentifier)")
+    }
+	
+	/// Called when an error occur while restoring purchases. Notify the user about the error.
+	func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+//		if let error = error as? SKError, error.code != .paymentCancelled {
+//			DispatchQueue.main.async {
+//				self.delegate?.storeObserverDidReceiveMessage(error.localizedDescription)
+//			}
+//		}
+	}
+
+	/// Called when all restorable transactions have been processed by the payment queue.
+	func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+//		print(Messages.restorable)
+//
+//		if !hasRestorablePurchases {
+//			DispatchQueue.main.async {
+//				self.delegate?.storeObserverDidReceiveMessage(Messages.noRestorablePurchases)
+//			}
+//		}
+	}
+    
+}
