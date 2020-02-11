@@ -39,10 +39,12 @@
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
 		2287CFB4235B407200490DCF /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287CFB3235B407200490DCF /* Identifiers.swift */; };
+		22A8D8D423F137C9001796D6 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8D8D323F137C9001796D6 /* NotesViewController.swift */; };
 		22B2813423AA94930062EBCE /* TaskListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2813323AA94920062EBCE /* TaskListView+TableView.swift */; };
 		22B3D4CF239EA479003D7C1C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */; };
 		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
 		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
+		22D9AE0223F314A40020729E /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9AE0123F314A40020729E /* TaskDetailViewController.swift */; };
 		22E0090B23629583005B4854 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0090A23629583005B4854 /* NavigationController.swift */; };
 		22E3081C23648EF900FA7AC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22E3081B23648EF900FA7AC8 /* GoogleService-Info.plist */; };
 		22E8C1C823012E69007D7472 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1B423012E68007D7472 /* Lato-Bold.ttf */; };
@@ -117,10 +119,12 @@
 		2282CF98200B31280051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2282CF9A200B31280051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2287CFB3235B407200490DCF /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		22A8D8D323F137C9001796D6 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22B2813323AA94920062EBCE /* TaskListView+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskListView+TableView.swift"; sourceTree = "<group>"; };
 		22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
+		22D9AE0123F314A40020729E /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		22E0090A23629583005B4854 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		22E3081B23648EF900FA7AC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22E8C1B423012E68007D7472 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				2254608523307A000071DA1D /* Color+Extension.swift */,
 				2287CFB3235B407200490DCF /* Identifiers.swift */,
 				2282CF8F200B31270051901C /* Main.storyboard */,
+				22D9AE0123F314A40020729E /* TaskDetailViewController.swift */,
+				22A8D8D323F137C9001796D6 /* NotesViewController.swift */,
 				226573E123B672690009DC1F /* ReminderViewController.swift */,
 				22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */,
 				2251E67B2393A7500036E327 /* AccountTableViewController.swift */,
@@ -527,6 +533,7 @@
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				2256A9A92392ACF600273DD0 /* TaskListViewController.swift in Sources */,
 				22C682032303B17F00447F21 /* Utils.swift in Sources */,
+				22D9AE0223F314A40020729E /* TaskDetailViewController.swift in Sources */,
 				2213CB9223ADF09B009C12EC /* PremiumViewController.swift in Sources */,
 				22B2813423AA94930062EBCE /* TaskListView+TableView.swift in Sources */,
 				2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */,
@@ -549,6 +556,7 @@
 				2279EDC82356B83D00675EAA /* MonthViewController.swift in Sources */,
 				226191A6231028FF00C5A716 /* KeyboardViewController.swift in Sources */,
 				2282CF8C200B31270051901C /* AppDelegate.swift in Sources */,
+				22A8D8D423F137C9001796D6 /* NotesViewController.swift in Sources */,
 				2207809723AA9290001CC061 /* CreateTaskView.swift in Sources */,
 				22E0090B23629583005B4854 /* NavigationController.swift in Sources */,
 				2216323E235DF06A0086CF3A /* DateSliderView.swift in Sources */,
@@ -752,7 +760,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -760,7 +768,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = Everyday;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -776,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -784,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = Everyday;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -120,6 +120,8 @@ extension TaskListViewController: UITableViewDelegate {
 		
 		if let task = getTask(forIndexPath: indexPath) {
 			print("task title \(task.title)")
+			let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TaskDetailViewControllerID")
+			self.present(vc, animated: true, completion: nil)
 		} else {
 			// due date
 			activeDate = calendarDates[indexPath.section]
