@@ -7,80 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2654A9C2-00CB-48D9-966F-F373C4501B62"
+            uuid = "8E4308AF-E748-4479-BDCE-39613DEE3921"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyDay/ReminderViewController.swift"
+            filePath = "MyDay/InitialViews/NavigationController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "resetReminders()"
-            landmarkType = "7">
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "NavigationController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E47DF16-F484-4AA1-BB86-7E7346DE9702"
+            uuid = "27C842CE-884A-4D68-BC59-1BF7F6AFDC48"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyDay/ReminderViewController.swift"
+            filePath = "MyDay/InitialViews/SignInViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "scheduleMorningReminders(hour:min:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD9754A4-750E-4E15-A789-0790D341123A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDay/ReminderViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "scheduleEveningReminder(hour:min:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5BB842A5-29FB-4A7A-A432-37EC7803AEA5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDay/ReminderViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "scheduleMorningReminders(hour:min:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D0094DF-4A17-48FD-93BD-0267A55BE265"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyDay/ReminderViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "resetReminders()"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "moveToTabBarView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

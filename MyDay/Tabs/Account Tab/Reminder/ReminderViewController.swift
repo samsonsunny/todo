@@ -113,7 +113,7 @@ class ReminderHelper {
 	class func scheduleMorningReminders(hour: Int, min: Int) {
 		let content = UNMutableNotificationContent()
 		content.title = NSString.localizedUserNotificationString(forKey: "Good Morning!", arguments: nil)
-		content.body = NSString.localizedUserNotificationString(forKey: "Start your day with a plan. Review your today's tasks.", arguments: nil)
+		content.body = NSString.localizedUserNotificationString(forKey: "Start your day with a plan. \n Review your today's tasks.", arguments: nil)
 		content.sound = UNNotificationSound.default
 		
 		// Configure the trigger for a 7am wakeup.

@@ -83,7 +83,6 @@ class TaskListViewController: KeyboardViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		self.title = "Everyday"
 		taskRef = Firestore.firestore().collection("tasks")
 		setupTaskListView()
 		setupAddTaskView()
@@ -231,7 +230,7 @@ class TaskListViewController: KeyboardViewController {
 	}
 	
 	private func fetchTasks(byUserID uid: String, completion: @escaping ([FIRTask]?) -> Void) {
-		taskRef.whereField("created_by", isEqualTo: uid).getDocuments(source: .cache, completion: { (snapshot, error) in
+		taskRef.whereField("created_by", isEqualTo: uid).getDocuments(source: .default, completion: { (snapshot, error) in
 			let tasks = self.getFIRTasks(byParsingFirestoreSnapshot: snapshot)
 			completion(tasks)
 		})

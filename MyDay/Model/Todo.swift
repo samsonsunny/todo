@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftDate
-import CoreData
+//import CoreData
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -24,13 +24,13 @@ struct Todo: Codable, Equatable {
 		
 	}
 	
-	init(task: Task) {
-		
-		self.title = task.taskTitle
-		self.isCompleted = task.completed
-		self.modifiedDate = task.modifiedDate
-		self.dueDate = task.dueDate
-	}
+//	init(task: Task) {
+//
+//		self.title = task.taskTitle
+//		self.isCompleted = task.completed
+//		self.modifiedDate = task.modifiedDate
+//		self.dueDate = task.dueDate
+//	}
 	
 	init(firTask: FIRTask) {
 		self.title = firTask.title
@@ -55,13 +55,13 @@ struct FIRTask {
 	// Note: It might not work properly when more than one task has same sortorder date 
 	
 	
-	init(task: Task) {
-		self.title = task.taskTitle
-		self.dueOn = task.dueDate
-		self.createdOn = task.modifiedDate 
-		self.createdBy = Auth.auth().currentUser?.uid ?? ""
-		self.isCompleted = task.completed
-	}
+//	init(task: Task) {
+//		self.title = task.taskTitle
+//		self.dueOn = task.dueDate
+//		self.createdOn = task.modifiedDate 
+//		self.createdBy = Auth.auth().currentUser?.uid ?? ""
+//		self.isCompleted = task.completed
+//	}
 	
 	init(withKey key: String, dict: [String: Any]) {
 		self.key = key
