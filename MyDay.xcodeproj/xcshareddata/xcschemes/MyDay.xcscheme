@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2282CF87200B31270051901C"
-               BuildableName = "MyDay.app"
+               BuildableName = "Everyday.app"
                BlueprintName = "MyDay"
                ReferencedContainer = "container:MyDay.xcodeproj">
             </BuildableReference>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2282CF87200B31270051901C"
+            BuildableName = "Everyday.app"
+            BlueprintName = "MyDay"
+            ReferencedContainer = "container:MyDay.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -38,18 +47,17 @@
                ReferencedContainer = "container:MyDay.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2200CB1223ABE54F00B73D52"
+               BuildableName = "EveryDayTests.xctest"
+               BlueprintName = "EveryDayTests"
+               ReferencedContainer = "container:MyDay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
-            BlueprintName = "MyDay"
-            ReferencedContainer = "container:MyDay.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -66,13 +74,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
+            BuildableName = "Everyday.app"
             BlueprintName = "MyDay"
             ReferencedContainer = "container:MyDay.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -85,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
+            BuildableName = "Everyday.app"
             BlueprintName = "MyDay"
             ReferencedContainer = "container:MyDay.xcodeproj">
          </BuildableReference>
