@@ -915,7 +915,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Resource/Info/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -940,7 +940,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Resource/Info/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
