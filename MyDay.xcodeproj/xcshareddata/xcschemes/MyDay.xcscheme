@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2282CF87200B31270051901C"
-               BuildableName = "MyDay.app"
+               BuildableName = "Everyday.app"
                BlueprintName = "MyDay"
                ReferencedContainer = "container:MyDay.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
+            BuildableName = "Everyday.app"
             BlueprintName = "MyDay"
             ReferencedContainer = "container:MyDay.xcodeproj">
          </BuildableReference>
@@ -44,6 +44,16 @@
                BlueprintIdentifier = "2282CF9E200B31290051901C"
                BuildableName = "MyDayTests.xctest"
                BlueprintName = "MyDayTests"
+               ReferencedContainer = "container:MyDay.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2200CB1223ABE54F00B73D52"
+               BuildableName = "EveryDayTests.xctest"
+               BlueprintName = "EveryDayTests"
                ReferencedContainer = "container:MyDay.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -64,7 +74,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
+            BuildableName = "Everyday.app"
             BlueprintName = "MyDay"
             ReferencedContainer = "container:MyDay.xcodeproj">
          </BuildableReference>
@@ -81,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2282CF87200B31270051901C"
-            BuildableName = "MyDay.app"
+            BuildableName = "Everyday.app"
             BlueprintName = "MyDay"
             ReferencedContainer = "container:MyDay.xcodeproj">
          </BuildableReference>
