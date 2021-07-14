@@ -43,35 +43,6 @@ extension UIView{
     }
 }
 
-class RoundedButton: UIButton {
-	required init?(coder aDecoder: NSCoder) {
-	
-		super.init(coder: aDecoder)
-	}
-	
-	@IBInspectable var cornerRadius: CGFloat = 0.0 {
-		didSet {
-			self.layer.cornerRadius = cornerRadius
-		}
-	}
-}
-
-class TopCornerRoundedView: UIView {
-	required init?(coder aDecoder: NSCoder) {
-	
-		super.init(coder: aDecoder)
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
-		roundCorners(corners: [.topLeft, .topRight], radius: 15)
-	}
-}
-
 extension UIView {
    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))

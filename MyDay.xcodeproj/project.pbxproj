@@ -43,7 +43,7 @@
 		22A8D8D423F137C9001796D6 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8D8D323F137C9001796D6 /* NotesViewController.swift */; };
 		22B2813423AA94930062EBCE /* TaskListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2813323AA94920062EBCE /* TaskListView+TableView.swift */; };
 		22B3D4CF239EA479003D7C1C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */; };
-		22C682032303B17F00447F21 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Utils.swift */; };
+		22C682032303B17F00447F21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C682022303B17F00447F21 /* Extensions.swift */; };
 		22D4C10524040E920084B69A /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4C10424040E920084B69A /* AccountTableViewController.swift */; };
 		22D64DCE2351ED24004A4B5E /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */; };
 		22D9AE0223F314A40020729E /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9AE0123F314A40020729E /* TaskDetailViewController.swift */; };
@@ -69,6 +69,8 @@
 		22E8C1D923012E69007D7472 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C523012E69007D7472 /* Lato-Light.ttf */; };
 		22E8C1DA23012E69007D7472 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C623012E69007D7472 /* Lato-Regular.ttf */; };
 		22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */; };
+		22F2C88F269E850A00C19A59 /* ReminderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2C88E269E850A00C19A59 /* ReminderHelper.swift */; };
+		22F2C895269E858800C19A59 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2C894269E858800C19A59 /* CustomViews.swift */; };
 		22FC6BCC235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */; };
 		364430FA050937DED743659D /* Pods_MyDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */; };
 		A45252EACA67642C0C22816E /* Pods_EveryDayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432455540589886578BC82EA /* Pods_EveryDayTests.framework */; };
@@ -125,7 +127,7 @@
 		22A8D8D323F137C9001796D6 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22B2813323AA94920062EBCE /* TaskListView+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskListView+TableView.swift"; sourceTree = "<group>"; };
 		22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		22C682022303B17F00447F21 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		22C682022303B17F00447F21 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		22D4C10424040E920084B69A /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		22D64DCD2351ED24004A4B5E /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		22D9AE0123F314A40020729E /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,8 @@
 		22E8C1C623012E69007D7472 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		22EA555124016703007018C9 /* Everyday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Everyday.entitlements; sourceTree = "<group>"; };
+		22F2C88E269E850A00C19A59 /* ReminderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderHelper.swift; sourceTree = "<group>"; };
+		22F2C894269E858800C19A59 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		22FC6BCB235B7C6C009FE007 /* TaskViewController+TodoListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskViewController+TodoListDelegate.swift"; sourceTree = "<group>"; };
 		3A187C5DBF9B57983BED66BE /* Pods_MyDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		432455540589886578BC82EA /* Pods_EveryDayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EveryDayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,10 +343,12 @@
 			isa = PBXGroup;
 			children = (
 				226191A5231028FF00C5A716 /* KeyboardViewController.swift */,
-				22C682022303B17F00447F21 /* Utils.swift */,
+				22C682022303B17F00447F21 /* Extensions.swift */,
 				22449EA02402C41C005898D5 /* Nonce.swift */,
 				2254608523307A000071DA1D /* Color+Extension.swift */,
 				2287CFB3235B407200490DCF /* Identifiers.swift */,
+				22F2C88E269E850A00C19A59 /* ReminderHelper.swift */,
+				22F2C894269E858800C19A59 /* CustomViews.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -680,14 +686,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2241C44F2309332F0032235B /* Todo.swift in Sources */,
+				22F2C895269E858800C19A59 /* CustomViews.swift in Sources */,
 				2251E67E2393D0C00036E327 /* AccountViewController.swift in Sources */,
 				2254608A233092E30071DA1D /* TaskViewController.swift in Sources */,
 				2256A9A92392ACF600273DD0 /* TaskListViewController.swift in Sources */,
-				22C682032303B17F00447F21 /* Utils.swift in Sources */,
+				22C682032303B17F00447F21 /* Extensions.swift in Sources */,
 				22D9AE0223F314A40020729E /* TaskDetailViewController.swift in Sources */,
 				2213CB9223ADF09B009C12EC /* PremiumViewController.swift in Sources */,
 				22B2813423AA94930062EBCE /* TaskListView+TableView.swift in Sources */,
 				2279EDCB2356B83D00675EAA /* MonthPickerViewController.swift in Sources */,
+				22F2C88F269E850A00C19A59 /* ReminderHelper.swift in Sources */,
 				22B3D4CF239EA479003D7C1C /* FeedbackViewController.swift in Sources */,
 				2238F33A233C52DC007330A4 /* AddTaskView.swift in Sources */,
 				2241C44D2309288A0032235B /* TodoCell.swift in Sources */,
