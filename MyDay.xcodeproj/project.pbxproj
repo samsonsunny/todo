@@ -40,6 +40,7 @@
 		2282CF96200B31280051901C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF95200B31280051901C /* Assets.xcassets */; };
 		2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2282CF97200B31280051901C /* LaunchScreen.storyboard */; };
 		2287CFB4235B407200490DCF /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287CFB3235B407200490DCF /* Identifiers.swift */; };
+		22A2708826A1CE2200A44CE2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 22A2708726A1CE2200A44CE2 /* .gitignore */; };
 		22A8D8D423F137C9001796D6 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A8D8D323F137C9001796D6 /* NotesViewController.swift */; };
 		22B2813423AA94930062EBCE /* TaskListView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B2813323AA94920062EBCE /* TaskListView+TableView.swift */; };
 		22B3D4CF239EA479003D7C1C /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */; };
@@ -124,6 +125,7 @@
 		2282CF98200B31280051901C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2282CF9A200B31280051901C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		2287CFB3235B407200490DCF /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		22A2708726A1CE2200A44CE2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		22A8D8D323F137C9001796D6 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		22B2813323AA94920062EBCE /* TaskListView+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TaskListView+TableView.swift"; sourceTree = "<group>"; };
 		22B3D4CE239EA479003D7C1C /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		2282CF7F200B31270051901C = {
 			isa = PBXGroup;
 			children = (
+				22A2708726A1CE2200A44CE2 /* .gitignore */,
 				2282CF8A200B31270051901C /* MyDay */,
 				2200CB1423ABE54F00B73D52 /* EveryDayTests */,
 				2282CF89200B31270051901C /* Products */,
@@ -567,6 +570,7 @@
 				22E8C1CB23012E69007D7472 /* Lato-Black.ttf in Resources */,
 				2279EDC92356B83D00675EAA /* EmptyCell.xib in Resources */,
 				22E8C1CD23012E69007D7472 /* Lato-HeavyItalic.ttf in Resources */,
+				22A2708826A1CE2200A44CE2 /* .gitignore in Resources */,
 				22E8C1D923012E69007D7472 /* Lato-Light.ttf in Resources */,
 				2282CF99200B31280051901C /* LaunchScreen.storyboard in Resources */,
 				22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */,
