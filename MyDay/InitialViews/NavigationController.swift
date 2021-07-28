@@ -48,7 +48,9 @@ class NavigationController: UINavigationController {
 //	}
 	
 	private func setLoginVC() {
-		let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SignInViewControllerID")
+		let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+			identifier: "SignInViewControllerID"
+		)
 		self.setViewControllers([loginVC], animated: false)
 	}
 	
