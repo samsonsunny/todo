@@ -49,12 +49,16 @@ class LoaderViewController: UIViewController {
 	}
 	
 	private func setLoginVC() {
-		let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SignInViewControllerID")
+		let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+			identifier: "SignInViewControllerID"
+		)
 		self.navigationController?.setViewControllers([loginVC], animated: true)
 	}
 	
 	private func setTabBarVC() {
-		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarViewControllerID")
+		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+			identifier: "TabBarViewControllerID"
+		)
 		self.navigationController?.setViewControllers([tabBar], animated: true)
 	}
 }

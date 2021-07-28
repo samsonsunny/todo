@@ -68,11 +68,16 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
 	}
 	
 	private func moveToTabBarView() {
-		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarViewControllerID")
+		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+			identifier: "TabBarViewControllerID"
+		)
 		self.navigationController?.pushViewController(tabBar, animated: true)
 	}
 	
-	func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+	func authorizationController(
+		controller: ASAuthorizationController,
+		didCompleteWithAuthorization authorization: ASAuthorization
+	) {
 		guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
 			return
 		}

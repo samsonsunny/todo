@@ -54,6 +54,9 @@ DerivedData/\
 ## Gcc Patch\
 /*.gcno\
 \
+
+# PODS Folder
+Pods/
 ### Xcode Patch ###\
 *.xcodeproj/*\
 !*.xcodeproj/project.pbxproj\

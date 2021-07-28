@@ -37,7 +37,10 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 		lastSelectedIndex = selectedIndex
     }
 	
-	func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+	func tabBarController(
+		_ tabBarController: UITabBarController,
+		didSelect viewController: UIViewController
+	) {
 		if let taskListVC = (viewController as? UINavigationController)?.viewControllers.first as? TaskListViewController, isTaskListTabTappedAgain {
 			taskListVC.scrollToToday(animated: true)
 		}
