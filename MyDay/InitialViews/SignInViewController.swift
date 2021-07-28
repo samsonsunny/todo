@@ -6,10 +6,10 @@
 //  Copyright © 2020 samsonsunny. All rights reserved.
 //
 
-import UIKit
-import FirebaseAuth
-import FirebaseFirestore 
 import AuthenticationServices
+import FirebaseAuth
+import FirebaseFirestore
+import UIKit
 
 class SignInViewController: UIViewController {
 	// Unhashed nonce.
@@ -24,21 +24,7 @@ class SignInViewController: UIViewController {
 	
 		appLogo.roundCorners(corners: .allCorners, radius: 15)
 		activityIndicator.isHidden = true
-		if isOldUser { // provide anonymous login
-			Auth.auth().signInAnonymously(completion: nil)
-		}
 		setupProviderLoginView()
-	}
-	
-	var isOldUser: Bool {
-		let prevVersion = UserDefaults.standard.double(forKey: versionNumber)
-		if prevVersion == 0 {
-			return false
-		}
-		if prevVersion < 1.9 {
-			return true
-		}
-		return false
 	}
 	
 	/// - Tag: add_appleid_button
@@ -69,42 +55,11 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: ASAuthorizationControllerDelegate {
-	func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-		if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-			guard let nonce = currentNonce else {
-				fatalError("Invalid state: A login callback was received, but no login request was sent.")
-			}
-			guard let appleIDToken = appleIDCredential.identityToken else {
-				print("Unable to fetch identity token")
-				return
-			}
-			guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-				print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
-				return
-			}
-			// Initialize a Firebase credential.
-			let credential = OAuthProvider.credential(withProviderID: "apple.com",
-													  idToken: idTokenString,
-													  rawNonce: nonce)
-			saveUserInUserPreference(appleIDCredential.user)
-			activityIndicator.isHidden = false
-			activityIndicator.startAnimating()
-			if let prevUser = Auth.auth().currentUser, isOldUser {
-				prevUser.link(with: credential) { (authResult, error) in
-					self.activityIndicator.stopAnimating()
-					self.activityIndicator.isHidden = true
-//					guard error != nil else { return }
-					UserDefaults.standard.set(0, forKey: versionNumber)
-					self.moveToTabBarView()
-				}
-			} else {
-				Auth.auth().signIn(with: credential) { (result, error) in
-					self.activityIndicator.stopAnimating()
-					self.activityIndicator.isHidden = true
-//					guard error != nil else { return }
-					self.moveToTabBarView()
-				}
-			}
+	private func signin(with credential: OAuthCredential) {
+		Auth.auth().signIn(with: credential) { (result, error) in
+			self.activityIndicator.stopAnimating()
+			self.activityIndicator.isHidden = true
+			self.moveToTabBarView()
 		}
 	}
 	
@@ -113,8 +68,41 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
 	}
 	
 	private func moveToTabBarView() {
-		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarViewControllerID")
+		let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(
+			identifier: "TabBarViewControllerID"
+		)
 		self.navigationController?.pushViewController(tabBar, animated: true)
+	}
+	
+	func authorizationController(
+		controller: ASAuthorizationController,
+		didCompleteWithAuthorization authorization: ASAuthorization
+	) {
+		guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+			return
+		}
+		guard let nonce = currentNonce else {
+//			fatalError("Invalid state: A login callback was received, but no login request was sent.")
+			return
+		}
+		guard let appleIDToken = appleIDCredential.identityToken else {
+//			print("Unable to fetch identity token")
+			return
+		}
+		guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+//			print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+			return
+		}
+		
+		// Initialize a Firebase credential.
+		let credential = OAuthProvider.credential(withProviderID: "apple.com",
+												  idToken: idTokenString,
+												  rawNonce: nonce)
+		saveUserInUserPreference(appleIDCredential.user)
+		activityIndicator.isHidden = false
+		activityIndicator.startAnimating()
+		
+		signin(with: credential)
 	}
 }
 

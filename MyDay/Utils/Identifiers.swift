@@ -8,6 +8,10 @@
 
 import Foundation
 
+let versionNumber = "VersionNumber"
+let morningTime = "morningTime"
+let eveningTime = "eveningTime"
+
 enum SegueID: String {
 	case monthPagination = "monthPaginationSegue"
 	case dayPagination = "dayPaginationSegue"

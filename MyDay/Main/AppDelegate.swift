@@ -6,29 +6,21 @@
 //  Copyright © 2018 samsonsunny. All rights reserved.
 //
 
-import UIKit
-//import MagicalRecord
+import AuthenticationServices
 import Firebase
 import FirebaseFirestore
-import SwiftDate
 import StoreKit
-import AuthenticationServices
-
-let versionNumber = "VersionNumber"
-
-let morningTime = "morningTime"
-let eveningTime = "eveningTime"
+import SwiftDate
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		SwiftDate.defaultRegion = .local
-		FirebaseApp.configure()
-		_ = Firestore.firestore()
-		SubscriptionService.shared.loadSubscriptionOptions()		
+	func application(_ application: UIApplication,
+					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		AppConfigurator().configure()
 		return true
 	}
 	
@@ -56,5 +48,32 @@ extension AppDelegate: SKPaymentTransactionObserver {
 			queue.finishTransaction(transaction)
 			NotificationCenter.default.post(name: SubscriptionService.purchaseSuccessfulNotification, object: nil)
 		}
+	}
+}
+
+
+struct AppConfigurator {
+
+	private func configureFirebase() {
+		FirebaseApp.configure()
+		setupFirestore()
+	}
+
+	private func setupFirestore() {
+		_ = Firestore.firestore()
+	}
+	
+	private func configureInAppPurchase() {
+		SubscriptionService.shared.loadSubscriptionOptions()
+	}
+	
+	private func configureSwiftDate() {
+		SwiftDate.defaultRegion = .local
+	}
+	
+	func configure() {
+		configureSwiftDate()
+		configureFirebase()
+		configureInAppPurchase()
 	}
 }
