@@ -859,7 +859,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Resource/Info/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -867,7 +867,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = Everyday;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -886,7 +886,7 @@
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 63W4NX9ZR9;
 				INFOPLIST_FILE = MyDay/Resource/Info/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -894,7 +894,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsonsunny.myday;
 				PRODUCT_NAME = Everyday;
 				PROVISIONING_PROFILE_SPECIFIER = "";
