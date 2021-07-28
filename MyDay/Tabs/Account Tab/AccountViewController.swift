@@ -55,6 +55,8 @@ extension AccountViewController: UITableViewDataSource {
 		
 		if indexPath.row == 4 {
 			let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+			let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+
 			cell.textLabel?.text = "App Version v1.7"
 			
 			return cell
