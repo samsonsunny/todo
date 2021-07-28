@@ -62,6 +62,8 @@
 		22E8C1DB23012E69007D7472 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C1C723012E69007D7472 /* Lato-Semibold.ttf */; };
 		22F2C88F269E850A00C19A59 /* ReminderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2C88E269E850A00C19A59 /* ReminderHelper.swift */; };
 		22F2C895269E858800C19A59 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2C894269E858800C19A59 /* CustomViews.swift */; };
+		73C7AA9BBAECD45086BDBAAD /* Pods_MyDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE959731C93FD906D020B38F /* Pods_MyDay.framework */; };
+		FF55C2BB3CCBB31570DE913C /* Pods_EveryDayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28292F0B4CF49BBBC2A095D0 /* Pods_EveryDayTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,12 @@
 		22EA555124016703007018C9 /* Everyday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Everyday.entitlements; sourceTree = "<group>"; };
 		22F2C88E269E850A00C19A59 /* ReminderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderHelper.swift; sourceTree = "<group>"; };
 		22F2C894269E858800C19A59 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		28292F0B4CF49BBBC2A095D0 /* Pods_EveryDayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EveryDayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C2A1C1D517810FFBE34164 /* Pods-EveryDayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EveryDayTests.debug.xcconfig"; path = "Target Support Files/Pods-EveryDayTests/Pods-EveryDayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8EADB7CEC6611FDC30BA54D0 /* Pods-EveryDayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EveryDayTests.release.xcconfig"; path = "Target Support Files/Pods-EveryDayTests/Pods-EveryDayTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5B4172F09D30CF199329FA5 /* Pods-MyDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.release.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.release.xcconfig"; sourceTree = "<group>"; };
+		F45C6538572CDF2E965C8FFD /* Pods-MyDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDay.debug.xcconfig"; path = "Target Support Files/Pods-MyDay/Pods-MyDay.debug.xcconfig"; sourceTree = "<group>"; };
+		FE959731C93FD906D020B38F /* Pods_MyDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF55C2BB3CCBB31570DE913C /* Pods_EveryDayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2213CB9423AE047A009C12EC /* StoreKit.framework in Frameworks */,
+				73C7AA9BBAECD45086BDBAAD /* Pods_MyDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +397,8 @@
 			isa = PBXGroup;
 			children = (
 				2213CB9323AE047A009C12EC /* StoreKit.framework */,
+				28292F0B4CF49BBBC2A095D0 /* Pods_EveryDayTests.framework */,
+				FE959731C93FD906D020B38F /* Pods_MyDay.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,6 +406,10 @@
 		BFECBC6FA461C16FD97B1FF9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				68C2A1C1D517810FFBE34164 /* Pods-EveryDayTests.debug.xcconfig */,
+				8EADB7CEC6611FDC30BA54D0 /* Pods-EveryDayTests.release.xcconfig */,
+				F45C6538572CDF2E965C8FFD /* Pods-MyDay.debug.xcconfig */,
+				E5B4172F09D30CF199329FA5 /* Pods-MyDay.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -405,9 +421,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2200CB1C23ABE54F00B73D52 /* Build configuration list for PBXNativeTarget "EveryDayTests" */;
 			buildPhases = (
+				EDAAA75A5EF4616D219F73F0 /* [CP] Check Pods Manifest.lock */,
 				2200CB0F23ABE54F00B73D52 /* Sources */,
 				2200CB1023ABE54F00B73D52 /* Frameworks */,
 				2200CB1123ABE54F00B73D52 /* Resources */,
+				8535D00E50BFF277C0008F20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -423,9 +441,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2282CFB3200B31290051901C /* Build configuration list for PBXNativeTarget "MyDay" */;
 			buildPhases = (
+				4645FFBF1C73FF234141E22E /* [CP] Check Pods Manifest.lock */,
 				2282CF84200B31270051901C /* Sources */,
 				2282CF85200B31270051901C /* Frameworks */,
 				2282CF86200B31270051901C /* Resources */,
+				0B083D03D0426A7C1D415558 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -516,6 +536,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B083D03D0426A7C1D415558 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyDay/Pods-MyDay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyDay/Pods-MyDay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyDay/Pods-MyDay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4645FFBF1C73FF234141E22E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyDay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8535D00E50BFF277C0008F20 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EveryDayTests/Pods-EveryDayTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EveryDayTests/Pods-EveryDayTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EveryDayTests/Pods-EveryDayTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDAAA75A5EF4616D219F73F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EveryDayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2200CB0F23ABE54F00B73D52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -592,6 +693,7 @@
 /* Begin XCBuildConfiguration section */
 		2200CB1A23ABE54F00B73D52 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68C2A1C1D517810FFBE34164 /* Pods-EveryDayTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -613,6 +715,7 @@
 		};
 		2200CB1B23ABE54F00B73D52 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EADB7CEC6611FDC30BA54D0 /* Pods-EveryDayTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -750,6 +853,7 @@
 		};
 		2282CFB4200B31290051901C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F45C6538572CDF2E965C8FFD /* Pods-MyDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
@@ -776,6 +880,7 @@
 		};
 		2282CFB5200B31290051901C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5B4172F09D30CF199329FA5 /* Pods-MyDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyDay/Everyday.entitlements;
